@@ -10,7 +10,7 @@ Arguments: `$ARGUMENTS` (an episode number and a series; no series = chip design
 
 ## 1. Load the rules (every time, in full)
 
-Read `script-writer/SCRIPT-WRITER.md`, `script-writer/SCRIPTS.md` and `script-writer/example/ep11-regeneration.md`. They win over anything you remember.
+Read `script-writer/SCRIPT-WRITER.md`, `script-writer/SCRIPTS.md` and `script-writer/example/ep13-decoder.md` (the layout to copy). They win over anything you remember.
 
 ## 2. Find the episode in Notion (the source of truth)
 
@@ -31,7 +31,12 @@ Read `script-writer/SCRIPT-WRITER.md`, `script-writer/SCRIPTS.md` and `script-wr
 
 ## 4. Write
 
-After the pick, write the full page (SCRIPTS.md section 7, exactly the format of the example: four sections). Compute every number, bit pattern and sum in a scratch script first.
+After the pick, write the page (SCRIPTS.md section 7), exactly like the example:
+
+1. The ElevenLabs block at the very top (```txt), then one line of ElevenLabs notes and one line on times and the note check.
+2. One table with three columns, `ElevenLabs script | On the board | Annotation`, one row per voice line or short group of lines: column 1 = bold time range + the exact block words (tags included); column 2 = what the figure shows, each event timed to the word it lands on (first row sets up the board, key row says what the model computes); column 3 = each drawn note's words, place, in and out time, plus pen marks.
+
+Nothing else goes on the page. Do the detailed script and the 15-year-old questions in scratch, for the checks. Compute every number, bit pattern and sum in a scratch script first.
 
 ## 5. Check before anything goes to Notion
 
@@ -39,11 +44,13 @@ After the pick, write the full page (SCRIPTS.md section 7, exactly the format of
    `python3 script-writer/check-voice.py <file> --series <chip|de|verilog> --episode N`.
    It must PASS. Fix every ERROR; for every WARN rewrite the beat or write one line on why it is fine.
 2. **Fresh-eyes review:** start one subagent (Agent tool, general-purpose) that has not seen the writing. Give it only: the voice block, SCRIPTS.md sections 3 and 4, and this task: "Read the block aloud as a 15-year-old who has seen nothing. For every line, say what the listener would ask ('what?', 'how what?', 'why?') or 'clear'. Flag any line that opens cold, any bare question, anything used before it is introduced, any pronoun with an unclear owner. Report line by line; do not rewrite." Fix what it finds and re-run the checker.
-3. Run SCRIPTS.md section 8 checks 1-6 and keep the results for the summary.
+3. Save the whole page as `page.md` and run `python3 script-writer/check-page.py page.md`. It must PASS (column 1 = block word for word, cue words spoken in their row, note limits, folds, Samble characters, end card).
+4. No note may say what the voice says at the same moment; fix any that do.
+5. Run SCRIPTS.md section 8 checks 1-6 and keep the results for the summary.
 
 ## 6. Save to Notion
 
-- Write the page body into the episode's row page. For an empty page, insert the four sections. For an existing page, use small `update_content` replacements only, and after any voice edit update every quote of that line in sections 1, 3 and 4.
+- Write the page body into the episode's row page. For an empty page, insert the page. For an existing page in this layout, use small `update_content` replacements; after any voice edit, update the line in the block and in column 1, retime the rows, and re-run both checkers. An existing page in the old four-section layout: tell the user and offer to convert it (replace_content) before editing.
 - Set properties: Status = Script, Script = Yes, Hook title = the spoken hook in sentence case (no CAPS), Analogy = the picked analogy.
 - Fetch the page once after writing and re-run the checker on the saved block.
 

@@ -84,22 +84,25 @@ Read before writing any script, voiceover, drawing plan or hook. CLAUDE.md cover
 
 **DE and Verilog:** (1) the ElevenLabs `text` block; (2) timing table Time | Voiceover | On screen | Draw, in video seconds; (3) ElevenLabs notes, at most 2 lines.
 
-**Chip-design:** on the episode's Notion page, four sections in order:
-1. **Detailed script:** numbered steps in story order, each with its plain idea, worked numbers and the why, marked V (voice), D (drawn) or F (figure); every step has a mark or is cut on purpose. Then the 15-year-old questions table (question, answered by V/D/F).
-2. **ElevenLabs script:** the block, then notes (model, settings, word count, expected length).
-3. **What to draw:** the drawing-rules line, then Step | Time | Voice | On screen | Draw, every note with an in and out time.
-4. **HTML animation guidelines:** analogy object and why it fits; board, parts (about 8 max) and readouts (3 max) and their fonts; scene order with each F step and its hold; what model.ts computes; the fold and fold back to the start frame; free paper per step; folder and file name.
+**Chip-design (2026-10-31, replaces the four-section page):** the episode's Notion page holds exactly two things, in this order (copy `example/ep13-decoder.md`):
+1. **The ElevenLabs block** at the very top (a ```txt code block, final text), then one line of ElevenLabs notes (model, settings, word count, expected length) and one line on times and notes (planned at about 3 words per second; note check result).
+2. **One table, three columns:** `ElevenLabs script | On the board | Annotation`. One row per voice line or short group of lines, in order.
+   - **ElevenLabs script:** the row's time range in bold (`**6.1-11.3 s**`), then the exact words of the block, tags included. Read top to bottom, column 1 is the block word for word.
+   - **On the board:** what the figure shows at that moment, each event with its time and the word it lands on (`7.4 ("wings A"): plate A pulses`). The first row also sets up the board (building, parts, labels); the key-state row says what the model computes; fold rows describe the fold; the last row the fold back to the start frame. This column is the brief for the HTML figure.
+   - **Annotation:** what is drawn on the board then: each note's exact words, place, and in and out time (`In 7.4 s (on "wings A"), out 14.2 s: above the board, left, "2 x 2 x 2 = 8 flats"`), and pen marks (olive boxes, rings, arrows, crosses) with their time. "Nothing new." when nothing is added.
+- No other sections. The detailed script and the 15-year-old questions are worked out in scratch for the checks (section 8) and not put on the page. Global figure rules come from CLAUDE.md.
+- After any voice edit, retime the rows from the word-count change and re-run both checkers; a note must never say what the voice says at the same moment.
 
-Order of work: detailed script, then recorded voice, then the figure time-scaled to it, then the notes fitted to their frames.
+Order of work: detailed script (scratch), then the page, then recorded voice, then the figure time-scaled to it, then the notes fitted to their frames.
 
 ## 8. Checks before publishing (chip-design: record results in the handoff change log)
 
 1. **Facts:** every number, code and claim computed in a scratch script, never by eye; matches CLAUDE.md section 7.
-2. **Run `python3 script-writer/check-voice.py <file> --series chip --episode N`** on the block; it must PASS. For each WARN, rewrite the beat or say in the change log why it does not open cold. Then do the counts the script cannot see.
+2. **Run `python3 script-writer/check-voice.py <file> --series chip --episode N`** on the block and **`python3 script-writer/check-page.py <page.md>`** on the whole page; both must PASS (the page checker covers column 1 = block, cue words spoken in their row, note limits, folds, Samble characters, end card at 4 s before the end). For each WARN, rewrite the beat or say in the change log why it does not open cold. Then do the counts the script cannot see.
 2. **Counts:** word range; no sentence over 15 words; tags, CAPS and `[pause]` limits; right series line and episode number; teaser leads to episode N+1's object.
 3. **Read-aloud:** block read with tags removed against section 3 (flow, links, one name per thing).
 4. **15-year-old pass:** after every sentence, write the question a curious non-engineer would ask; answer it at that moment (V, D or F), or cut the sentence that raised it. Every term defined on first use; every recipe gets its why.
-5. **Sync:** every spoken claim has its F or D at that moment; every F step is in the HTML guidelines in order; every named group has its box.
+5. **Sync:** every spoken claim has its F or D at that moment; every F step is in the On the board column in order; every named group has its box.
 6. **Quotes:** after any voice edit, re-read every quote on the page against the block; a quote of a cut line is a bug.
 7. **Publish:** Status = Script, hook title set in Notion and the CSV, handoff page updated.
 

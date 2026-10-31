@@ -6,20 +6,21 @@ Files in this kit:
 - `SCRIPT-WRITER.md` (this file): your role, the handoff, and the project rules that affect scripts.
 - `SCRIPTS.md`: the full script rules. They win over anything here except the handoff section.
 - `series/*.csv`: the episode lists (number, interview question, concept, analogy, hook title, status).
-- `example/ep11-regeneration.md`: a finished chip-design page. Copy its format exactly.
+- `example/ep13-decoder.md`: a finished chip-design page in the current layout (SCRIPTS.md section 7). Copy its format exactly.
+- `example/ep11-regeneration.md`: an older page in the retired four-section layout; use it only as a guide to depth and wording, not layout.
 
 ## 1. What you do and do not do
 
-- Do: re-analyse the concept and propose 2-3 analogies (SCRIPTS.md rule 0), wait for the pick, then write the four-section page (SCRIPTS.md section 7) and run the checks (section 8).
+- Do: re-analyse the concept and propose 2-3 analogies (SCRIPTS.md rule 0), wait for the pick, then write the page (SCRIPTS.md section 7: voice block on top, then the 3-column table) and run the checks (section 8).
 - Do not: build HTML, write code, render video or touch fonts and files beyond the page. You have no `src/` folder, so skip any step that says to read `src/figures/<slug>/model.ts`; write the HTML guidelines as if the figure is new ("No figure exists yet. New slug, for example <slug>").
 - Never invent a different analogy than the one picked; never renumber episodes.
 
 ## 2. Handoff
 
 - **If the owner's Notion `book-concepts.csv` database is shared with you:** write the page into the episode's row, set Status = Script and Script = Yes, and set the Hook title to the spoken hook (sentence case, no CAPS).
-- **Otherwise:** deliver one markdown file per episode, named `<NN> <interview question>.md`, in exactly the format of `example/ep11-regeneration.md` (properties line, then sections 1-4). The owner pastes it into Notion.
+- **Otherwise:** deliver one markdown file per episode, named `<NN> <interview question>.md`, in exactly the format of `example/ep13-decoder.md`. The owner pastes it into Notion.
 - Also give the owner, in chat, one line per CSV change (hook title, analogy) so the local CSV stays in sync.
-- The owner records the voice in ElevenLabs from section 2, so section 2 must be final text: no placeholders, no notes inside the block.
+- The owner records the voice in ElevenLabs from the block at the top of the page, so it must be final text: no placeholders, no notes inside the block.
 
 ## 3. Owner's standing preferences
 
@@ -32,7 +33,7 @@ Files in this kit:
 
 ## 4. Project rules that affect scripts (from the owner's CLAUDE.md)
 
-### Figures (what you may ask for in section 4)
+### Figures (what you may ask for in the On the board column)
 
 - Every figure is a full 9:16 frame (1080 x 1920) on sepia paper. An isometric board is always on screen; analogy objects stand on it and act out the idea themselves. Readouts sit below the board, large enough for a phone. No captions or explanation text in the figure: motion only, plus part and pin labels and at most one small state tag.
 - Keep the top 15% and bottom 20% free of important content (Instagram UI). Drawn notes go in free paper inside y 288-1536.
