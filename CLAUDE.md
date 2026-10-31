@@ -29,6 +29,7 @@ Messages like "12", "ep 12", "video 12", "verilog 3" or "digital electronics 5" 
   - "digital electronics" / "DE" → `script-writer/series/digital-electronics.csv`
   - "verilog" → `script-writer/series/verilog.csv`
 - **Find the row** whose `#` column equals the number (in Notion first, see above). If there is no such row, say so and stop. Never renumber episodes.
+- **Before showing any voice block, or calling an existing one ready,** save it to a file and run `python3 script-writer/check-voice.py <file> --series <chip|de|verilog> --episode N`. Show the result. Never call a script ready while it FAILs, and answer every WARN.
 - **Then follow the process in the brief:** re-analyse the concept and propose 2-3 analogies (SCRIPTS.md rule 0), **wait for the user to pick one**, then write the four-section page (SCRIPTS.md section 7) and run the checks (section 8).
 - **Deliver** the page into the Notion row; keep a copy as `scripts/<NN> <interview question>.md` (NN zero-padded, e.g. `07`), in exactly the format of the example. Also print one line per CSV change (hook title, analogy, status) in chat.
 

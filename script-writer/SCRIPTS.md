@@ -61,6 +61,7 @@ Read before writing any script, voiceover, drawing plan or hook. CLAUDE.md cover
 - **The question must not be obvious:** if the viewer's easy answer is right, it is not a hook. Show the expected or failing case first so the real behaviour surprises.
 - **Chip-design (2026-10-27):** name the analogy's object and state a concrete, true surprise about it, or a "What if…" whose answer is shown in the analogy. Never an abstract "why" about the concept, never an order to the viewer. Examples: "Your phone number has gaps for a reason", "What if your car's odometer goes back past zero?", "What if every car copied the wobble ahead?".
 - **Second line (2026-10-28):** refers only to what the viewer has heard or seen; never gives away the chip's result (that comes after the fold). Good forms: the viewer's question plus "Let's watch.", a hint at what the chip does, or a definition the hook needs.
+- **No bare question (2026-10-31):** the viewer's question names the hook's object and what it does, in the hook's words. Never a bare "How?" or "Why?" (ep 13: "How? Let's watch." after "Eight flats, one intercom, only THREE switches." asked how about nothing; fixed to "So how can three switches reach eight doorbells? Let's watch.").
 - Keep the hook's object name everywhere after it. The previous teaser leads to this hook, but the hook works without it.
 
 ## 5. Drawing rules (iPad notes)
@@ -94,6 +95,7 @@ Order of work: detailed script, then recorded voice, then the figure time-scaled
 ## 8. Checks before publishing (chip-design: record results in the handoff change log)
 
 1. **Facts:** every number, code and claim computed in a scratch script, never by eye; matches CLAUDE.md section 7.
+2. **Run `python3 script-writer/check-voice.py <file> --series chip --episode N`** on the block; it must PASS. For each WARN, rewrite the beat or say in the change log why it does not open cold. Then do the counts the script cannot see.
 2. **Counts:** word range; no sentence over 15 words; tags, CAPS and `[pause]` limits; right series line and episode number; teaser leads to episode N+1's object.
 3. **Read-aloud:** block read with tags removed against section 3 (flow, links, one name per thing).
 4. **15-year-old pass:** after every sentence, write the question a curious non-engineer would ask; answer it at that moment (V, D or F), or cut the sentence that raised it. Every term defined on first use; every recipe gets its why.
