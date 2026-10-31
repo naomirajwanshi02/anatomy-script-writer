@@ -13,6 +13,7 @@ Read, in full, every session:
 
 Every edit goes to Notion. The databases live under the Notion page **Shorts**:
 - Chip design: database `book-concepts.csv`, data source `collection://34fc9dbf-37af-4377-b5f2-a48a2a84515c`.
+- If that ID is not found (another Notion account), search for the database by name.
 - Find the other series' databases with Notion search (`digital-electronics.csv`, `verilog.csv`).
 
 - **Look up the episode in Notion first**, not the local CSV (the local CSVs can be stale). Fetch the episode's row page: an existing script in it is the current version. Revise it in place; never start over or overwrite it without asking.

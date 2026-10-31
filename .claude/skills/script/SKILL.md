@@ -20,6 +20,7 @@ Read `script-writer/SCRIPT-WRITER.md`, `script-writer/SCRIPTS.md` and `script-wr
 | digital electronics, DE | `digital-electronics.csv` (find with Notion search) | `script-writer/series/digital-electronics.csv` |
 | verilog | `verilog.csv` (find with Notion search) | `script-writer/series/verilog.csv` |
 
+- The data source ID above is for the original workspace. If it is not found (another Notion account), search Notion for the database by name instead.
 - Use the Notion tools: search or query the data source for the row whose `#` equals N, then fetch that row's page.
 - No such row: say so and stop. Never create or renumber episodes.
 - Notion tools not available in this session: tell the user to connect Notion (claude.ai Settings → Connectors) and stop; do not fall back to local files silently.
