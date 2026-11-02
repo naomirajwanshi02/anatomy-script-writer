@@ -23,7 +23,7 @@ Read before writing any script, voiceover, drawing plan or hook. CLAUDE.md cover
 | Analogy | ~4-12 s | The everyday picture while it plays: what each part is, what happens. Plain words. |
 | Series line | 2-3 s | A `[thoughtful]` 3-8 word takeaway, then DE/Verilog: "Welcome to episode N of Digital Electronics." Chip-design: "Let's understand this in episode N of chip design." (N as a word). No-analogy reels: series line right after the hook, then one short `[curious]` question into the circuit. |
 | Fold | ~3 s | "[pause] Now, let's build it as a circuit." Chip-design: "[pause] Now, the same with bits." Then silence. |
-| Circuit | ~20-40 s | Map each analogy part to its circuit part once, as the fold finishes; walk the key state as it happens. At most 2 new terms, each defined in the same sentence. |
+| Circuit | ~20-40 s | **A real circuit, explained in the context of the analogy (2026-11-02).** The fold lands on the actual circuit (rails, transistors, the wire and its capacitance, gates, readouts), never the analogy object relabelled. Each spoken line explains one real part or step in proper terms (VDD, GND, PMOS, NMOS, charge = C x V, energy) and ties it to what the analogy showed ("the supply's voltage is the roof"); the analogy part may appear as a ghost or label beside its circuit part. **Circuit design language (owner, 2026-11-02):** draw the circuit exactly like the digital electronics CMOS figures (DE 05 "How does a CMOS inverter work", DE 08 "Why does CMOS use almost no power when idle"): a clean flat board, VDD rail at the back and GND at the front, input lever, PMOS and NMOS valve blocks, the glass output tank on the output node, an output lamp where it helps, and DE-style readouts (a table with the current row highlighted, a waveform graph, an "I from VDD" meter). Take the concept from the analogy, never its objects: no stairs, buckets, drops climbing a source or other analogy devices built into the circuit; the circuit shows the concept with its own quantities (tank level = charge, the VDD label and rail = voltage, readouts = current and energy). Walk the key state as it happens. Audience: the analogy is for a 15-year-old, the circuit teaches a first-year BTech student. |
 | Answer | ~40-50 s | The one-line takeaway in plain words. |
 | Real-world close | DE and Verilog only | Where the problem hits real devices. **Never in chip-design** (no real-world scene, voice, drawing or figure; spend the time explaining slower). |
 | Teaser | last 3-5 s | Answers what the reel leaves open and leads to the next episode's object: "… That's episode N+1." |
@@ -60,18 +60,17 @@ Read before writing any script, voiceover, drawing plan or hook. CLAUDE.md cover
 - **Cold-viewer test:** read the first two lines to someone who has seen nothing. If they ask "what?" or "why?" about anything other than the reel's question, fix it. Every unfamiliar word is explained the moment it appears; every surprise is answered before the end.
 - **The question must not be obvious:** if the viewer's easy answer is right, it is not a hook. Show the expected or failing case first so the real behaviour surprises.
 - **Chip-design (2026-10-27):** name the analogy's object and state a concrete, true surprise about it, or a "What if…" whose answer is shown in the analogy. Never an abstract "why" about the concept, never an order to the viewer. Examples: "Your phone number has gaps for a reason", "What if your car's odometer goes back past zero?", "What if every car copied the wobble ahead?".
+- **Form of the hook (chip-design, 2026-11-02, from the ep 4 analysis):** best form is "Your <everyday object> never/always <a visible oddity>. Why?" (ep 4: "Your alarm clock never shows 07:3A. Why not?"): second person, a fact the viewer can check on their own object, ending as a question. Never state the mechanism or the result of a scene the viewer has not seen yet (17 "Half-height building, a quarter of the climbing", 18 "A slow handle sends water straight down the drain" were weaker). The second line never repeats the hook as a question. The answer comes back in the last 15 s in the hook's own words, with a tick (ep 4: "That's why your clock never shows A").
 - **Second line (2026-10-28):** refers only to what the viewer has heard or seen; never gives away the chip's result (that comes after the fold). Good forms: the viewer's question plus "Let's watch.", a hint at what the chip does, or a definition the hook needs.
 - **No bare question (2026-10-31):** the viewer's question names the hook's object and what it does, in the hook's words. Never a bare "How?" or "Why?" (ep 13: "How? Let's watch." after "Eight flats, one intercom, only THREE switches." asked how about nothing; fixed to "So how can three switches reach eight doorbells? Let's watch.").
 - Keep the hook's object name everywhere after it. The previous teaser leads to this hook, but the hook works without it.
 
-## 5. Drawing rules (iPad notes)
+## 5. Drawing rules (annotations, 2026-11-01)
 
-- **Colours:** words brown-black #2a1d10, arrows, rings and underlines olive #4f5d24, 3-4 px pen, handwriting in Samble. Never rust, yellow, blue or red.
-- **Never over a part.** Words go in free paper above or below the board inside the safe area (y 288-1536 of 1920); on the board only pointers. Measure free space on a rendered frame.
-- **Limits:** at most 3 notes on screen (the episode badge counts), at least 1.5 s between new notes, each up at least 2.5 s, nothing during a fold, wipe notes at each fold. Pen marks are not notes. Check second by second, not row by row. `npm run notes:check` must pass.
-- **Size:** DE notes at most 4 words; chip-design at most 6 words or one short sum. Never a full sentence to read while the voice says something else; longer notes go in pauses or holds.
-- **Each cue says** what (exact words or shape), where (relative to a named part) and which way an arrow points and what it stops short of. About one cue per 4-8 s, mostly in the circuit half, one large payoff cue near the end.
-- **Naming a group (2026-10-27):** when the voice names a group, draw an olive square-cornered box round it on the word, about 12 px clear of every part, with the name just outside ("1 byte = 8 bits"). It stays until the voice moves to a new grouping.
+- **The rules live in `script-writer/ANNOTATIONS.md`** (what a mark is for, hand-drawn ties, 15+ readability, calm frame, the Annotation column format, the checks). They replace the older note rules here.
+- In short: every mark points, groups, counts, names the state or labels a part; every note is tied to its part by an olive arrow, underline or box; at most 6 words (DE and Verilog 4); chip-design 01-07 are the style reference (definitions, rules and worked steps as lines on paper); 1-3 word labels may echo the voice's key word, longer notes never repeat it; DE 01-02 density (a mark every 2-3 s, up to 4 notes on screen, 1.0 s apart, 2.0 s up); a proper-term label on each circuit part; never over a part; nothing during a fold; one `key` mark on the key state.
+- **Naming a group (2026-10-27):** when the voice names a group, draw an olive square-cornered box round it on the word, about 12 px clear of every part, with the name just outside. It stays until the voice moves to a new grouping.
+- `python script-writer/check-annotations.py page.md` must PASS before the page goes to Notion; `npm run notes:check` must pass on the built reel.
 
 ## 6. Timing
 
@@ -84,12 +83,13 @@ Read before writing any script, voiceover, drawing plan or hook. CLAUDE.md cover
 
 **DE and Verilog:** (1) the ElevenLabs `text` block; (2) timing table Time | Voiceover | On screen | Draw, in video seconds; (3) ElevenLabs notes, at most 2 lines.
 
-**Chip-design (2026-10-31, replaces the four-section page):** the episode's Notion page holds exactly two things, in this order (copy `example/ep13-decoder.md`):
+**Chip-design (2026-10-31, replaces the four-section page):** the episode's Notion page holds exactly three things, in this order (copy `example/ep13-decoder.md`):
 1. **The ElevenLabs block** at the very top (a ```txt code block, final text), then one line of ElevenLabs notes (model, settings, word count, expected length) and one line on times and notes (planned at about 3 words per second; note check result).
 2. **One table, three columns:** `ElevenLabs script | On the board | Annotation`. One row per voice line or short group of lines, in order.
    - **ElevenLabs script:** the row's time range in bold (`**6.1-11.3 s**`), then the exact words of the block, tags included. Read top to bottom, column 1 is the block word for word.
    - **On the board:** what the figure shows at that moment, each event with its time and the word it lands on (`7.4 ("wings A"): plate A pulses`). The first row also sets up the board (building, parts, labels); the key-state row says what the model computes; fold rows describe the fold; the last row the fold back to the start frame. This column is the brief for the HTML figure.
-   - **Annotation:** what is drawn on the board then: each note's exact words, place, and in and out time (`In 7.4 s (on "wings A"), out 14.2 s: above the board, left, "2 x 2 x 2 = 8 flats"`), and pen marks (olive boxes, rings, arrows, crosses) with their time. "Nothing new." when nothing is added.
+   - **Annotation:** one mark per line, joined with `<br>`, in the `script-writer/ANNOTATIONS.md` section 5 format (`NOTE "2 x 2 x 2 = 8 flats" · on "wings A" (7.4) · out "Every doorbell" (14.2) · above left · tie arrow to the building`; `PEN ring · on "turns ON" (48.2) · round row 5's lit lamp · out "Each extra" (52.3) · key`). "Nothing new." when nothing is added. `/htmlmp4` builds the reel from these lines and re-times them from the quoted words.
+3. **Post caption (2026-11-01)**, at the very end under a `## Caption` heading: one short line (plain English, no emojis, the episode's surprise or takeaway, under about 15 words), then on the next line exactly 5 hashtags picked from this list only, the 5 that fit the episode best: #ai #artificialintelligence #machinelearning #deeplearning #generativeai #aitools #chatgpt #llm #aiagents #futuretech #technology #tech #aichips #aihardware #gpu #nvidia #semiconductors #chipdesign #vlsi #computerarchitecture #npu #edgeai
 - No other sections. The detailed script and the 15-year-old questions are worked out in scratch for the checks (section 8) and not put on the page. Global figure rules come from CLAUDE.md.
 - After any voice edit, retime the rows from the word-count change and re-run both checkers; a note must never say what the voice says at the same moment.
 
@@ -106,16 +106,22 @@ Order of work: detailed script (scratch), then the page, then recorded voice, th
 6. **Quotes:** after any voice edit, re-read every quote on the page against the block; a quote of a cut line is a bug.
 7. **Publish:** Status = Script, hook title set in Notion and the CSV, handoff page updated.
 
+9. **Understanding test (2026-11-02, two viewers):** a blind 15-year-old must explain the analogy's "why" in their own words, and a blind first-year BTech student must explain the real circuit in proper terms and match analogy parts to circuit parts, checked by a strict self-check on the storyboard (`/script`, no subagents) and by one blind run on the annotated reel (`/htmlmp4`); see `script-writer/UNDERSTANDING-TEST.md`. This test outranks the rule checks.
+
 ## 9. Annotating a recorded episode (mp3 + HTML in, reel out)
+
+Run `/htmlmp4 <series> <N> <mp3>` (`.claude/skills/htmlmp4/`); it does these steps from the Notion page and ends with the sign-off in ANNOTATIONS.md section 6.
 
 1. Transcribe (`npm run notes:transcribe`); check against the page's block; the recording wins for timing; report differences.
 2. Sync the figure to the voice (`voice.ts`); each on-screen event lands on its line.
 3. Re-anchor each note to its quoted word (up to 0.5 s early), keep its planned length, re-check limits second by second.
-4. Place notes on rendered frames (CLAUDE.md section 11); use each note's exact text; if one cannot fit, report it rather than reword.
+4. Place notes on rendered frames (CLAUDE.md section 11, `rules/notes.md`); use each note's exact text; if one cannot fit, report it rather than reword.
 5. End card in the last 4 s, export, update the handoff page and `series/reel-builds.csv`.
 
 ## 10. Analogies and CSVs
 
 - Use an analogy for flow, timing, storage or noise, where an honest everyday picture folds straight into the circuit; definitions and truth tables stay circuit-only. Reuse a world across episodes (water for transistors and latches, seesaw for SR states, runners for timing). Each analogy part maps to one circuit part, named once at the fold.
+- **Real object over a contraption (chip-design, 2026-11-02, from the ep 4 analysis):** prefer an everyday object that really contains the concept (ep 4: a clock really uses BCD, so nothing needs translating) over an invented contraption (17 bucket stairs, 18 two-tap handle). If a metaphor is unavoidable, speak at most 2 mapping pairs at the fold. Carry one visible thing unchanged through the fold (ep 4: the digits 0 7 3 0 move from the clock windows to the bit boxes to the table).
+- **Plain numbers (chip-design, 2026-11-02):** no physics formulas (C x V x V, area under I) and no volt or amp values in the voice or the notes. Use small whole-number sums (4+2+1 = 7, 30 / 10 = 3 r 0) and one number contrast that answers the question (5 bits vs 8 bits, 1 cup vs 10 cups). Logic rules such as NOT(L AND R) stay allowed.
 - CSV columns: DE and Verilog have Hook title, #, Interview question, (Analogy), Status, Done, Real-world close. Chip-design: Hook title, #, Interview question, Concept, Analogy, Book, Page, Status, Done, Set Tempo, Matched to Tempo.
 - Status: Idea, Animation, Script, Recorded, Posted. Keep commas inside fields quoted; never reorder rows or renumber episodes.

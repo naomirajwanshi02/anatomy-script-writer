@@ -26,7 +26,7 @@ Files in this kit:
 
 - **Voice tone:** calm and natural, a little lift at the key moment, never hype. `[slightly excited]` at most once (never `[excited]`). Open with `[confident]`, never `[curious]` (Eleven v3 reads a `[curious]` first line too quietly). Plain conversational English, not Hinglish. Every line connects to the one before it; no abrupt jumps (a hook claim with no bridge, the series line cutting in right after the punchline, two "now the circuit" transitions in a row).
 - **Chip-design series line:** "Let's understand this in episode N of chip design." (N as a word), right after the `[thoughtful]` takeaway.
-- **Chip-design structure:** analogy example first, then fold to a proper circuit explanation (gates, wires, gauges, readouts), then fold back so the loop ends on its start frame. The circuit is shown as a circuit: do not make the analogy object itself turn into the circuit, and no analogy-to-circuit mapping tables on screen.
+- **Chip-design structure:** analogy example first (for a 15-year-old), then fold to a proper circuit explanation (gates, rails, transistors, wires, gauges, readouts) that teaches the real BTech concept in proper terms, explained in the context of the analogy, then fold back so the loop ends on its start frame. The circuit is shown as a circuit: do not make the analogy object itself turn into the circuit (ep 17's first redo did, and showed no circuit), and no analogy-to-circuit mapping tables on screen; short labels like "VDD = roof" are fine. Draw the circuit in the digital electronics CMOS style (DE 05, DE 08: rails, lever, PMOS/NMOS valve blocks, glass output tank, DE-style table, graph and meter readouts); take the concept from the analogy, never its objects (ep 17's stairs-and-drops circuit was rejected).
 - **No real-world close in chip-design:** analogy plus explanation only; no third "without it" scene, no desk with an engineer, no sight gag. Spend the time explaining slower, for a non-engineer aged 15+.
 - **Characters** (animals, people) in analogy scenes are flat 2D side profiles with a soft ground shadow, not built from isometric blocks. Objects and board parts are isometric.
 - **Hooks that fail:** if the viewer's obvious answer to the reel's question is correct, the hook is not a surprise. Show the expected or failing case first (ep 11 opens on the copying world so the real convoy's straight driving surprises).
@@ -54,6 +54,8 @@ Files in this kit:
 - Olive #4f5d24 is reserved for the owner's pen marks; figures never use olive or green. Never add a new colour; for emphasis use ink tone or rust.
 
 ### Notes and end card
+
+- Full annotation rules and the Annotation column format: `ANNOTATIONS.md` (wins over the lines below); check with `check-annotations.py`.
 
 - Notes are Samble, brown-black #2a1d10, with olive hand-drawn arrows, rings and boxes. **Samble has no "≈", "−" (U+2212) or "×"**: write "about" (or "near"), "-" and "x" in notes.
 - At most 3 notes on screen (the episode badge counts), at least 1.5 s between new notes, nothing during a fold, no note over a part, label or readout, no pen stroke through text.

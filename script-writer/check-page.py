@@ -19,6 +19,8 @@ ap.add_argument("page")
 ap.add_argument("--video", type=float, help="video length in s (default: last row's end)")
 a = ap.parse_args()
 text = open(a.page, encoding="utf-8").read()
+# a page fetched from Notion: <b>A-B s</b> times, escaped [tags]
+text = re.sub(r"<b>([\d.]+-[\d.]+ s)</b>", r"**\1**", text).replace("\\[", "[").replace("\\]", "]")
 err = []
 
 m = re.search(r"```txt\n(.*?)```", text, re.S)
@@ -84,7 +86,7 @@ for k in range(int(end * 10) + 1):
     if len(up) > 3:
         err.append(f"{len(up)} notes on screen at {x} s: {sorted(up)}")
         break
-if "end card" in text and not re.search(rf"In {end - 4:.1f} s \(4 s before the end\)", text):
+if notes and "end card" in text and not re.search(rf"In {end - 4:.1f} s \(4 s before the end\)", text):
     err.append(f"end card must come in at {end - 4:.1f} s (4 s before the end)")
 
 for e in err:
