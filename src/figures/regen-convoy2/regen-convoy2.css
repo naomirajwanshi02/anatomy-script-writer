@@ -1,0 +1,253 @@
+/* Regeneration convoy 2: sepia tokens, a two-lane road, five supercars (ghost and real), a flat dog, a roadside sign;
+   the buffer chain with rails, gauges, the ghost copying wire, the curve card and the readout. */
+.iso.rc2 {
+  --anatomy-page: #efe3c8;
+  --anatomy-card: #efe3c8;
+  --anatomy-text: #5a4630;
+  --anatomy-strong: #2a1d10;
+  --anatomy-muted: #9a8466;
+  --anatomy-paper: #efe3c8;
+  --anatomy-face: #e8dbbd;
+  --anatomy-top: #f6ecd6;
+  --anatomy-shade-0: #e6d8b8;
+  --anatomy-shade-1: #e4d5b3;
+  --anatomy-shade-2: #e8dbbd;
+  --anatomy-shade-3: #e2d0ad;
+  --anatomy-lit-top: #fbf3e2;
+  --anatomy-lit-shade: #ecdcbc;
+  --anatomy-hi: #3b2a1a;
+  --anatomy-mid: #8a7356;
+  --anatomy-lo: #b9a47f;
+  --anatomy-faint: #d8c8a6;
+  --anatomy-lit: #1e140a;
+  --anatomy-halo: #efe3c8;
+  --anatomy-halo-opacity: .9;
+  --anatomy-dot: #2a1d10;
+  color: var(--anatomy-text);
+}
+/* Type Machine on the sign plate; Oxanium 500 for the board engraving. */
+.iso.rc2 .iso-face-text {
+  font-family: "Type Machine", "JetBrains Mono", ui-monospace, monospace !important;
+}
+.iso.rc2 .rc2-engrave .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", ui-monospace, monospace !important;
+  font-weight: 500 !important;
+}
+.iso.rc2 .rc2-sign .iso-face-text { fill: #3b2a1a !important; letter-spacing: .06em; }
+.iso.rc2 .rc2-plate .iso-top,
+.iso.rc2 .rc2-plate .iso-fill,
+.iso.rc2 .rc2-plate .iso-shade { fill: #fbf3e2 !important; }
+
+/* ---------- Road: lo tarmac, pale lane lines (two edges, dashed centre) ---------- */
+.rc2-tar { fill: #b9a47f; stroke: none; }
+.rc2-edge {
+  fill: none;
+  stroke: #fbf3e2;
+  stroke-width: calc(var(--u) * 4.5);
+}
+.rc2-centre {
+  fill: none;
+  stroke: #fbf3e2;
+  stroke-width: calc(var(--u) * 5);
+  stroke-linecap: butt;
+}
+
+/* ---------- Cars: per-car body shades (top, side, end) in the kit's tone style ---------- */
+.rc2-c1 { --ct: color-mix(in srgb, #b5541c 82%, #f0a868); --cs: #b5541c; --ce: color-mix(in srgb, #b5541c 78%, #3b2a1a); --cn: #fbf3e2; }
+.rc2-c2 { --ct: color-mix(in srgb, #f0a868 72%, #fbf3e2); --cs: #f0a868; --ce: color-mix(in srgb, #f0a868 78%, #b5541c); --cn: #2a1d10; }
+.rc2-c3 { --ct: #5e4a33; --cs: #3b2a1a; --ce: #2a1d10; --cn: #fbf3e2; }
+.rc2-c4 { --ct: #a08a68; --cs: #8a7356; --ce: color-mix(in srgb, #8a7356 78%, #3b2a1a); --cn: #fbf3e2; }
+.rc2-c5 { --ct: #fbf3e2; --cs: #e2d0ad; --ce: #d9c5a0; --cn: #2a1d10; }
+.rc2-car .car-body, .rc2-car .car-glass, .rc2-car .car-tyre, .rc2-car .car-tail, .rc2-car .car-roundel {
+  stroke: #1e140a;
+  stroke-width: calc(var(--u) * 1.5);
+  stroke-linejoin: round;
+}
+.rc2-car .car-body.f-t { fill: var(--ct); }
+.rc2-car .car-body.f-s { fill: var(--cs); }
+.rc2-car .car-body.f-e { fill: var(--ce); }
+.rc2-car .car-glass.f-t { fill: #4a3726; }
+.rc2-car .car-glass.f-s { fill: #2a1d10; }
+.rc2-car .car-glass.f-e { fill: #3b2a1a; }
+.rc2-car .car-tyre { fill: #2a1d10; }
+.rc2-car .car-hub { fill: #8a7356; stroke: none; }
+.rc2-car .car-tail { fill: #f0a868; stroke-width: calc(var(--u) * 1.2); }
+.rc2-car .car-roundel { fill: #fbf3e2; stroke-width: calc(var(--u) * 1.6); }
+.rc2-car .car-shadow { fill: #1e140a; opacity: .28; stroke: none; }
+.rc2-car .car-num {
+  font-family: "Type Machine", "JetBrains Mono", monospace;
+  fill: var(--cn);
+  stroke: #1e140a;
+  stroke-width: .6px;
+  paint-order: stroke;
+}
+.rc2-car .car-rnum {
+  font-family: "Type Machine", "JetBrains Mono", monospace;
+  fill: #2a1d10;
+}
+
+/* ---------- Dog: flat side profile, frame-weight outlines ---------- */
+.rc2-dog-shadow { fill: #1e140a; opacity: .22; stroke: none; }
+.rc2-dog-fur, .rc2-dog-leg, .rc2-dog-tail, .rc2-dog-ear, .rc2-dog-fill {
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.rc2-dog-fur { fill: #d9c5a0; stroke: #3b2a1a; stroke-width: calc(var(--u) * 2.4); }
+.rc2-dog-leg { fill: none; stroke: #3b2a1a; stroke-width: calc(var(--u) * 4.2); }
+.rc2-dog-tail { fill: none; stroke: #8a7356; stroke-width: calc(var(--u) * 4.6); }
+.rc2-dog-ear { fill: #8a7356; stroke: #3b2a1a; stroke-width: calc(var(--u) * 1.8); }
+.rc2-dog-fill { fill: none; stroke: #3b2a1a; stroke-width: calc(var(--u) * 1.6); }
+.rc2-dog-dark { fill: #1e140a; stroke: none; }
+
+/* Ghost cars: same colours, faint fill, dashed outline; numbers stay readable. */
+[data-ghost] .car-body, [data-ghost] .car-glass, [data-ghost] .car-tyre, [data-ghost] .car-tail {
+  fill-opacity: .32;
+  stroke: #3b2a1a;
+  stroke-dasharray: calc(var(--u) * 6) calc(var(--u) * 4);
+}
+[data-ghost] .car-shadow { opacity: .1; }
+[data-ghost] .car-hub { fill-opacity: .3; }
+[data-car] { filter: brightness(calc(1 + var(--pulse, 0) * .25)); }
+.rc2-linesglow {
+  fill: none;
+  stroke: #fffdf2;
+  stroke-width: calc(var(--u) * 9);
+  filter: drop-shadow(0 0 5px #fff6c8) drop-shadow(0 0 2px #fffdf2);
+}
+.rc2-warn {
+  fill: none;
+  stroke: #c2402f;
+  stroke-width: calc(var(--u) * 4.5);
+  stroke-dasharray: calc(var(--u) * 10) calc(var(--u) * 6);
+}
+
+/* ---------- Circuit ---------- */
+.iso.rc2 .rc2-one .iso-top { fill: color-mix(in srgb, #4a3726 75%, #8a7356) !important; }
+.iso.rc2 .rc2-one .iso-fill,
+.iso.rc2 .rc2-one .iso-shade { fill: #4a3726 !important; }
+.iso.rc2 .rc2-zero .iso-top { fill: color-mix(in srgb, #a08a68 70%, #fbf3e2) !important; }
+.iso.rc2 .rc2-zero .iso-fill,
+.iso.rc2 .rc2-zero .iso-shade { fill: #a08a68 !important; }
+.iso.rc2 .rc2-marks .iso-face-text,
+.iso.rc2 .rc2-digit .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", monospace !important;
+  font-weight: 600 !important;
+  fill: #3b2a1a !important;
+}
+.iso.rc2 .rc2-num .iso-face-text { fill: #3b2a1a !important; }
+.rc2-railglow {
+  fill: none;
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 7);
+  stroke-linecap: round;
+}
+.rc2-strap {
+  fill: none;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 2.6);
+  stroke-linecap: round;
+}
+.rc2-strap-lit {
+  fill: none;
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 6);
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.rc2-strap-dash {
+  fill: none;
+  stroke: #f0a868;
+  stroke-width: calc(var(--u) * 2.8);
+  stroke-dasharray: calc(var(--u) * 6) calc(var(--u) * 9);
+  stroke-linecap: round;
+  animation: iso-flow 1.2s linear infinite;
+}
+.iso.rc2 .gate-flow { stroke: #b5541c !important; }
+[data-seg][data-on="0"] .gate-flow { display: none; }
+.iso.rc2 .rc2-block .iso-top { fill: color-mix(in srgb, #fff8ea calc(var(--pulse, 0) * 100%), #f6ecd6) !important; }
+[data-gate][data-hl="1"] .rc2-block .iso-edge { stroke: #1e140a !important; stroke-width: calc(var(--u) * 3) !important; }
+.rc2-sym {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 3);
+  stroke-linejoin: round;
+}
+.iso.rc2 .rc2-valve .iso-top { fill: #d8c8a6 !important; }
+.iso.rc2 .rc2-valve .iso-fill,
+.iso.rc2 .rc2-valve .iso-shade { fill: #b9a47f !important; }
+.iso.rc2 .rc2-panel .iso-fill,
+.iso.rc2 .rc2-panel .iso-shade { fill: #fbf3e2 !important; }
+.rc2-band { fill: none; stroke: #8a7356; stroke-width: calc(var(--u) * 1.8); }
+.rc2-bandfill { fill: #fff8ea; stroke: #1e140a; stroke-width: calc(var(--u) * 2.6); }
+.rc2-ghalf { fill: none; stroke: #8a7356; stroke-width: calc(var(--u) * 1.8); stroke-dasharray: calc(var(--u) * 3) calc(var(--u) * 3); }
+.rc2-marker {
+  fill: #b5541c;
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * (4 + var(--pulse, 0) * 3));
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.iso.rc2 .rc2-gblock .iso-top,
+.iso.rc2 .rc2-gblock .iso-fill,
+.iso.rc2 .rc2-gblock .iso-shade { fill: #efe3c8 !important; fill-opacity: .5; }
+.iso.rc2 .rc2-gblock .iso-edge,
+.iso.rc2 .rc2-gblock .iso-crease { stroke-dasharray: calc(var(--u) * 5) calc(var(--u) * 4); }
+.rc2-ghostwire {
+  fill: none;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 2.6);
+  stroke-dasharray: calc(var(--u) * 8) calc(var(--u) * 6);
+}
+.rc2-gmarker {
+  fill: #3b2a1a;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 3);
+  stroke-linejoin: round;
+}
+
+/* ---------- Curve card and readout (Oxanium) ---------- */
+.rc2-card, .rc2-ro-box {
+  fill: #fbf3e2;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.rc2-axes { fill: none; stroke: #3b2a1a; stroke-width: calc(var(--u) * 2.4); }
+.rc2-curve { fill: none; stroke: #3b2a1a; stroke-width: calc(var(--u) * 3.4); stroke-linecap: round; }
+.rc2-steep { fill: none; stroke: #b5541c; stroke-width: calc(var(--u) * 7); stroke-linecap: round; }
+.rc2-flattop {
+  fill: none;
+  stroke: #1e140a;
+  stroke-width: calc(var(--u) * 7);
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 4px #fff6c8);
+}
+.rc2-halfline { fill: none; stroke: #8a7356; stroke-width: calc(var(--u) * 2.2); stroke-dasharray: calc(var(--u) * 7) calc(var(--u) * 5); }
+.rc2-guide { fill: none; stroke: #b9a47f; stroke-width: calc(var(--u) * 2); stroke-dasharray: calc(var(--u) * 4) calc(var(--u) * 4); }
+.rc2-arrow { fill: none; stroke: #b5541c; stroke-width: calc(var(--u) * 4.5); stroke-linecap: round; stroke-linejoin: round; }
+.rc2-dot { fill: #b5541c; stroke: #fbf3e2; stroke-width: calc(var(--u) * 2.4); }
+.rc2-ct {
+  font-family: "Oxanium", "JetBrains Mono", monospace;
+  font-weight: 500;
+  font-size: 15px;
+  fill: #5a4630;
+  font-variant-numeric: tabular-nums;
+}
+.rc2-cl { fill: #2a1d10; font-weight: 600; }
+.rc2-ro-label {
+  font-family: "Oxanium", "JetBrains Mono", monospace;
+  font-weight: 500;
+  font-size: 17px;
+  fill: #5a4630;
+}
+.rc2-ro-val {
+  font-family: "Oxanium", "JetBrains Mono", monospace;
+  font-weight: 600;
+  font-size: 34px;
+  fill: #b5541c;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iso.rc2 * { animation: none !important; }
+}

@@ -1,0 +1,249 @@
+/* Volume knob / Gray code figure: sepia tokens, blue backlit LCD, rust sound arcs, red dashed warning, coded disc, readout. */
+.iso.vg {
+  --anatomy-page: #efe3c8;
+  --anatomy-card: #efe3c8;
+  --anatomy-text: #5a4630;
+  --anatomy-strong: #2a1d10;
+  --anatomy-muted: #9a8466;
+  --anatomy-paper: #efe3c8;
+  --anatomy-face: #e8dbbd;
+  --anatomy-top: #f6ecd6;
+  --anatomy-shade-0: #e6d8b8;
+  --anatomy-shade-1: #e4d5b3;
+  --anatomy-shade-2: #e8dbbd;
+  --anatomy-shade-3: #e2d0ad;
+  --anatomy-lit-top: #fbf3e2;
+  --anatomy-lit-shade: #ecdcbc;
+  --anatomy-hi: #3b2a1a;
+  --anatomy-mid: #8a7356;
+  --anatomy-lo: #b9a47f;
+  --anatomy-faint: #d8c8a6;
+  --anatomy-lit: #1e140a;
+  --anatomy-halo: #efe3c8;
+  --anatomy-halo-opacity: .9;
+  --anatomy-dot: #2a1d10;
+  color: var(--anatomy-text);
+}
+/* Type Machine on the amp face (maker's plate, scale numbers). */
+.iso.vg .iso-face-text {
+  font-family: "Type Machine", "JetBrains Mono", ui-monospace, monospace !important;
+}
+/* Board engraving: Latin "ROLLIN" in Oxanium 500 (Type Machine's N reads as II at this size); Devanagari falls back. */
+.iso.vg .vg-engrave .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", ui-monospace, monospace !important;
+  font-weight: 500 !important;
+}
+.iso.vg .vg-brand .iso-face-text {
+  letter-spacing: .12em;
+}
+/* Rubber feet: darker ink. */
+.iso.vg .vg-foot .iso-fill,
+.iso.vg .vg-foot .iso-top,
+.iso.vg .vg-foot .iso-shade {
+  fill: #8a7356 !important;
+}
+/* Shared outline weight. */
+.vg-bezel, .vg-plate, .vg-power, .vg-knob-skirt, .vg-knob-side, .vg-knob-cap, .vg-grille, .vg-cone, .vg-dust {
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+/* Display: dark bezel, blue backlit glass, inner shadow, pixel text and level bar. */
+.vg-bezel { fill: #3b2a1a; }
+.vg-glass { fill: url(#vg-lcd-glass); }
+.vg-inner-shadow { fill: #14243a; opacity: .28; }
+.vg-seg { fill: #14243a; }
+.vg-seg-off { opacity: .1; }
+.vg-lcd-text {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  fill: #14243a;
+}
+/* Maker's plate and power button. */
+.vg-plate { fill: #fbf3e2; }
+.vg-power { fill: #d9c5a0; }
+/* Knob: skirt, shaded side band, light cap, grip ridges, dark pointer. */
+.vg-knob-skirt { fill: #d9c5a0; }
+.vg-knob-side { fill: #8a7356; }
+.vg-knob-cap { fill: #fbf3e2; }
+.vg-knob-grip {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-opacity: .55;
+  stroke-width: calc(var(--u) * 1.2);
+  vector-effect: non-scaling-stroke;
+}
+.vg-pointer {
+  fill: none;
+  stroke: #1e140a;
+  stroke-width: calc(var(--u) * 3.4);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+/* Speaker: grille rims, dark cone, light dust caps. */
+.vg-grille { fill: #d9c5a0; }
+.vg-cone { fill: #8a7356; }
+.vg-dust { fill: #e2d0ad; }
+/* Sound arcs: rust, active (too loud). */
+.vg-arc {
+  fill: none;
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 5);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.vg-pool {
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+/* Callout LCD strip and the red dashed warning outline (the glitch reading). */
+.iso.vg .vg-lcd {
+  fill: url(#vg-lcd-glass) !important;
+}
+.vg-warn {
+  fill: none;
+  stroke: #c2402f;
+  stroke-width: calc(var(--u) * 4.5);
+  stroke-dasharray: 10 6;
+  vector-effect: non-scaling-stroke;
+}
+/* Coded disc: ink sectors for 1 bits, rust for the 1 sectors under the brushes, faint track rings and dividers. */
+.vg-ink {
+  fill: #8a7356;
+}
+.vg-ink-active {
+  fill: #b5541c;
+}
+.vg-ring {
+  fill: none;
+  stroke: #b9a47f;
+  stroke-width: calc(var(--u) * 1.2);
+  vector-effect: non-scaling-stroke;
+}
+.vg-pin {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 2.6);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+/* Readout (Oxanium, NAND-table style): VOL | b2 b1 b0. */
+.vg-table {
+  border-collapse: collapse;
+}
+.iso.vg .vg-table th,
+.iso.vg .vg-table td {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif !important;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+.reel .vg-table th {
+  font-weight: 500 !important;
+  font-size: calc(var(--fw) * .034);
+  color: var(--anatomy-muted);
+  border-bottom: calc(var(--fw) * .003) solid #b9a47f;
+  padding: 0 calc(var(--fw) * .03) calc(var(--fw) * .012) !important;
+}
+.reel .vg-table th:first-child {
+  border-right: calc(var(--fw) * .003) solid #b9a47f;
+}
+.reel .vg-table td {
+  font-weight: 600 !important;
+  font-size: calc(var(--fw) * .05);
+  color: var(--anatomy-strong);
+  padding: calc(var(--fw) * .01) calc(var(--fw) * .03) !important;
+}
+.reel .vg-table td:first-child {
+  border-right: calc(var(--fw) * .003) solid #b9a47f;
+}
+.vg-table tr[data-hide] {
+  visibility: hidden;
+}
+.vg-table tr[data-on] td {
+  background: #3b2a1a1a;
+  color: #b5541c;
+}
+.vg-table tr[data-dim] td {
+  color: #b9a47f;
+}
+.vg-table tr[data-warn] {
+  outline: calc(var(--u) * 4.5) dashed #c2402f;
+  outline-offset: calc(var(--u) * -2);
+}
+.vg-table td[data-changed] {
+  text-decoration: underline;
+  text-decoration-thickness: calc(var(--u) * 5);
+  text-underline-offset: calc(var(--u) * 8);
+}
+.vg-table tr[data-hide] td {
+  border-color: transparent !important;
+}
+/* Without-it scene: desk panels, robot arm (sepia tubes and joints), coffee mug, light-rust splash. */
+.iso.vg .vg-desk .iso-fill,
+.iso.vg .vg-desk .iso-shade {
+  fill: #d9c5a0 !important;
+}
+.iso.vg .vg-desk .iso-top {
+  fill: #e2d0ad !important;
+}
+.iso.vg .vg-robot .iso-fill,
+.iso.vg .vg-robot .iso-shade {
+  fill: #d9c5a0 !important;
+}
+.iso.vg .vg-robot .iso-top {
+  fill: #eadbbd !important;
+}
+.vg-tube-out {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 30);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.vg-tube-in {
+  fill: none;
+  stroke: #eadbbd;
+  stroke-width: calc(var(--u) * 26.4);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.vg-joint {
+  fill: #d9c5a0;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.vg-finger {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 8);
+  stroke-linecap: round;
+}
+.iso.vg .vg-mug .iso-fill,
+.iso.vg .vg-mug .iso-shade {
+  fill: #f1e5cb !important;
+}
+.iso.vg .vg-mug .iso-top {
+  fill: #fbf3e2 !important;
+}
+.vg-coffee {
+  fill: #3b2a1a;
+}
+.vg-handle-out {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 11);
+  stroke-linecap: round;
+}
+.vg-handle-in {
+  fill: none;
+  stroke: #f1e5cb;
+  stroke-width: calc(var(--u) * 7.4);
+  stroke-linecap: round;
+}
+.vg-splash {
+  fill: #f0a868;
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 1.8);
+  stroke-linejoin: round;
+}

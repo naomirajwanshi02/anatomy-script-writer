@@ -1,0 +1,50 @@
+/* Hand-drawn series badge: white pen lines, orange only for the lit lamp, the signal and the number.
+   Black page like the figures; capture.mjs --transparent clears it so only the strokes remain. */
+.bs-frame {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+.bs-svg {
+  display: block;
+  width: min(100vw, 56.25vh);
+  height: auto;
+}
+.bs-pen,
+.bs-ink {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.bs-pen {
+  stroke: #f0f0f0;
+  stroke-width: 3.4;
+}
+.bs-thin {
+  stroke-width: 2.6;
+}
+.bs-ink {
+  stroke: #ff8c1a;
+  stroke-width: 3.4;
+}
+.bs-scribble {
+  stroke-width: 4.2;
+}
+.bs-text {
+  fill: none;
+  stroke: #f0f0f0;
+  stroke-width: 0.22;
+  stroke-linejoin: round;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.bs-small {
+  stroke-width: 0.14;
+  letter-spacing: 0.12em;
+}
+.bs-number {
+  stroke: #ff8c1a;
+  stroke-width: 0.4;
+}

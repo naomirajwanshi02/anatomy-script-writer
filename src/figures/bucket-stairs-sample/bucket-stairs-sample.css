@@ -1,0 +1,151 @@
+/* Bucket stairs (still sample): sepia tokens, building, outside stairs, glass tank, tap, Sam, buckets, readout.
+   Glass faces come from the analogy kit (src/iso/analogy/water.css). */
+.iso.bs {
+  --anatomy-page: #efe3c8;
+  --anatomy-card: #efe3c8;
+  --anatomy-paper: #efe3c8;
+  --anatomy-halo: #efe3c8;
+  --anatomy-hi: #3b2a1a;
+  --anatomy-mid: #8a7356;
+  --anatomy-lo: #b9a47f;
+  --anatomy-faint: #d8c8a6;
+  --anatomy-lit: #1e140a;
+  --anatomy-face: #f6ecd6;
+  --anatomy-top: #fbf3e2;
+  --anatomy-lit-top: #fff8ea;
+  --anatomy-lit-shade: #ecdcbc;
+  --anatomy-shade-0: #d9c5a0;
+  --anatomy-shade-1: #e2d0ad;
+  --anatomy-shade-2: #eadbbd;
+  --anatomy-shade-3: #f1e5cb;
+  --anatomy-text: #5a4630;
+  --anatomy-strong: #2a1d10;
+  --anatomy-muted: #9a8466;
+  --anatomy-dot: #3b2a1a;
+  --accent: #b5541c;
+  --liquid: #2f6fb8;
+  background: #efe3c8;
+  color: var(--anatomy-text);
+}
+
+/* Engraved labels on parts: Type Machine; the board engraving: Oxanium 500. */
+.iso.bs .iso-face-text {
+  font-family: "Type Machine", "JetBrains Mono", ui-monospace, monospace !important;
+}
+.iso.bs .bs-engrave .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", ui-monospace, monospace !important;
+  font-weight: 500 !important;
+}
+.iso.bs .bs-label .iso-face-text,
+.iso.bs .bs-brand .iso-face-text {
+  fill: #3b2a1a !important;
+  letter-spacing: .06em;
+}
+
+.bs-stage path[class^="bs-"] {
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+/* Building: warm wall, darker coping, plinth band, slab lines, window bands, door, name plate. */
+.iso.bs .bs-building .iso-fill,
+.iso.bs .bs-building .iso-shade[data-shade="2"],
+.iso.bs .bs-building .iso-shade[data-shade="3"] { fill: #eadbbd !important; }
+.iso.bs .bs-coping .iso-top { fill: #b9a47f !important; }
+.iso.bs .bs-coping .iso-fill,
+.iso.bs .bs-coping .iso-shade { fill: #8a7356 !important; }
+.bs-roof { fill: #d9c5a0; stroke: #8a7356; stroke-width: calc(var(--u) * 1.8); }
+.bs-plinth { fill: #d9c5a0; stroke: #8a7356; stroke-width: calc(var(--u) * 1.8); }
+.bs-slab { fill: #d9c5a0; stroke: #8a7356; stroke-width: calc(var(--u) * 1.4); }
+.bs-slab-side { fill: none; stroke: #8a7356; stroke-width: calc(var(--u) * 2.6); }
+.bs-frame { fill: #fbf3e2; stroke: #3b2a1a; stroke-width: calc(var(--u) * 1.8); }
+.bs-wglass { fill: #b9a47f; stroke: #8a7356; stroke-width: calc(var(--u) * 1.4); }
+.bs-mullion { fill: none; stroke: #fbf3e2; stroke-width: calc(var(--u) * 3); }
+.bs-wshine { fill: none; stroke: #fff8ea; stroke-opacity: .8; stroke-width: calc(var(--u) * 2.6); }
+.bs-door { fill: #8a7356; stroke: #3b2a1a; stroke-width: calc(var(--u) * 1.8); }
+.bs-door-panel { fill: none; stroke: #b9a47f; stroke-width: calc(var(--u) * 1.4); }
+.bs-plate { fill: #fbf3e2; stroke: #3b2a1a; stroke-width: calc(var(--u) * 1.8); }
+
+/* Outside stairs: light treads, dark handrail and posts, slim columns. */
+.iso.bs .bs-flight .iso-top { fill: #fff8ea !important; }
+.iso.bs .bs-flight .iso-fill,
+.iso.bs .bs-flight .iso-shade { fill: #d9c5a0 !important; }
+.bs-rail { fill: none; stroke: #3b2a1a; stroke-width: calc(var(--u) * 2.6); }
+.bs-post { fill: none; stroke: #3b2a1a; stroke-width: calc(var(--u) * 1.8); }
+
+/* Clear glass tank: faint blue-grey tint, back edges showing through, paper-white shine, dark marks. */
+.iso.bs .bs-glass .iso-shade {
+  fill: #2f6fb8 !important;
+  fill-opacity: .06 !important;
+}
+.bs-glass-back { fill: none; stroke: #b9a47f; stroke-width: calc(var(--u) * 1.8); }
+.bs-rim { fill: none; stroke: #3b2a1a; stroke-width: calc(var(--u) * 1.8); }
+.bs-shine { fill: none; stroke: #fffaf0; stroke-opacity: .95; stroke-width: calc(var(--u) * 4); }
+.bs-tick { fill: none; stroke: #3b2a1a; stroke-width: calc(var(--u) * 2.6); }
+
+/* Drain tap: handle bar across the pipe (closed). */
+.bs-handle {
+  stroke: #3b2a1a !important;
+  stroke-width: calc(var(--u) * 5) !important;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Sam: flat side profile, frame-weight outlines, soft ground shadow. */
+.bs-sam-shadow { fill: #1e140a; opacity: .22; stroke: none; }
+.bs-sam path, .bs-sam circle { vector-effect: non-scaling-stroke; stroke-linejoin: round; stroke-linecap: round; }
+.bs-sam-leg { fill: none; stroke: #3b2a1a; stroke-width: calc(var(--u) * 5); }
+.bs-sam-shoe { fill: none; stroke: #1e140a; stroke-width: calc(var(--u) * 5.5); }
+.bs-sam-arm { fill: none; stroke: #5a4630; stroke-width: calc(var(--u) * 4.4); }
+.bs-sam-back { stroke: #8a7356; }
+.bs-sam-shirt { fill: #8a7356; stroke: #3b2a1a; stroke-width: calc(var(--u) * 2.2); }
+.bs-sam-skin { fill: #f6ecd6; stroke: #3b2a1a; stroke-width: calc(var(--u) * 2.2); }
+.bs-sam-hair { fill: #3b2a1a; stroke: #3b2a1a; stroke-width: calc(var(--u) * 1.4); }
+.bs-sam-eye { fill: #1e140a; }
+.bs-sam-smile { fill: none; stroke: #3b2a1a; stroke-width: calc(var(--u) * 1.6); }
+
+/* Buckets: sepia pail, dark rim and bail, blue water (the colour pop). */
+.bs-hoop { fill: none; stroke: #8a7356; stroke-width: calc(var(--u) * 1.8); }
+.bs-bucket-rim { fill: #5a4630; stroke: #3b2a1a; stroke-width: calc(var(--u) * 1.8); }
+.bs-water { fill: #2f6fb8; stroke: #24578f; stroke-width: calc(var(--u) * 1.2); }
+.bs-water-ripple { fill: none; stroke: #fffaf0; stroke-opacity: .55; stroke-width: calc(var(--u) * 1.8); }
+.bs-bail { fill: none; stroke: #3b2a1a; stroke-width: calc(var(--u) * 2.2); }
+
+/* Readout: titled card with one big counter. */
+.bs-readout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: calc(var(--fw) * .045);
+  padding: calc(var(--fw) * .02) calc(var(--fw) * .045);
+  background: #fbf3e2;
+  border: calc(var(--u) * 2) solid #8a7356;
+  border-radius: calc(var(--fw) * .012);
+}
+.bs-title {
+  font-family: "Oxanium", "JetBrains Mono", monospace;
+  font-weight: 600;
+  font-size: calc(var(--fw) * .04);
+  letter-spacing: .06em;
+  line-height: 1.15;
+  color: var(--anatomy-strong);
+}
+.bs-counter {
+  min-width: 2ch;
+  padding: 0 calc(var(--fw) * .02);
+  font-family: "Oxanium", "JetBrains Mono", monospace;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  font-size: calc(var(--fw) * .12);
+  line-height: 1.1;
+  text-align: center;
+  color: var(--anatomy-strong);
+  border: calc(var(--u) * 2.6) solid #b9a47f;
+  border-radius: calc(var(--fw) * .01);
+  background: #fff8ea;
+}
+
+/* Lift board and readout so both stay inside the safe area (top 15 %, bottom 20 %). */
+.iso.bs .reel-centre {
+  transform: translateY(calc(var(--fw) * -.066));
+}

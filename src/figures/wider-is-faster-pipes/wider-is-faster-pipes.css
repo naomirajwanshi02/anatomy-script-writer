@@ -1,0 +1,329 @@
+/* Wider is faster as pipes: sepia tokens, rails, straps, valves (PMOS blue, NMOS red), tank, pipes, taps, graph. */
+/* Water faces, glass and drops come from the analogy kit (src/iso/analogy/water.css); bulbs from src/iso/bulb.css. */
+.iso.wfp {
+  --anatomy-page: #efe3c8;
+  --anatomy-card: #efe3c8;
+  --anatomy-paper: #efe3c8;
+  --anatomy-halo: #efe3c8;
+  --anatomy-hi: #3b2a1a;
+  --anatomy-mid: #8a7356;
+  --anatomy-lo: #b9a47f;
+  --anatomy-faint: #d8c8a6;
+  --anatomy-lit: #1e140a;
+  --anatomy-face: #f6ecd6;
+  --anatomy-top: #fbf3e2;
+  --anatomy-lit-top: #fff8ea;
+  --anatomy-lit-shade: #ecdcbc;
+  --anatomy-shade-0: #d9c5a0;
+  --anatomy-shade-1: #e2d0ad;
+  --anatomy-shade-2: #eadbbd;
+  --anatomy-shade-3: #f1e5cb;
+  --anatomy-text: #5a4630;
+  --anatomy-strong: #2a1d10;
+  --anatomy-muted: #9a8466;
+  --anatomy-dot: #3b2a1a;
+  --accent: #b5541c;
+  --vdd: #4a3726;
+  --gnd: #a08a68;
+  --water: 1;
+  --circuit: 0;
+  --liquid: #2f6fb8;
+  background: #efe3c8;
+  color: var(--anatomy-text);
+}
+
+/* Rails: VDD dark, GND light, engraved names. */
+.wfp .rail[data-rail=vdd] {
+  --rail: var(--vdd);
+}
+.wfp .rail[data-rail=gnd] {
+  --rail: var(--gnd);
+}
+.wfp .rail .iso-top {
+  fill: color-mix(in srgb, var(--rail) 38%, var(--anatomy-top)) !important;
+}
+.wfp .rail .iso-face,
+.wfp .rail .iso-fill,
+.wfp .rail .iso-shade {
+  fill: color-mix(in srgb, var(--rail) 20%, var(--anatomy-face)) !important;
+}
+.wfp .rail .iso-edge,
+.wfp .rail .iso-crease {
+  stroke: color-mix(in srgb, var(--rail) 60%, var(--anatomy-mid)) !important;
+}
+.wfp .rail-name text {
+  font-weight: 600;
+  letter-spacing: .06em;
+}
+.wfp .rail-name[data-rail=vdd] text {
+  fill: color-mix(in srgb, var(--vdd) 80%, #1e140a) !important;
+}
+.wfp .rail-name[data-rail=gnd] text {
+  fill: color-mix(in srgb, var(--gnd) 80%, #1e140a) !important;
+}
+
+/* Straps: neutral, rust while current flows, dashes in the current direction. */
+.wfp-strap {
+  stroke-width: 1.8;
+  stroke: var(--anatomy-mid);
+}
+.wfp-flow {
+  stroke: var(--accent) !important;
+  stroke-width: 1.5;
+  opacity: var(--i, 0);
+  display: none;
+}
+[data-strap][data-on="1"] .wfp-strap {
+  stroke: color-mix(in srgb, var(--accent) 45%, var(--anatomy-mid));
+}
+[data-strap][data-on="1"][data-dir=fwd] .wfp-flow[data-dir=fwd],
+[data-strap][data-on="1"][data-dir=rev] .wfp-flow[data-dir=rev],
+[data-strap][data-strap=bus-n][data-on="1"] .wfp-flow[data-dir=fwd],
+[data-strap][data-strap=n-gnd][data-on="1"] .wfp-flow[data-dir=fwd] {
+  display: inline;
+}
+.wfp-vin {
+  stroke-width: 1.4;
+}
+[data-vin][data-on="0"] .wfp-vin {
+  stroke: var(--anatomy-lo);
+}
+.wfp-rod {
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+/* Valves: body tinted in the device hue, gate bar in the full hue while it conducts. */
+.wfp-valve[data-valve=pmos] {
+  --hue: #2f6fb8;
+}
+.wfp-valve[data-valve=nmos] {
+  --hue: #c2402f;
+}
+.wfp-body .iso-top {
+  fill: color-mix(in srgb, var(--hue) 30%, var(--anatomy-top)) !important;
+}
+.wfp-body .iso-face,
+.wfp-body .iso-fill,
+.wfp-body .iso-shade {
+  fill: color-mix(in srgb, var(--hue) 18%, var(--anatomy-face)) !important;
+}
+.wfp-body .iso-edge,
+.wfp-body .iso-crease {
+  stroke: color-mix(in srgb, var(--hue) 50%, var(--anatomy-mid)) !important;
+}
+.wfp-gate .iso-top,
+.wfp-gate .iso-face,
+.wfp-gate .iso-fill,
+.wfp-gate .iso-shade {
+  fill: var(--anatomy-shade-2) !important;
+  transition: fill .15s;
+}
+.wfp-gate .iso-edge {
+  stroke: var(--anatomy-lo) !important;
+}
+.wfp-valve[data-open="0"] .wfp-gate .iso-top,
+.wfp-valve[data-open="0"] .wfp-gate .iso-face,
+.wfp-valve[data-open="0"] .wfp-gate .iso-fill,
+.wfp-valve[data-open="0"] .wfp-gate .iso-shade {
+  fill: color-mix(in srgb, var(--hue) 22%, var(--anatomy-shade-2)) !important;
+}
+.wfp-valve[data-open="1"] .wfp-gate .iso-top,
+.wfp-valve[data-open="1"] .wfp-gate .iso-face,
+.wfp-valve[data-open="1"] .wfp-gate .iso-fill,
+.wfp-valve[data-open="1"] .wfp-gate .iso-shade {
+  fill: var(--hue) !important;
+}
+.wfp-valve[data-open="1"] .wfp-gate .iso-edge {
+  stroke: color-mix(in srgb, var(--hue) 70%, #1e140a) !important;
+}
+.wfp-name text {
+  font-weight: 600;
+  letter-spacing: .06em;
+  fill: var(--anatomy-hi);
+}
+
+/* Glass output tank and its fluid. */
+.wfp-shell .iso-fill,
+.wfp-shell .iso-top,
+.wfp-shell .iso-face,
+.wfp-shell .iso-shade {
+  fill: transparent !important;
+}
+.wfp-fluid .iso-top {
+  fill: #6b5840 !important;
+}
+.wfp-fluid .iso-face,
+.wfp-fluid .iso-fill,
+.wfp-fluid .iso-shade {
+  fill: #a8916c !important;
+}
+.wfp-glow {
+  opacity: 0;
+}
+
+/* Water half: taps and their handle bars. */
+.wp-only-water {
+  opacity: var(--water);
+}
+.wp-only-circuit {
+  opacity: var(--circuit);
+}
+.wfp-handle {
+  stroke-width: 2.6;
+  stroke: #3b2a1a !important;
+}
+
+/* Reel line weights. */
+.reel .wfp-strap {
+  stroke-width: calc(var(--u) * 3.2) !important;
+}
+.reel .wfp-flow {
+  stroke-width: calc(var(--u) * 3) !important;
+  stroke-dasharray: calc(var(--u) * 4) calc(var(--u) * 12);
+}
+.reel .wfp-vin {
+  stroke-width: calc(var(--u) * 2.4) !important;
+}
+
+/* Glass tank fluid: water blue in the water half, sepia in the circuit. */
+.wfp-fluid .iso-top {
+  fill: color-mix(in srgb, #6b5840 calc(var(--circuit) * 100%), #2f6fb8) !important;
+}
+.wfp-fluid .iso-face,
+.wfp-fluid .iso-fill,
+.wfp-fluid .iso-shade {
+  fill: color-mix(in srgb, #a8916c calc(var(--circuit) * 100%), color-mix(in srgb, #2f6fb8 62%, #efe3c8)) !important;
+}
+
+/* Pipes, tap housings and flow lines, as in episode 8. */
+.wfp-pipe .iso-edge,
+.wfp-tap .iso-edge {
+  stroke: var(--anatomy-mid);
+}
+.wfp-tap-halo {
+  filter: blur(3px);
+}
+.wfp .an-drops {
+  stroke: color-mix(in srgb, #2f6fb8 80%, #1e140a) !important;
+}
+.wfp-handle {
+  stroke: #3b2a1a !important;
+}
+
+/* W label: the current width only. */
+.wfp-w {
+  display: none;
+}
+.wfp-stage[data-w="1"] .wfp-w[data-w="1"],
+.wfp-stage[data-w="2"] .wfp-w[data-w="2"] {
+  display: inline;
+}
+.wfp-w text {
+  font-weight: 700;
+}
+/* While the width changes the label grows and lights in rust (the active value). */
+.wfp-w {
+  transform-box: fill-box;
+  transform-origin: 0% 50%;
+  transform: scale(calc(1 + var(--wh, 0) * .9));
+}
+.wfp-w text {
+  fill: color-mix(in srgb, var(--accent) calc(var(--wh, 0) * 100%), var(--anatomy-hi)) !important;
+  filter: drop-shadow(0 0 calc(var(--wh, 0) * 4px) #b5541c80);
+}
+
+/* Lever 0/1 marks: lit ink with a pale halo on the active value. */
+.bit text {
+  font-weight: 700;
+  fill: var(--anatomy-lo) !important;
+}
+.wfp-stage[data-vin="1"] .bit[data-bit="1"] text,
+.wfp-stage[data-vin="0"] .bit[data-bit="0"] text {
+  fill: #1e140a !important;
+  filter: drop-shadow(0 0 1.5px #fffaf0cc) drop-shadow(0 0 4px #3b2a1a80);
+}
+
+/* Graph readout. */
+.wfp-graph {
+  display: block;
+  overflow: visible;
+  font: 8px var(--anatomy-mono);
+}
+.wfp-graph text {
+  fill: var(--anatomy-muted);
+}
+.wfp-graph .wfp-faint {
+  fill: var(--anatomy-lo);
+}
+.wfp-axis {
+  stroke: var(--anatomy-lo);
+  stroke-width: .75;
+  fill: none;
+}
+.wfp-grid {
+  stroke: var(--anatomy-faint);
+  stroke-width: .75;
+  fill: none;
+}
+.wfp-half {
+  stroke: var(--anatomy-mid);
+  stroke-width: .6;
+  stroke-dasharray: 2 2;
+  fill: none;
+}
+.wfp-curve {
+  stroke: var(--anatomy-hi);
+  stroke-width: 1.4;
+  fill: none;
+  stroke-linejoin: round;
+}
+.wfp-curve-new {
+  stroke: var(--accent);
+}
+.wfp-tick {
+  display: none;
+}
+.wfp-tick[data-show="1"] {
+  display: inline;
+}
+.wfp-tick path {
+  stroke: var(--anatomy-hi);
+  stroke-width: 1;
+}
+.wfp-graph .wfp-tick text {
+  fill: var(--anatomy-strong);
+}
+.reel .wfp-graph {
+  width: calc(var(--fw) * .7);
+  height: auto;
+}
+.reel .wfp .an-spoke,
+.reel .wfp-handle {
+  stroke-width: calc(var(--u) * 7) !important;
+}
+.reel .wfp .an-drops {
+  stroke-width: calc(var(--u) * 3.4) !important;
+  stroke-dasharray: calc(var(--u) * 6) calc(var(--u) * 8);
+}
+
+/* While the width changes, the pipes, tap housings and valves light in rust so the widening is seen. */
+.wfp-pipe,
+.wfp-tap,
+.wfp-body {
+  filter: drop-shadow(0 0 calc(var(--wh, 0) * 5px) #b5541cb0);
+}
+.wfp-pipe .iso-edge,
+.wfp-tap .iso-edge {
+  stroke: color-mix(in srgb, var(--accent) calc(var(--wh, 0) * 100%), var(--anatomy-mid)) !important;
+}
+.wfp-pipe .iso-top,
+.wfp-tap .iso-top {
+  fill: color-mix(in srgb, var(--accent) calc(var(--wh, 0) * 22%), var(--anatomy-top)) !important;
+}
+.wfp-pipe .iso-fill,
+.wfp-pipe .iso-shade,
+.wfp-tap .iso-fill,
+.wfp-tap .iso-shade {
+  fill: color-mix(in srgb, var(--accent) calc(var(--wh, 0) * 14%), var(--anatomy-face)) !important;
+}

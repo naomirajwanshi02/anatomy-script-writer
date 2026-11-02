@@ -1,0 +1,424 @@
+/* Hex grouping figure: sepia tokens, tile accent and hex table. */
+.iso.hex {
+  --anatomy-page: #efe3c8;
+  --anatomy-card: #efe3c8;
+  --anatomy-text: #5a4630;
+  --anatomy-strong: #2a1d10;
+  --anatomy-muted: #9a8466;
+  --anatomy-paper: #efe3c8;
+  --anatomy-face: #e8dbbd;
+  --anatomy-top: #f6ecd6;
+  --anatomy-shade-0: #e6d8b8;
+  --anatomy-shade-1: #e4d5b3;
+  --anatomy-shade-2: #e8dbbd;
+  --anatomy-shade-3: #e2d0ad;
+  --anatomy-lit-top: #fbf3e2;
+  --anatomy-lit-shade: #ecdcbc;
+  --anatomy-hi: #3b2a1a;
+  --anatomy-mid: #8a7356;
+  --anatomy-lo: #b9a47f;
+  --anatomy-faint: #d8c8a6;
+  --anatomy-lit: #1e140a;
+  --anatomy-halo: #efe3c8;
+  --anatomy-halo-opacity: .9;
+  --anatomy-dot: #2a1d10;
+  --hex-rust: #b5541c;
+  color: var(--anatomy-text);
+}
+.hex-accent {
+  fill: none;
+  stroke: var(--hex-rust);
+  stroke-width: calc(var(--u) * 2.6);
+  stroke-linejoin: round;
+}
+.hex-table {
+  border-collapse: collapse;
+  font-family: var(--anatomy-mono);
+}
+.reel .hex-table td {
+  padding: calc(var(--fw) * .012) calc(var(--fw) * .014) !important;
+  text-align: center;
+  color: var(--anatomy-text);
+  border-radius: calc(var(--fw) * .01);
+}
+.hex-table b {
+  display: block;
+  font-weight: 400;
+  font-size: calc(var(--fw) * .062);
+  line-height: 1.05;
+  color: var(--anatomy-strong);
+}
+.hex-table small {
+  display: block;
+  font-size: calc(var(--fw) * .026);
+  line-height: 1.2;
+  color: var(--anatomy-muted);
+  letter-spacing: .02em;
+}
+.hex-table td[data-on] {
+  background: #3b2a1a1a;
+}
+.hex-table td[data-on] b,
+.hex-table td[data-on] small {
+  color: var(--hex-rust);
+}
+.hex-key-accent {
+  display: none;
+}
+[data-key][data-on] .hex-key-accent {
+  display: inline;
+}
+/* Chip-design fonts: Type Machine on the board, JetBrains Mono on the LCDs, Oxanium in the table. */
+.iso.hex .iso-face-text {
+  font-family: "Type Machine", "JetBrains Mono", ui-monospace, monospace !important;
+}
+.iso.hex .hex-table,
+.iso.hex .hex-table b,
+.iso.hex .hex-table small {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif !important;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.iso.hex .hex-table small {
+  font-weight: 500;
+}
+/* Backlit LCD in the series blue. */
+.iso.hex .hex-lcd {
+  fill: url(#hex-lcd-glass) !important;
+}
+.hex-lcd-text {
+  font-family: "JetBrains Mono", monospace;
+  fill: #14243a;
+}
+.hex-lcd-ink {
+  fill: #14243a;
+}
+/* Floating place values (Oxanium readout): 0-bits faint, 1-bits rust; the group's sum in rust. */
+.hex-weight,
+.hex-sum {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  paint-order: stroke;
+  stroke: #efe3c8;
+  stroke-width: calc(var(--u) * 3);
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.hex-weight {
+  fill: #b9a47f;
+}
+.hex-weight[data-on],
+.hex-sum {
+  fill: var(--hex-rust);
+}
+.hex-gap {
+  fill: var(--hex-rust) !important;
+  stroke: none !important;
+}
+.hex-warn {
+  fill: none;
+  stroke: #c2402f !important;
+  stroke-width: calc(var(--u) * 4.5) !important;
+  stroke-dasharray: calc(var(--u) * 10) calc(var(--u) * 6);
+  vector-effect: non-scaling-stroke;
+}
+/* Hex table: out of the layout, under the board; hidden in the analogy, in at the fold. */
+.iso.hex .reel-centre {
+  position: relative;
+}
+.iso.hex .reel-below {
+  position: absolute;
+  left: 50%;
+  top: var(--hex-table-top, 70%);
+  opacity: var(--hex-table-in, 0) !important;
+  transform: translate(-50%, calc((1 - var(--hex-table-in, 0)) * var(--fw) * .08)) !important;
+}
+/* Phone screen: dark glass when off (ink hi ~85 %), blue LCD where lit, a bright line while it opens or closes. */
+.hex-glass .iso-top {
+  fill: #3b2a1ad9 !important;
+}
+.iso.hex .hex-lit {
+  fill: url(#hex-lcd-glass);
+}
+.iso.hex .hex-flash {
+  fill: #fff8ea;
+}
+.hex-pool {
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+/* Oxanium digits may be proportional: fixed cell widths keep the columns aligned, text centred. */
+.iso.hex .hex-table {
+  table-layout: fixed;
+}
+.reel .hex-table td {
+  width: calc(var(--fw) * .105);
+  text-align: center;
+}
+.iso.hex .hex-table b {
+  font-weight: 600 !important;
+}
+.iso.hex .hex-table small {
+  font-weight: 500 !important;
+}
+/* Board engraving: Latin "ROLLIN" in Oxanium 500 (Type Machine's N reads as II at this size); Devanagari falls back. */
+.iso.hex .hex-engrave .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", ui-monospace, monospace !important;
+  font-weight: 500 !important;
+}
+
+/* Without-it scene (copied from hex-without-sample, prefix renamed): desk scene parts, monitor and thought bubble. */
+.hex-mon-pool {
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+/* Chair, trousers, shirt: sepia shades only (kit fills need !important). */
+.iso.hex .hex-chair .iso-fill,
+.iso.hex .hex-chair .iso-shade {
+  fill: #5a4630 !important;
+}
+.iso.hex .hex-chair .iso-top {
+  fill: #8a7356 !important;
+}
+/* Twin-wheel casters: dark tyres with pale hubs under a dark hood. */
+.hex-tyre {
+  fill: #1e140a;
+  stroke: #1e140a;
+  stroke-width: calc(var(--u) * 1.4);
+  vector-effect: non-scaling-stroke;
+}
+.hex-wheel-hub {
+  fill: #9a8466;
+  stroke: none;
+}
+.hex-caster-hood {
+  fill: #5a4630;
+  stroke: #1e140a;
+  stroke-width: calc(var(--u) * 1.4);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.iso.hex .hex-trousers .iso-fill,
+.iso.hex .hex-trousers .iso-shade {
+  fill: #b9a47f !important;
+}
+.iso.hex .hex-trousers .iso-top {
+  fill: #d8c8a6 !important;
+}
+.iso.hex .hex-shirt .iso-fill,
+.iso.hex .hex-shirt .iso-shade {
+  fill: #eadbbd !important;
+}
+.iso.hex .hex-shirt .iso-top {
+  fill: #fbf3e2 !important;
+}
+.iso.hex .hex-skin-solid .iso-fill,
+.iso.hex .hex-skin-solid .iso-shade,
+.iso.hex .hex-skin-solid .iso-top {
+  fill: #ecdcbc !important;
+}
+.hex-tube-out {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.hex-tube-in {
+  fill: none;
+  stroke: #eadbbd;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.hex-skin {
+  fill: #ecdcbc;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.hex-hair {
+  fill: #8a7356;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+/* Thought bubble: paper fill, ink outline; bits in ink, one misread digit in rust. */
+.hex-bubble-shape {
+  fill: #fbf3e2;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 2.6);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.hex-jumble {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 600;
+  fill: #3b2a1a;
+}
+.hex-misread {
+  fill: var(--hex-rust);
+}
+.hex-strike {
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 3.2);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.hex-question {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif;
+  font-weight: 600;
+  fill: #3b2a1a;
+}
+.hex-bubble-shape.hex-trail {
+  stroke-width: calc(var(--u) * 3.4);
+}
+/* Engineer and chair fills (sepia surfaces and inks only). */
+.hex-tube-chair { stroke: #5a4630; }
+.hex-tube-trousers { stroke: #b9a47f; }
+.hex-tube-shoe { stroke: #f6ecd6; }
+.hex-tube-shirt { stroke: #eadbbd; }
+.hex-tube-skin { stroke: #ecdcbc; }
+.hex-shirt-fill, .hex-shirt-top, .hex-chair-back, .hex-chair-face {
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.hex-shirt-fill { fill: #eadbbd; }
+.hex-shirt-top { fill: #fbf3e2; }
+.hex-chair-back { fill: #d9c5a0; }
+.hex-chair-face { fill: #e2d0ad; stroke: #8a7356; }
+/* Jeans in dark sepia denim with a faint seam stitch; polo cuff rib; arm muscle lines; soft back folds. */
+.hex-tube-jeans { stroke: #2f6fb8; }
+.hex-tube-jeans-hem { stroke: #2f6fb8; }
+.hex-cuff {
+  fill: none;
+  stroke: #d8c8a6;
+  stroke-linecap: butt;
+}
+.hex-stitch {
+  fill: none;
+  stroke: #d8c8a6;
+  stroke-width: calc(var(--u) * 1.2);
+  stroke-dasharray: 2 2.5;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+/* Two-tone body shading (light from the upper left), nape fade under the hairline, ear fold. */
+.hex-tube-shade {
+  fill: none;
+  stroke: #1e140a;
+  stroke-opacity: 0.13;
+  stroke-linecap: butt;
+  stroke-linejoin: round;
+}
+.hex-shade-group {
+  opacity: 0.13;
+}
+.hex-tube-shade-solid {
+  fill: none;
+  stroke: #1e140a;
+  stroke-linecap: butt;
+  stroke-linejoin: round;
+}
+.hex-body-shade {
+  fill: #1e140a;
+  fill-opacity: 0.12;
+  stroke: none;
+}
+.hex-nape {
+  fill: #8a7356;
+  fill-opacity: 0.42;
+  stroke: none;
+}
+.hex-nape-faint {
+  fill-opacity: 0.18;
+}
+/* Hair: fill with no ink line along the hairline; only the outer edge is outlined. */
+.hex-hair-fill {
+  fill: #8a7356;
+  stroke: none;
+}
+.hex-hair-edge {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
+.hex-ear-in {
+  fill: none;
+  stroke: #b9a47f;
+  stroke-width: calc(var(--u) * 1.2);
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
+.hex-muscle, .hex-fold {
+  fill: none;
+  stroke: #b9a47f;
+  stroke-width: calc(var(--u) * 1.6);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+/* Ergonomic chair: see-through mesh back with ribs, a solid lumbar pad and a dark frame. */
+.hex-mesh {
+  fill: #3b2a1a;
+  fill-opacity: 0.42;
+  stroke: none;
+}
+.hex-mesh-rib {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-opacity: 0.35;
+  stroke-width: calc(var(--u) * 1.2);
+  vector-effect: non-scaling-stroke;
+}
+.hex-lumbar {
+  fill: #5a4630;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.hex-mesh-frame {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 3.4);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.hex-seam {
+  fill: none;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
+/* Monitor glass: dark when off, blue LCD where lit, a bright line while it opens or closes. */
+.iso.hex .hex-mon-glass {
+  fill: #3b2a1ad9 !important;
+}
+.iso.hex .hex-mon-lit {
+  fill: url(#hex-lcd-glass);
+}
+.iso.hex .hex-mon-flash {
+  fill: #fff8ea;
+}
+.hex-wall-hex {
+  font-weight: 700;
+}
+/* Calm thought: "B2" in ink and a small ink tick. */
+.hex-calm {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif;
+  font-weight: 600;
+  fill: #3b2a1a;
+}
+.hex-tick {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 4);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}

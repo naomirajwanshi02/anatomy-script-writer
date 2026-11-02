@@ -1,0 +1,192 @@
+/* Lowering supply voltage as a water tower (still sample): sepia tokens, tower, plates, taps, clock, readout.
+   Water faces, glass and drops come from the analogy kit (src/iso/analogy/water.css). */
+.iso.vt {
+  --anatomy-page: #efe3c8;
+  --anatomy-card: #efe3c8;
+  --anatomy-paper: #efe3c8;
+  --anatomy-halo: #efe3c8;
+  --anatomy-hi: #3b2a1a;
+  --anatomy-mid: #8a7356;
+  --anatomy-lo: #b9a47f;
+  --anatomy-faint: #d8c8a6;
+  --anatomy-lit: #1e140a;
+  --anatomy-face: #f6ecd6;
+  --anatomy-top: #fbf3e2;
+  --anatomy-lit-top: #fff8ea;
+  --anatomy-lit-shade: #ecdcbc;
+  --anatomy-shade-0: #d9c5a0;
+  --anatomy-shade-1: #e2d0ad;
+  --anatomy-shade-2: #eadbbd;
+  --anatomy-shade-3: #f1e5cb;
+  --anatomy-text: #5a4630;
+  --anatomy-strong: #2a1d10;
+  --anatomy-muted: #9a8466;
+  --anatomy-dot: #3b2a1a;
+  --accent: #b5541c;
+  --liquid: #2f6fb8;
+  background: #efe3c8;
+  color: var(--anatomy-text);
+}
+
+/* Engraved labels on parts: Type Machine; the board engraving: Oxanium 500. */
+.iso.vt .iso-face-text {
+  font-family: "Type Machine", "JetBrains Mono", ui-monospace, monospace !important;
+}
+.iso.vt .vt-engrave .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", ui-monospace, monospace !important;
+  font-weight: 500 !important;
+}
+.iso.vt .vt-label .iso-face-text,
+.iso.vt .vt-brand .iso-face-text {
+  fill: #3b2a1a !important;
+  letter-spacing: .06em;
+}
+
+.vt-plate,
+.vt-ladder,
+.vt-rung,
+.vt-rim,
+.vt-tick,
+.vt-fin,
+.vt-bezel,
+.vt-dial,
+.vt-dial-tick,
+.vt-hand {
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.vt-plate {
+  fill: #fbf3e2;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+}
+/* Ladder rails, arms and trough struts. */
+.vt-ladder {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 2.6);
+}
+.vt-rung {
+  fill: none;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.vt-rim {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+}
+/* Height marks on the glass tank. */
+.vt-tick {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 2.6);
+}
+.vt-fin {
+  fill: none;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+}
+
+/* Taps: the handle bar on each wheel (closed: across the pipe). */
+.vt-handle {
+  stroke: #3b2a1a !important;
+  stroke-width: calc(var(--u) * 5) !important;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Clock dial: paper face, dark bezel, ticks, one hand. */
+.vt-bezel {
+  fill: #3b2a1a;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.vt-dial {
+  fill: #fff8ea;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.vt-dial-tick {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 2.6);
+}
+.vt-hand {
+  fill: none;
+  stroke: #1e140a;
+  stroke-width: calc(var(--u) * 5);
+}
+
+/* Readout: titled card with a 4 x 4 grid of squares (litres across, height up). */
+.vt-readout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: calc(var(--fw) * .035);
+  padding: calc(var(--fw) * .014) calc(var(--fw) * .04);
+  background: #fbf3e2;
+  border: calc(var(--u) * 2) solid #8a7356;
+  border-radius: calc(var(--fw) * .012);
+}
+.vt-title {
+  font-family: "Oxanium", "JetBrains Mono", monospace;
+  font-weight: 600;
+  font-size: calc(var(--fw) * .036);
+  letter-spacing: .06em;
+  line-height: 1.15;
+  color: var(--anatomy-strong);
+}
+.vt-grid {
+  display: block;
+  height: auto;
+  overflow: visible;
+  font-family: "Oxanium", "JetBrains Mono", monospace;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  font-size: 26px;
+}
+.vt-grid text {
+  fill: var(--anatomy-muted);
+}
+.vt-grid .vt-axis-name {
+  fill: var(--anatomy-strong);
+  font-size: 28px;
+  font-weight: 600;
+}
+.vt-cell {
+  fill: none;
+  stroke: #b9a47f;
+  stroke-width: 2.6;
+}
+.vt-cell[data-on="1"] {
+  fill: #b5541c;
+  stroke: #b5541c;
+}
+
+/* Lift board and readout so both stay inside the safe area (top 15 %, bottom 20 %). */
+.iso.vt .reel-centre {
+  transform: translateY(calc(var(--fw) * -.066));
+}
+
+/* Clear glass tank: faint blue-grey tint on the faces, back edges showing through, a paper-white shine. */
+.iso.vt .vt-glass .iso-shade {
+  fill: #2f6fb8 !important;
+  fill-opacity: .06 !important;
+}
+.vt-glass-back,
+.vt-shine {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.vt-glass-back {
+  stroke: #b9a47f;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.vt-shine {
+  stroke: #fffaf0;
+  stroke-opacity: .95;
+  stroke-width: calc(var(--u) * 4);
+}

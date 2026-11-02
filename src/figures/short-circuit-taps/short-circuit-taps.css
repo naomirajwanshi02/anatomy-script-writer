@@ -1,0 +1,469 @@
+/* Short-circuit power as two linked taps (episode 18): sepia tokens; water rig with meter and grate; CMOS circuit
+   (rails, valves, rust strap, tank, lamp); two-row graph and energy counter.
+   Water faces, glass and drops come from the analogy kit (src/iso/analogy/water.css); the bulb from src/iso/bulb.css. */
+.iso.sct {
+  --anatomy-page: #efe3c8;
+  --anatomy-card: #efe3c8;
+  --anatomy-paper: #efe3c8;
+  --anatomy-halo: #efe3c8;
+  --anatomy-hi: #3b2a1a;
+  --anatomy-mid: #8a7356;
+  --anatomy-lo: #b9a47f;
+  --anatomy-faint: #d8c8a6;
+  --anatomy-lit: #1e140a;
+  --anatomy-face: #f6ecd6;
+  --anatomy-top: #fbf3e2;
+  --anatomy-lit-top: #fff8ea;
+  --anatomy-lit-shade: #ecdcbc;
+  --anatomy-shade-0: #d9c5a0;
+  --anatomy-shade-1: #e2d0ad;
+  --anatomy-shade-2: #eadbbd;
+  --anatomy-shade-3: #f1e5cb;
+  --anatomy-text: #5a4630;
+  --anatomy-strong: #2a1d10;
+  --anatomy-muted: #9a8466;
+  --anatomy-dot: #3b2a1a;
+  --accent: #b5541c;
+  --liquid: #2f6fb8;
+  background: #efe3c8;
+  color: var(--anatomy-text);
+}
+
+/* Engraved labels on parts: Type Machine; the board engraving: Oxanium 500. */
+.iso.sct .iso-face-text {
+  font-family: "Type Machine", "JetBrains Mono", ui-monospace, monospace !important;
+}
+.iso.sct .sct-engrave .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", ui-monospace, monospace !important;
+  font-weight: 500 !important;
+}
+.iso.sct .sct-label .iso-face-text,
+.iso.sct .sct-brand .iso-face-text {
+  fill: #3b2a1a !important;
+  letter-spacing: .06em;
+}
+
+.sct-brace,
+.sct-plate,
+.sct-arm,
+.sct-tick,
+.sct-slot,
+.sct-meter-body,
+.sct-meter-rim,
+.sct-dial,
+.sct-dial-ticks,
+.sct-needle,
+.sct-hub,
+.sct-window,
+.sct-drum,
+.sct-splash-ring {
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.sct-brace {
+  fill: #d9c5a0;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.sct-plate {
+  fill: #fbf3e2;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.sct-arm {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 2.6);
+}
+.sct-tick {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 3.4);
+}
+.sct-tick-mid {
+  stroke: #1e140a;
+  stroke-width: calc(var(--u) * 6);
+}
+.iso.sct .sct-marks .iso-face-text {
+  fill: #1e140a !important;
+  font-weight: 700;
+  paint-order: stroke;
+  stroke: #fff8ea;
+  stroke-width: 1.2px;
+}
+
+/* Floor drain grate: dark slots, a blue splash where the stream lands. */
+.sct-slot {
+  fill: #3b2a1a;
+  fill-opacity: .7;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.2);
+}
+.sct-splash {
+  fill: color-mix(in srgb, var(--liquid) 70%, #efe3c8);
+  fill-opacity: .85;
+}
+.sct-splash-ring {
+  fill: none;
+  stroke: var(--liquid);
+  stroke-opacity: .6;
+  stroke-width: calc(var(--u) * 2.6);
+}
+
+/* Water meter: brass-free sepia body, paper dial, ink needle; counter drums in Merriweather. */
+.sct-meter-body {
+  fill: #d9c5a0;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.sct-meter-rim {
+  fill: #e2d0ad;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.sct-dial {
+  fill: #fff8ea;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.sct-dial-ticks {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 2.6);
+}
+.sct-needle {
+  fill: none;
+  stroke: #1e140a;
+  stroke-width: calc(var(--u) * 4);
+}
+.sct-hub {
+  fill: #1e140a;
+  stroke: none;
+}
+.sct-window {
+  fill: #3b2a1a;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.sct-drum {
+  fill: #fbf3e2;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.2);
+}
+.sct-digit {
+  font-family: "Merriweather", Georgia, serif;
+  font-weight: 700;
+  fill: #2a1d10;
+}
+
+/* Taps: the handle bar on each wheel. */
+.sct-handle {
+  stroke: #3b2a1a !important;
+  stroke-width: calc(var(--u) * 5) !important;
+  vector-effect: non-scaling-stroke;
+}
+/* Lever rod and link rods (reel weight 5 via the kit's [class$=-rod]). */
+.sct-rod,
+.sct-link-rod {
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Falling streams: a blue column with darker drops running down it. */
+.sct-column {
+  fill: none;
+  stroke: color-mix(in srgb, var(--liquid) 75%, #efe3c8);
+  stroke-linecap: round;
+}
+.reel .sct-drops {
+  stroke-width: calc(var(--u) * 3.4);
+  stroke-dasharray: calc(var(--u) * 4) calc(var(--u) * 12);
+  vector-effect: non-scaling-stroke;
+}
+
+/* ---------- Circuit ---------- */
+/* Output tank liquid is the rust signal (liquidColor(1)). */
+.sct-out2 {
+  --liquid: #b5541c;
+}
+/* Rails: VDD dark, GND light, engraved names. */
+.sct .rail[data-rail=vdd] { --rail: #4a3726; }
+.sct .rail[data-rail=gnd] { --rail: #a08a68; }
+.sct .rail .iso-top { fill: color-mix(in srgb, var(--rail) 38%, var(--anatomy-top)) !important; }
+.sct .rail .iso-face,
+.sct .rail .iso-fill,
+.sct .rail .iso-shade { fill: color-mix(in srgb, var(--rail) 20%, var(--anatomy-face)) !important; }
+.sct .rail .iso-edge,
+.sct .rail .iso-crease { stroke: color-mix(in srgb, var(--rail) 60%, var(--anatomy-mid)) !important; }
+.iso.sct .rail-name .iso-face-text { font-weight: 600; letter-spacing: .06em; }
+.iso.sct .rail-name[data-rail=vdd] .iso-face-text { fill: color-mix(in srgb, #4a3726 80%, #1e140a) !important; }
+.iso.sct .rail-name[data-rail=gnd] .iso-face-text { fill: color-mix(in srgb, #a08a68 80%, #1e140a) !important; }
+
+/* Straps: neutral; solid rust while current flows, light rust dashes running in the current direction. */
+.sct-strap,
+.sct-flow {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.sct-strap {
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 4);
+}
+.sct-flow {
+  display: none;
+  stroke: #f0a868;
+  stroke-width: calc(var(--u) * 3.4);
+  stroke-dasharray: calc(var(--u) * 4) calc(var(--u) * 12);
+  animation: iso-flow 1.6s linear infinite;
+}
+[data-strap][data-on="1"] .sct-strap {
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 5);
+}
+[data-strap][data-on="1"] .sct-flow {
+  display: inline;
+}
+.sct-gate-wire {
+  stroke-width: calc(var(--u) * 2.6) !important;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Valves: body tinted in the device hue; gate bar in the full hue while it conducts. */
+.sct-valve[data-valve=p] { --hue: #2f6fb8; }
+.sct-valve[data-valve=n] { --hue: #c2402f; }
+.sct-vbody .iso-top { fill: color-mix(in srgb, var(--hue) 30%, var(--anatomy-top)) !important; }
+.sct-vbody .iso-face,
+.sct-vbody .iso-fill,
+.sct-vbody .iso-shade { fill: color-mix(in srgb, var(--hue) 18%, var(--anatomy-face)) !important; }
+.sct-vbody .iso-edge,
+.sct-vbody .iso-crease { stroke: color-mix(in srgb, var(--hue) 50%, var(--anatomy-mid)) !important; }
+.sct-vgate .iso-top,
+.sct-vgate .iso-face,
+.sct-vgate .iso-fill,
+.sct-vgate .iso-shade { fill: color-mix(in srgb, var(--hue) 22%, var(--anatomy-shade-2)) !important; }
+.sct-valve[data-open="1"] .sct-vgate .iso-top,
+.sct-valve[data-open="1"] .sct-vgate .iso-face,
+.sct-valve[data-open="1"] .sct-vgate .iso-fill,
+.sct-valve[data-open="1"] .sct-vgate .iso-shade { fill: var(--hue) !important; }
+
+/* Lamp pool follows --lamp. */
+.sct-glow {
+  opacity: var(--lamp, 0);
+}
+
+/* ---------- Readout: two-row graph + energy counter ---------- */
+.sct-readout {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--fw) * .04);
+}
+.sct-graph {
+  display: block;
+  width: calc(var(--fw) * .6);
+  height: auto;
+  overflow: visible;
+  font-family: "Oxanium", "JetBrains Mono", monospace;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  font-size: 22px;
+}
+.sct-graph text {
+  fill: var(--anatomy-muted);
+}
+.sct-graph .sct-row-name {
+  fill: var(--anatomy-strong);
+  font-size: 26px;
+  font-weight: 600;
+}
+.sct-graph .sct-band-name {
+  fill: #8a7356;
+  font-size: 20px;
+}
+.sct-graph .sct-thr {
+  fill: #8a7356;
+  font-size: 20px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.sct-graph .sct-edge {
+  fill: var(--anatomy-strong);
+  font-weight: 600;
+}
+.sct-band {
+  fill: #d8c8a6;
+  fill-opacity: .6;
+}
+.sct-axis {
+  fill: none;
+  stroke: #8a7356;
+  stroke-width: 2.6;
+  stroke-linejoin: round;
+}
+.sct-vin-curve {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: 4;
+  stroke-linejoin: round;
+}
+.sct-icurve {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: 4;
+  stroke-linejoin: round;
+}
+.sct-energy {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--fw) * .012);
+  font-family: "Oxanium", "JetBrains Mono", monospace;
+  font-variant-numeric: tabular-nums;
+}
+.sct-energy-name {
+  font-weight: 600;
+  font-size: calc(var(--fw) * .03);
+  color: var(--anatomy-strong);
+  white-space: nowrap;
+}
+.sct-energy-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: calc(var(--fw) * .025);
+}
+.sct-energy-edge {
+  font-weight: 500;
+  font-size: calc(var(--fw) * .026);
+  color: var(--anatomy-muted);
+}
+.sct-energy-num {
+  font-weight: 600;
+  font-size: calc(var(--fw) * .07);
+  color: #b9a47f;
+}
+
+/* ---------- Episode 18 additions ---------- */
+/* Layout: the readout sits under the circuit board (top part of the stage), not under the whole stage. */
+.sct .reel-centre {
+  position: relative;
+}
+.sct .reel-below {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(var(--fw) * .95 * 310 / 600);
+  display: flex;
+  justify-content: center;
+}
+/* Pulse rings (ink, on their words). */
+.sct-ring {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 4);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+  display: none;
+}
+/* Handle quadrant: plate behind the rod with an engraved arc, end marks and a bold middle mark. */
+.sct-quadrant {
+  fill: #d9c5a0;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.sct-arc,
+.sct-arc-tick,
+.sct-arc-mid {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.sct-arc {
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 2.6);
+}
+.sct-arc-tick {
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 3.4);
+}
+.sct-arc-mid {
+  stroke: #1e140a;
+  stroke-width: calc(var(--u) * 7);
+}
+.iso.sct .sct-slowmo .iso-face-text {
+  fill: #3b2a1a !important;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+/* Link rods glow rust on "two taps". */
+[data-links][data-glow="1"] .sct-link-rod {
+  stroke: #b5541c !important;
+}
+/* Tank glint, stream glow, the drip. */
+.sct-glint {
+  fill: none;
+  stroke: #fff8ea;
+  stroke-width: calc(var(--u) * 5);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  display: none;
+}
+.sct-stream-glow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--liquid) 35%, #efe3c8);
+  stroke-linecap: round;
+  opacity: 0;
+}
+.sct-drip {
+  fill: var(--liquid);
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.2);
+  vector-effect: non-scaling-stroke;
+}
+.sct-ghost-rod {
+  vector-effect: non-scaling-stroke;
+  stroke-width: calc(var(--u) * 5) !important;
+  stroke-linecap: round;
+}
+/* Bus: dashes run toward the tank while it fills, back to the node while it drains. */
+[data-strap=bus][data-dir=fwd] .sct-flow-rev,
+[data-strap=bus][data-dir=rev] .sct-flow-fwd {
+  display: none !important;
+}
+/* Fold labels flash (lit ink with a paper halo) as their part arrives. */
+.iso.sct [data-lflash][data-flash="1"] .iso-face-text {
+  fill: #1e140a !important;
+  paint-order: stroke;
+  stroke: #fff8ea;
+  stroke-width: 1.6px;
+}
+/* Readout states. */
+.sct-band[data-lit="1"] {
+  fill: #b5541c;
+  fill-opacity: .28;
+}
+.sct-pulse {
+  fill: #b5541c;
+  fill-opacity: .25;
+  transform-origin: 0 350px;
+  transform-box: view-box;
+}
+.sct-pulse[data-active="1"] {
+  fill-opacity: .85;
+}
+.sct-energy-row[data-state="done"] .sct-energy-num {
+  color: #2a1d10;
+}
+.sct-energy-row[data-state="on"] .sct-energy-num {
+  color: #b5541c;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sct-flow,
+  .sct-drops {
+    animation: none;
+  }
+}

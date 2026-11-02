@@ -1,0 +1,118 @@
+/* AND, OR, NOT as taps: sepia tokens, row layout, morph opacities, levers, labels, wires, readouts. */
+/* Water faces, glass and drops come from the analogy kit (src/iso/analogy/water.css); bulbs from src/iso/bulb.css. */
+.iso.bg {
+  --anatomy-page: #efe3c8;
+  --anatomy-card: #efe3c8;
+  --anatomy-paper: #efe3c8;
+  --anatomy-halo: #efe3c8;
+  --anatomy-hi: #3b2a1a;
+  --anatomy-mid: #8a7356;
+  --anatomy-lo: #b9a47f;
+  --anatomy-faint: #d8c8a6;
+  --anatomy-lit: #1e140a;
+  --anatomy-face: #f6ecd6;
+  --anatomy-top: #fbf3e2;
+  --anatomy-lit-top: #fff8ea;
+  --anatomy-lit-shade: #ecdcbc;
+  --anatomy-shade-0: #d9c5a0;
+  --anatomy-shade-1: #e2d0ad;
+  --anatomy-shade-2: #eadbbd;
+  --anatomy-shade-3: #f1e5cb;
+  --anatomy-text: #5a4630;
+  --anatomy-strong: #2a1d10;
+  --anatomy-muted: #9a8466;
+  --anatomy-dot: #3b2a1a;
+  --accent: #b5541c;
+  --circuit: 0;
+  --water: 1;
+  --liquid: #2f6fb8;
+  background: #efe3c8;
+  color: var(--anatomy-text);
+}
+.bg-rod {
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+.bg-name text {
+  font-weight: 600;
+  letter-spacing: .06em;
+  fill: var(--anatomy-hi);
+}
+.bg-glow {
+  opacity: var(--lamp, 0);
+}
+.bg-symbol {
+  stroke-width: 1.1;
+  fill: none;
+}
+.gate-flow {
+  stroke: #b5541c !important;
+}
+[data-wire][data-on="0"] .gate-flow {
+  display: none;
+}
+.bg-only-water {
+  opacity: var(--water);
+}
+.bg-only-circuit {
+  opacity: var(--circuit);
+}
+
+/* Rows: board on the left (56 % of the frame), equation and truth table on the right. */
+.bg-rows {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--fw) * .05);
+}
+.bg-row {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--fw) * .03);
+}
+.bg-row > .iso-stage {
+  width: calc(var(--fw) * .56);
+  flex: none;
+}
+.bg-readout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--fw) * .018);
+  opacity: var(--readout-in, 0);
+}
+.bg-eq {
+  font: 600 calc(var(--fw) * .042) / 1 var(--anatomy-mono);
+  letter-spacing: .06em;
+  color: var(--anatomy-strong);
+}
+.bg-ol {
+  text-decoration: overline;
+}
+.bg-table {
+  border-collapse: collapse;
+  font: 10.5px/1 var(--anatomy-mono);
+}
+.bg-table th {
+  font-weight: 400;
+  color: var(--anatomy-muted);
+  padding: 0 8px 4px;
+  border-bottom: 1px solid var(--anatomy-faint);
+}
+.bg-table td {
+  padding: 3px 8px;
+  text-align: center;
+  color: var(--anatomy-text);
+}
+.bg-table tr[data-now] td {
+  background: #3b2a1a14;
+  color: var(--accent);
+}
+.reel .bg-row table {
+  font-size: calc(var(--fw) * .03) !important;
+}
+.reel .bg-row th {
+  padding: 0 calc(var(--fw) * .025) calc(var(--fw) * .01) !important;
+}
+.reel .bg-row td {
+  padding: calc(var(--fw) * .008) calc(var(--fw) * .025) !important;
+}
