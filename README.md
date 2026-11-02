@@ -22,5 +22,6 @@ Type `/script video 20 chip design` (or `/script 5 digital electronics`, `/scrip
 | `SCRIPTS.md` | Full script rules |
 | `rules/chip-design.md`, `rules/analogy.md` | Chip-design story shape, analogy objects |
 | `script-writer/` | Brief, annotation rules, understanding test, checkers (`check-voice.py`, `check-page.py`, `check-annotations.py`, `storyboard.py`), example pages |
+| `script-writer/ig/` | Scoring tools from the MIT [instagram-agent-skill](https://github.com/Jakeschincariol/instagram-agent-skill), patched for the voice block: `hookscore.py` (hook score), `beats.py` (beat timing and loop), `caption.py` (caption lint), `hooks.json` (26 hook formulas) |
 | `series/*.csv` | Episode lists (backup; Notion wins) |
 | `scripts/` | Finished pages, as examples and backup |
