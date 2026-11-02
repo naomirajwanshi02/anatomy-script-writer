@@ -1,6 +1,6 @@
 # Handover: chip-design 11-18 and 21, and the reel kit update (2026-11-02)
 
-For the desktop Claude session on the laptop (`D:/Anatomy`), which records the voices, builds the HTML figures and exports the reels. Read this page first.
+For the desktop Claude session on the laptop (`D:/Anatomy`), which records the voices, builds the HTML figures and exports the reels. **Claude desktop: start with [`HANDOFF.md`](HANDOFF.md)** (the working checklist and the copy script); this page is the background.
 
 - **Scripts:** the source of truth for every episode is its Notion page in `book-concepts.csv` (Shorts). The same pages are backed up here in `scripts/`. Each page holds three things: the voice block to record, the **On the board** column (the figure brief) and the **Annotation** column (what `/htmlmp4` draws).
 - **Reel kit:** this repo is now the full reel kit (the `reel-kit.zip` of 2026-11-02) with the updates in section 4. Built pages, voice files, videos, `node_modules`, `.tools` and the Samble font files are not in it; keep your local ones.
