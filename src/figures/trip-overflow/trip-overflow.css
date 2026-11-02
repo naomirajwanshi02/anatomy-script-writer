@@ -1,0 +1,237 @@
+/* Arithmetic overflow figure: sepia tokens, cluster with trip meter (from trip-overflow-sample), bit tiles, carry chips, XOR gate, V bulb, table. */
+.iso.tov {
+  --anatomy-page: #efe3c8;
+  --anatomy-card: #efe3c8;
+  --anatomy-text: #5a4630;
+  --anatomy-strong: #2a1d10;
+  --anatomy-muted: #9a8466;
+  --anatomy-paper: #efe3c8;
+  --anatomy-face: #e8dbbd;
+  --anatomy-top: #f6ecd6;
+  --anatomy-shade-0: #e6d8b8;
+  --anatomy-shade-1: #e4d5b3;
+  --anatomy-shade-2: #e8dbbd;
+  --anatomy-shade-3: #e2d0ad;
+  --anatomy-lit-top: #fbf3e2;
+  --anatomy-lit-shade: #ecdcbc;
+  --anatomy-hi: #3b2a1a;
+  --anatomy-mid: #8a7356;
+  --anatomy-lo: #b9a47f;
+  --anatomy-faint: #d8c8a6;
+  --anatomy-lit: #1e140a;
+  --anatomy-halo: #efe3c8;
+  --anatomy-halo-opacity: .9;
+  --anatomy-dot: #2a1d10;
+  color: var(--anatomy-text);
+}
+.iso.tov .iso-face-text {
+  font-family: "Type Machine", "JetBrains Mono", ui-monospace, monospace !important;
+}
+/* Board engraving: Oxanium 500 as in hex-grouping; Devanagari falls back. */
+.iso.tov .tov-engrave .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", ui-monospace, monospace !important;
+  font-weight: 500 !important;
+}
+.tov-pool {
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+/* Recess wall, then the dark face (ink hi ~85 %). */
+.tov-recess {
+  fill: #d9c5a0;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.tov-face {
+  fill: #3b2a1ad9;
+}
+.tov-ring,
+.tov-tick,
+.tov-needle,
+.tov-bezel,
+.tov-icon-cut,
+.tov-icon-ray {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
+.tov-ring {
+  stroke: #b9a47f;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.tov-tick {
+  stroke: #d8c8a6;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.tov-tick-major {
+  stroke: #fbf3e2;
+  stroke-width: calc(var(--u) * 2.6);
+}
+.tov-dial-num {
+  fill: #fbf3e2;
+  font-family: "Type Machine", "JetBrains Mono", monospace;
+}
+.tov-needle {
+  stroke: #fff8ea;
+  stroke-width: calc(var(--u) * 3.4);
+}
+.tov-hub {
+  fill: #8a7356;
+  stroke: #fbf3e2;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.tov-bezel {
+  fill: #1e140a;
+  stroke: #b9a47f;
+  stroke-width: calc(var(--u) * 1.8);
+}
+/* Drum digits: Merriweather (odometer rule). */
+.tov-drum-digit {
+  fill: #2a1d10;
+  font-family: "Merriweather", Georgia, serif;
+  font-weight: 700;
+}
+.tov-icon-cut {
+  stroke: #1e140a;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.tov-icon-ray {
+  stroke-width: calc(var(--u) * 2.6);
+}
+.tov-icon-r {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif;
+  font-weight: 600;
+}
+/* Backlit LCD in the series blue, dark JetBrains Mono digits, red dashed warning box. */
+.iso.tov .tov-lcd {
+  fill: url(#tov-lcd-glass) !important;
+}
+.tov-lcd-text {
+  font-family: "JetBrains Mono", monospace;
+  fill: #14243a;
+}
+.tov-warn {
+  fill: none;
+  stroke: #c2402f !important;
+  stroke-width: calc(var(--u) * 1.8) !important;
+  stroke-dasharray: calc(var(--u) * 6) calc(var(--u) * 4);
+  vector-effect: non-scaling-stroke;
+}
+/* Binnacle: thin bezel lip, gauge faces, red zone, glass shine, engraved brand badge. */
+.tov-lip {
+  fill: #fbf3e2;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.tov-gauge-face {
+  fill: #1e140a;
+  fill-opacity: .92;
+}
+.tov-red-zone {
+  fill: none;
+  stroke: #c2402f;
+  stroke-width: calc(var(--u) * 5);
+  vector-effect: non-scaling-stroke;
+}
+.tov-shine {
+  fill: none;
+  stroke: #fff8ea;
+  stroke-opacity: .15;
+  stroke-width: calc(var(--u) * 5);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.tov-badge {
+  fill: #8a7356;
+  font-family: "Type Machine", "JetBrains Mono", monospace;
+  letter-spacing: .08em;
+}
+/* Bit tiles: rust accent on active tiles; the falling carry digit in rust. */
+.tov-accent {
+  fill: none;
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 2.6);
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.iso.tov .iso-face-text.tov-rust {
+  fill: #b5541c !important;
+}
+/* Readout table: out of the layout, under the long board; hidden in the analogy, in at the fold. */
+.iso.tov .reel-centre {
+  position: relative;
+}
+.iso.tov .reel-below {
+  position: absolute;
+  left: 50%;
+  top: var(--tov-table-top, 70%);
+  opacity: var(--tov-table-in, 0) !important;
+  transform: translate(-50%, calc((1 - var(--tov-table-in, 0)) * var(--fw) * .08)) !important;
+}
+.tov-table {
+  border-collapse: collapse;
+}
+.iso.tov .tov-table td {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif !important;
+  font-weight: 500;
+  font-size: calc(var(--fw) * .038);
+  line-height: 1.05;
+  padding: calc(var(--fw) * .004) calc(var(--fw) * .03) !important;
+  white-space: pre;
+  text-align: left;
+  color: #b9a47f;
+  border-radius: calc(var(--fw) * .01);
+  font-variant-numeric: tabular-nums;
+}
+.iso.tov .tov-table tr[data-on] td {
+  background: #3b2a1a1a;
+  color: #b5541c;
+  font-weight: 600;
+}
+/* Trip meter: rust outline on the rolling window (active). */
+.tov-active {
+  fill: none;
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+/* Trip-reset knob. */
+.tov-stem {
+  fill: none;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 5);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.tov-knob-back {
+  fill: #8a7356;
+}
+.tov-knob {
+  fill: #fbf3e2;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+/* XOR wires: rust flow dots only while a wire carries a 1 (gate-level rule); the V bulb's light pool. */
+.iso.tov .gate-flow {
+  stroke: #b5541c !important;
+}
+[data-wire][data-on="0"] .gate-flow {
+  display: none;
+}
+.tov-bulb-glow {
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+/* Ghost sixth drum: faint paper drum with a dashed edge, the lost 1 in drum ink. */
+.tov-ghost {
+  fill: #fff8ea;
+  fill-opacity: .85;
+  stroke: #b9a47f;
+  stroke-width: calc(var(--u) * 1.8);
+  stroke-dasharray: calc(var(--u) * 4) calc(var(--u) * 3);
+  vector-effect: non-scaling-stroke;
+}

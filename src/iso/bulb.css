@@ -1,0 +1,20 @@
+/* Glass bulb (src/iso/react/bulb.tsx): clear glass when off, yellow glass, white filament, halo and light pool when lit. */
+.bulb-glass {
+  fill: color-mix(in srgb, var(--bulb) calc(var(--lamp, 0) * 100%), #fffaf0);
+  fill-opacity: calc(.2 + var(--lamp, 0) * .75);
+  stroke: color-mix(in srgb, #d99a00 calc(var(--lamp, 0) * 100%), var(--anatomy-mid));
+  stroke-width: var(--anatomy-weight);
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 14px color-mix(in srgb, #ffb400 calc(var(--lamp, 0) * 100%), transparent));
+}
+.bulb-filament {
+  stroke: color-mix(in srgb, #fffdf2 calc(var(--lamp, 0) * 100%), var(--anatomy-hi)) !important;
+  stroke-width: calc(var(--anatomy-weight) * 1.4);
+}
+.bulb-glow {
+  pointer-events: none;
+  mix-blend-mode: normal;
+  transform: scale(1.5);
+  transform-box: fill-box;
+  transform-origin: center;
+}

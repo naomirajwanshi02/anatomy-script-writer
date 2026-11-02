@@ -1,0 +1,179 @@
+/* Odometer sample: sepia tokens (as hex-grouping), cluster face, drums, lights, LCD callout. */
+.iso.trip {
+  --anatomy-page: #efe3c8;
+  --anatomy-card: #efe3c8;
+  --anatomy-text: #5a4630;
+  --anatomy-strong: #2a1d10;
+  --anatomy-muted: #9a8466;
+  --anatomy-paper: #efe3c8;
+  --anatomy-face: #e8dbbd;
+  --anatomy-top: #f6ecd6;
+  --anatomy-shade-0: #e6d8b8;
+  --anatomy-shade-1: #e4d5b3;
+  --anatomy-shade-2: #e8dbbd;
+  --anatomy-shade-3: #e2d0ad;
+  --anatomy-lit-top: #fbf3e2;
+  --anatomy-lit-shade: #ecdcbc;
+  --anatomy-hi: #3b2a1a;
+  --anatomy-mid: #8a7356;
+  --anatomy-lo: #b9a47f;
+  --anatomy-faint: #d8c8a6;
+  --anatomy-lit: #1e140a;
+  --anatomy-halo: #efe3c8;
+  --anatomy-halo-opacity: .9;
+  --anatomy-dot: #2a1d10;
+  color: var(--anatomy-text);
+}
+.iso.trip .iso-face-text {
+  font-family: "Type Machine", "JetBrains Mono", ui-monospace, monospace !important;
+}
+/* Board engraving: Oxanium 500 as in hex-grouping; Devanagari falls back. */
+.iso.trip .trip-engrave .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", ui-monospace, monospace !important;
+  font-weight: 500 !important;
+}
+.trip-pool {
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+/* Recess wall, then the dark face (ink hi ~85 %). */
+.trip-recess {
+  fill: #d9c5a0;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.trip-face {
+  fill: #3b2a1ad9;
+}
+.trip-ring,
+.trip-tick,
+.trip-needle,
+.trip-bezel,
+.trip-icon-cut,
+.trip-icon-ray {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
+.trip-ring {
+  stroke: #b9a47f;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.trip-tick {
+  stroke: #d8c8a6;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.trip-tick-major {
+  stroke: #fbf3e2;
+  stroke-width: calc(var(--u) * 2.6);
+}
+.trip-dial-num {
+  fill: #fbf3e2;
+  font-family: "Type Machine", "JetBrains Mono", monospace;
+}
+.trip-needle {
+  stroke: #fff8ea;
+  stroke-width: calc(var(--u) * 3.4);
+}
+.trip-hub {
+  fill: #8a7356;
+  stroke: #fbf3e2;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.trip-bezel {
+  fill: #1e140a;
+  stroke: #b9a47f;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.trip-drum-digit {
+  fill: #2a1d10;
+  font-family: "Type Machine", "JetBrains Mono", monospace;
+}
+.trip-icon-cut {
+  stroke: #1e140a;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.trip-icon-ray {
+  stroke-width: calc(var(--u) * 2.6);
+}
+.trip-icon-r {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif;
+  font-weight: 600;
+}
+/* Backlit LCD in the series blue, dark JetBrains Mono digits, red dashed warning box. */
+.iso.trip .trip-lcd {
+  fill: url(#trip-lcd-glass) !important;
+}
+.trip-lcd-text {
+  font-family: "JetBrains Mono", monospace;
+  fill: #14243a;
+}
+.trip-warn {
+  fill: none;
+  stroke: #c2402f !important;
+  stroke-width: calc(var(--u) * 1.8) !important;
+  stroke-dasharray: calc(var(--u) * 6) calc(var(--u) * 4);
+  vector-effect: non-scaling-stroke;
+}
+/* Binnacle: thin bezel lip, gauge faces, red zone, glass shine, engraved brand badge. */
+.trip-lip {
+  fill: #fbf3e2;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.trip-gauge-face {
+  fill: #1e140a;
+  fill-opacity: .92;
+}
+.trip-red-zone {
+  fill: none;
+  stroke: #c2402f;
+  stroke-width: calc(var(--u) * 5);
+  vector-effect: non-scaling-stroke;
+}
+.trip-shine {
+  fill: none;
+  stroke: #fff8ea;
+  stroke-opacity: .15;
+  stroke-width: calc(var(--u) * 5);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.trip-badge {
+  fill: #8a7356;
+  font-family: "Type Machine", "JetBrains Mono", monospace;
+  letter-spacing: .08em;
+}
+/* Trip meter: rust outline on the rolling window (active), seam between the outgoing and incoming digits. */
+.trip-active {
+  fill: none;
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.trip-seam {
+  stroke: #8a7356;
+  stroke-opacity: .5;
+  stroke-width: calc(var(--u) * 1);
+  vector-effect: non-scaling-stroke;
+}
+/* Trip-reset knob. */
+.trip-stem {
+  fill: none;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 5);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.trip-knob-back {
+  fill: #8a7356;
+}
+.trip-knob {
+  fill: #fbf3e2;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}

@@ -1,0 +1,329 @@
+/* K-map egg carton: sepia tokens, moulded pulp carton, tan eggs, rust rings and bands, lever circuit with a kit bulb, readout. */
+.iso.kx {
+  --anatomy-page: #efe3c8;
+  --anatomy-card: #efe3c8;
+  --anatomy-text: #5a4630;
+  --anatomy-strong: #2a1d10;
+  --anatomy-muted: #9a8466;
+  --anatomy-paper: #efe3c8;
+  --anatomy-face: #e8dbbd;
+  --anatomy-top: #f6ecd6;
+  --anatomy-shade-0: #e6d8b8;
+  --anatomy-shade-1: #e4d5b3;
+  --anatomy-shade-2: #e8dbbd;
+  --anatomy-shade-3: #e2d0ad;
+  --anatomy-lit-top: #fbf3e2;
+  --anatomy-lit-shade: #ecdcbc;
+  --anatomy-hi: #3b2a1a;
+  --anatomy-mid: #8a7356;
+  --anatomy-lo: #b9a47f;
+  --anatomy-faint: #d8c8a6;
+  --anatomy-lit: #1e140a;
+  --anatomy-halo: #efe3c8;
+  --anatomy-halo-opacity: .9;
+  --anatomy-dot: #2a1d10;
+  color: var(--anatomy-text);
+}
+/* Type Machine for the board's axis labels, the lid label and the circuit labels. */
+.iso.kx .iso-face-text {
+  font-family: "Type Machine", "JetBrains Mono", ui-monospace, monospace !important;
+}
+/* Board engraving: Latin "ROLLIN" in Oxanium 500 (Type Machine's N reads as II at this size); Devanagari falls back. */
+.iso.kx .kx-engrave .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", ui-monospace, monospace !important;
+  font-weight: 500 !important;
+}
+/* Printed lid label in sepia ink. */
+.iso.kx .kx-brand .iso-face-text {
+  fill: #3b2a1a !important;
+  text-shadow: none;
+  filter: none;
+  letter-spacing: .05em;
+}
+/* Moulded pulp, matte: body #eadbbd, shade #d9c5a0, lit faces #f1e5cb. */
+.iso.kx .kx-pulp .iso-top { fill: #f1e5cb !important; }
+.iso.kx .kx-pulp .iso-fill,
+.iso.kx .kx-pulp .iso-shade[data-shade="2"],
+.iso.kx .kx-pulp .iso-shade[data-shade="3"] { fill: #eadbbd !important; }
+.iso.kx .kx-pulp .iso-shade[data-shade="0"],
+.iso.kx .kx-pulp .iso-shade[data-shade="1"] { fill: #d9c5a0 !important; }
+/* Shared outline weight. */
+.kx-well, .kx-post, .kx-egg, .kx-lid-outer, .kx-lid-rim, .kx-hole {
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.kx-egg, .kx-post { stroke: #8a7356; }
+/* Cups: thin flat rim ring, dark well, lighter inner wall toward the back. */
+.kx-cup-rim {
+  fill: none;
+  stroke: #b9a47f;
+  stroke-width: calc(var(--u) * 1.4);
+  vector-effect: non-scaling-stroke;
+}
+.kx-well { fill: #b9a47f; }
+.kx-well-in { fill: #d9c5a0; stroke: none; }
+.kx-post-tip { fill: #f1e5cb; stroke: none; }
+.kx-bulge {
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.4);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.kx-lip {
+  fill: none;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+/* Lid: shaded shell, lit rim top, inner wall, inside panel, latch holes. */
+.kx-lid-outer { fill: #d9c5a0; }
+.kx-lid-rim { fill: #f1e5cb; }
+.kx-lid-wall { fill: #d9c5a0; stroke: none; }
+.kx-lid-panel { fill: #eadbbd; stroke: none; }
+.kx-hole { fill: #8a7356; }
+.kx-speck { opacity: .16; pointer-events: none; }
+/* The colour pop: the rust group band with a light-rust inner line. */
+.kx-band, .kx-band-in {
+  fill: none;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.kx-band-glow, .kx-band, .kx-band-in {
+  fill: none;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+/* Soft rust glow under the ring, the solid rust ring, and a light-rust dash flowing along it. */
+.kx-band-glow { stroke: #b5541c; stroke-width: calc(var(--u) * 14); opacity: .25; filter: blur(calc(var(--u) * 3)); }
+.kx-band { stroke: #b5541c; stroke-width: calc(var(--u) * 7); }
+.kx-band-in {
+  stroke: #f0a868;
+  stroke-width: calc(var(--u) * 2.2);
+  stroke-dasharray: calc(var(--u) * 4) calc(var(--u) * 8);
+  stroke-linecap: butt;
+  animation: kx-ring-flow 2.4s linear infinite;
+}
+@keyframes kx-ring-flow {
+  to { stroke-dashoffset: calc(var(--u) * -24); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kx-band-in { animation: none; }
+}
+/* Contact shadow in a cup while its egg is up. */
+.kx-shadow { fill: #8a7356; filter: blur(calc(var(--u) * 1.2)); pointer-events: none; }
+/* Wire: lo base trace always; rust dotted flow only while it carries 1. */
+.iso.kx .gate-flow {
+  stroke: #b5541c !important;
+}
+[data-wire][data-on="0"] .gate-flow {
+  display: none;
+}
+.kx-rod {
+  stroke-width: calc(var(--u) * 5) !important;
+  stroke-linecap: round;
+}
+.kx-bulb-glow {
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+/* Readout (Oxanium, NAND-table style): how you pick | picks, cross-fading into terms | gates at the fold. */
+.kx-table {
+  border-collapse: collapse;
+  --w: 0;
+}
+/* Both wordings share one grid cell, so the column width never jumps during the cross-fade. */
+.kx-words {
+  display: inline-grid;
+}
+.kx-egg-words,
+.kx-circuit-words {
+  grid-area: 1 / 1;
+}
+.kx-egg-words {
+  opacity: calc(1 - var(--w));
+}
+.kx-circuit-words {
+  opacity: var(--w);
+}
+.iso.kx .kx-table th,
+.iso.kx .kx-table td {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif !important;
+  font-variant-numeric: tabular-nums;
+  text-align: left;
+}
+.reel .kx-table td {
+  font-weight: 600 !important;
+  font-size: calc(var(--fw) * .038);
+  line-height: 1.1;
+  color: var(--anatomy-strong);
+  padding: calc(var(--fw) * .006) calc(var(--fw) * .03) !important;
+}
+.reel .kx-table th {
+  font-weight: 500 !important;
+  font-size: calc(var(--fw) * .03);
+  color: var(--anatomy-muted);
+  border-bottom: calc(var(--fw) * .003) solid #b9a47f;
+  padding: 0 calc(var(--fw) * .03) calc(var(--fw) * .008) !important;
+}
+.reel .kx-table th:first-child,
+.reel .kx-table td:first-child {
+  border-right: calc(var(--fw) * .003) solid #b9a47f;
+}
+.kx-table tr[data-dim] td {
+  color: #b9a47f;
+}
+.kx-table tr[data-now] td {
+  background: #3b2a1a1a;
+  color: #b5541c;
+}
+/* Grayscale text antialiasing on the stage. */
+.kx-stage svg {
+  will-change: transform;
+}
+/* Tighter gap between board and readout, so the readout stays above the bottom 20 %. */
+.iso.kx .reel-centre {
+  gap: calc(var(--fw) * .01);
+}
+/* ---------- Without-it scene (desk, chip, fan, engineer, bubble); engineer and chair styles copied from hex-without-sample. ---------- */
+.kx-heat-pool { pointer-events: none; mix-blend-mode: normal; opacity: var(--heat, 0); }
+.iso.kx .kx-pcb .iso-fill,
+.iso.kx .kx-pcb .iso-shade { fill: #d9c5a0 !important; }
+.iso.kx .kx-pcb .iso-top { fill: #e2d0ad !important; }
+/* Chip package: dark ink body, a rust hot top while it runs hot. */
+.iso.kx .kx-chip .iso-fill,
+.iso.kx .kx-chip .iso-shade { fill: #3b2a1a !important; }
+.iso.kx .kx-chip .iso-top { fill: #5a4630 !important; }
+.iso.kx .kx-chip-pin .iso-fill,
+.iso.kx .kx-chip-pin .iso-shade,
+.iso.kx .kx-chip-pin .iso-top { fill: #b9a47f !important; }
+.kx-chip-hot { fill: #b5541c; opacity: calc(var(--heat, 0) * .55); stroke: none; }
+.kx-chip-dot { fill: #b9a47f; }
+/* Heat shimmer: rust, stroke 5 frame px, rising in the chip's front-face plane. */
+.kx-heat {
+  fill: none;
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 5);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+/* Desk fan: sepia body, paper disc, blur disc while spinning, ink guard. */
+.iso.kx .kx-fan .iso-fill,
+.iso.kx .kx-fan .iso-shade { fill: #b9a47f !important; }
+.iso.kx .kx-fan .iso-top { fill: #d8c8a6 !important; }
+.kx-fan-disc { fill: #fbf3e2; opacity: .55; stroke: none; }
+.kx-fan-blur { fill: #b9a47f; stroke: none; opacity: 0; }
+.kx-fan-blades {
+  fill: #d9c5a0;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.kx-fan-guard {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.kx-fan-hub { fill: #8a7356; stroke: #3b2a1a; stroke-width: calc(var(--u) * 1.8); vector-effect: non-scaling-stroke; }
+/* Engineer and chair (sepia surfaces and inks only). */
+.iso.kx .kx-chair .iso-fill,
+.iso.kx .kx-chair .iso-shade { fill: #d9c5a0 !important; }
+.iso.kx .kx-chair .iso-top { fill: #e2d0ad !important; }
+.kx-tube-out { fill: none; stroke: #3b2a1a; stroke-linecap: round; stroke-linejoin: round; }
+.kx-tube-in { fill: none; stroke: #eadbbd; stroke-linecap: round; stroke-linejoin: round; }
+.kx-tube-chair { stroke: #d9c5a0; }
+.kx-tube-trousers { stroke: #b9a47f; }
+.kx-tube-shoe { stroke: #8a7356; }
+.kx-tube-shirt { stroke: #eadbbd; }
+.kx-tube-skin { stroke: #ecdcbc; }
+.kx-skin { fill: #ecdcbc; stroke: #3b2a1a; stroke-width: calc(var(--u) * 1.8); vector-effect: non-scaling-stroke; }
+.kx-hair { fill: #8a7356; stroke: #3b2a1a; stroke-width: calc(var(--u) * 1.8); vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.kx-shirt-fill, .kx-shirt-top, .kx-chair-back, .kx-chair-face {
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.kx-shirt-fill { fill: #eadbbd; }
+.kx-shirt-top { fill: #fbf3e2; }
+.kx-chair-back { fill: #d9c5a0; }
+.kx-chair-face { fill: #e2d0ad; stroke: #8a7356; }
+.kx-seam { fill: none; stroke: #8a7356; stroke-width: calc(var(--u) * 1.8); vector-effect: non-scaling-stroke; stroke-linecap: round; }
+/* Thought bubble: paper fill, ink outline, ink words, ink tick. */
+.kx-bubble-shape {
+  fill: #fbf3e2;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 2.6);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.kx-bubble-shape.kx-trail { stroke-width: calc(var(--u) * 3.4); }
+.kx-bubble-text {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif;
+  font-weight: 600;
+  fill: #3b2a1a;
+}
+/* Scaling stroke (stage units, about 9 frame px) so pathLength = 1 drives the draw-on dash. */
+.iso-svg path.kx-tick {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: 5.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1 1;
+  vector-effect: none;
+}
+/* Rubber band: matte brown rubber #6e4524, a softer highlight along it; thinner and lighter as it stretches
+   (--st = stretch ratio, width proportional to 1 / sqrt(stretch)). */
+.kx-rubber,
+.kx-rubber-hi {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.kx-rubber {
+  stroke: color-mix(in srgb, #6e4524 calc(100% - (var(--st, 1) - 1) * 12%), #b9a47f);
+  stroke-width: calc(var(--u) * 15 / sqrt(var(--st, 1)));
+}
+.kx-rubber-hi {
+  stroke: #a07a55;
+  stroke-opacity: .6;
+  stroke-width: calc(var(--u) * 3.4 / sqrt(var(--st, 1)));
+}
+/* Flat K-map grid left on the board when the carton lifts away. */
+.kx-map-cell {
+  fill: #f6ecd6;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.iso.kx .kx-map-one .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif !important;
+  font-weight: 600 !important;
+}
+/* Pretend egg in the empty cup (teaser): cream outline, dashed, no shading. */
+.kx-pretend {
+  fill: #f1e5cb;
+  fill-opacity: .35;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 2.6);
+  stroke-dasharray: calc(var(--u) * 6) calc(var(--u) * 4);
+  vector-effect: non-scaling-stroke;
+}
+/* Gates block count and the Gray-order pulse on the column labels. */
+.kx-gates-text {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif;
+  font-weight: 600;
+  fill: #3b2a1a;
+}
+.iso.kx [data-col][data-hot] .iso-face-text {
+  fill: #b5541c !important;
+}

@@ -1,0 +1,93 @@
+/* RTL and logic synthesis: sepia tokens, levers, labels, wires, bulb and the typed code readout. */
+.iso.rt {
+  --anatomy-page: #efe3c8;
+  --anatomy-card: #efe3c8;
+  --anatomy-paper: #efe3c8;
+  --anatomy-halo: #efe3c8;
+  --anatomy-hi: #3b2a1a;
+  --anatomy-mid: #8a7356;
+  --anatomy-lo: #b9a47f;
+  --anatomy-faint: #d8c8a6;
+  --anatomy-lit: #1e140a;
+  --anatomy-face: #f6ecd6;
+  --anatomy-top: #fbf3e2;
+  --anatomy-lit-top: #fff8ea;
+  --anatomy-lit-shade: #ecdcbc;
+  --anatomy-shade-0: #d9c5a0;
+  --anatomy-shade-1: #e2d0ad;
+  --anatomy-shade-2: #eadbbd;
+  --anatomy-shade-3: #f1e5cb;
+  --anatomy-text: #5a4630;
+  --anatomy-strong: #2a1d10;
+  --anatomy-muted: #9a8466;
+  --anatomy-dot: #3b2a1a;
+  --accent: #b5541c;
+  background: #efe3c8;
+  color: var(--anatomy-text);
+}
+.rt-rod {
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+.rt-name text {
+  font-weight: 600;
+  letter-spacing: .06em;
+  fill: var(--anatomy-hi);
+}
+.rt-tag text {
+  font-weight: 700;
+  fill: var(--anatomy-hi) !important;
+  letter-spacing: .1em;
+}
+.rt-symbol {
+  stroke-width: calc(var(--u) * 1.8);
+}
+.gate-flow {
+  stroke: #b5541c !important;
+}
+[data-wire][data-on="0"] .gate-flow {
+  display: none;
+}
+.rt-glow {
+  opacity: var(--lamp, 0);
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+[data-wire][data-show="0"] {
+  display: none;
+}
+.rt-readout {
+  font-family: var(--anatomy-mono);
+  font-size: calc(var(--fw) * .05);
+  line-height: 1.45;
+  width: 29ch;
+}
+.rt-head {
+  color: var(--anatomy-muted);
+  font-size: .8em;
+  letter-spacing: .12em;
+  min-height: 1.45em;
+  padding-bottom: calc(var(--fw) * .012);
+  margin-bottom: calc(var(--fw) * .012);
+  border-bottom: calc(var(--fw) * .003) solid var(--anatomy-faint);
+}
+.rt-line {
+  color: var(--anatomy-text);
+  white-space: pre;
+  min-height: 1.45em;
+}
+.rt-line [data-rust="1"] {
+  color: var(--accent);
+  font-weight: 600;
+}
+.rt-cursor {
+  display: inline-block;
+  width: 1ch;
+  height: 1.05em;
+  vertical-align: -0.18em;
+  background: #1e140a;
+  visibility: hidden;
+}
+.rt-cursor[data-on="1"] {
+  visibility: visible;
+}

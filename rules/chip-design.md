@@ -1,0 +1,16 @@
+# Chip-design series rules (`shorts/chip-design/`)
+
+Moved out of CLAUDE.md (sections 2 and 5) so it loads only for chip-design work. Read it for any chip-design figure, script or reel. Everything in CLAUDE.md still applies.
+
+## Fonts (was section 2)
+
+- **Chip-design series (`shorts/chip-design/`) uses Type Machine** (`fonts/type_machine/Type Machine.ttf`) for everything engraved on the board and its parts (tiles, blocks, keys, the ROLLIN engraving), **Oxanium** (`fonts/oxanium/`, SemiBold 600 for large readout values, Medium 500 for small codes such as 4-bit strings) for readout tables, JetBrains Mono (`fonts/JetBrainsMono[wght].ttf`) as the fallback for other labels, and JetBrains Mono for the text on device screens and callout LCDs. Load them with `@font-face` from absolute `file:///D:/Anatomy/fonts/...` URLs (as the notes pages load Samble). Readout digits use `font-variant-numeric: tabular-nums` so columns line up. Digital electronics and Verilog keep the monospace. Annotations and handwriting in every series are Samble (`samble/samble.otf`, `rules/notes.md`).
+- **Font rule (chip-design, every figure, set 2026-10-27):** use only the episode 1 (hex) fonts: Oxanium for readouts, tables and explanation text (never Merriweather or any other serif for those), Type Machine for in-story badges and plates, JetBrains Mono for device screens and fallback labels, Samble for notes. **Merriweather** (`fonts/merriweather/`) is used only for odometer-like mechanical digits (rolling counter drums, trip meters, mechanical dials). No other fonts.
+- **Board engraving font (chip-design):** the board-face ROLLIN engraving is Oxanium 500, not Type Machine (Type Machine's N reads as II, giving ROLLII). Type Machine stays fine on in-story badges and plates.
+
+## Story shape (was section 5)
+
+- **No without-it fold (chip-design, set 2026-10-27):** episodes are analogy plus explanation only: analogy, fold to the circuit, the explanation, fold back to the analogy so the loop ends on its start frame. No third real-world scene, no desk with an engineer, no sight gag. Spend that time on richer, clearer animation of the analogy and the circuit (more motion that shows each step, so a non-engineer aged 15+ needs no thinking of their own).
+- **Choosing the analogy (chip-design):** the CSV analogy is only a first idea. Pick the everyday object whose own failure shows the problem (03 car trip meter, 04 alarm clock, 05 washing machine, 06 volume knob reading 7); change the CSV row and the Notion page together. Prefer an object that really contains the concept (04: a clock really uses BCD) over an invented contraption, and carry one visible thing unchanged through the fold (04: the digits 0 7 3 0); SCRIPTS.md section 10 (2026-11-02).
+- **Hook on the object (chip-design, set 2026-10-27):** the spoken hook is a true surprise about the analogy's own object (01 phone number gaps, 02 odometer rolled back past zero shows 9999, 03 trip meter rolls to zero, 04 alarm clock never shows 07:3A; SCRIPTS.md section 8). The figure opens on that object, showing the state the hook names, during the first 3-4 s of the loop, so voice and picture agree from the first second.
+- Analogy objects, device screens and effects: `rules/analogy.md`. Taps-world episodes (water rig + CMOS inverter, 18 onward): start from the kit, `src/iso/taps/README.md`.

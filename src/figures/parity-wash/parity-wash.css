@@ -1,0 +1,615 @@
+/* Parity wash figure: sepia tokens, washing machine panel and door, blue water, socks, blue LCD callout. */
+.iso.pw {
+  --anatomy-page: #efe3c8;
+  --anatomy-card: #efe3c8;
+  --anatomy-text: #5a4630;
+  --anatomy-strong: #2a1d10;
+  --anatomy-muted: #9a8466;
+  --anatomy-paper: #efe3c8;
+  --anatomy-face: #e8dbbd;
+  --anatomy-top: #f6ecd6;
+  --anatomy-shade-0: #e6d8b8;
+  --anatomy-shade-1: #e4d5b3;
+  --anatomy-shade-2: #e8dbbd;
+  --anatomy-shade-3: #e2d0ad;
+  --anatomy-lit-top: #fbf3e2;
+  --anatomy-lit-shade: #ecdcbc;
+  --anatomy-hi: #3b2a1a;
+  --anatomy-mid: #8a7356;
+  --anatomy-lo: #b9a47f;
+  --anatomy-faint: #d8c8a6;
+  --anatomy-lit: #1e140a;
+  --anatomy-halo: #efe3c8;
+  --anatomy-halo-opacity: .9;
+  --anatomy-dot: #2a1d10;
+  --pw-water: #789bbe; /* #2f6fb8 at 62 % on paper, as the water kit's front face */
+  color: var(--anatomy-text);
+}
+/* Type Machine on the machine panel (brand, lamp labels). */
+.iso.pw .iso-face-text {
+  font-family: "Type Machine", "JetBrains Mono", ui-monospace, monospace !important;
+}
+/* Board engraving: Latin "ROLLIN" in Oxanium 500; Devanagari falls back. */
+.iso.pw .pw-engrave .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", ui-monospace, monospace !important;
+  font-weight: 500 !important;
+}
+.iso.pw .pw-brand .iso-face-text {
+  letter-spacing: .12em;
+}
+/* Feet: darker ink. */
+.iso.pw .pw-foot .iso-fill,
+.iso.pw .pw-foot .iso-top,
+.iso.pw .pw-foot .iso-shade {
+  fill: #8a7356 !important;
+}
+/* Shared stroke weight for front-face details. */
+.pw-panel,
+.pw-dial,
+.pw-dial-cap,
+.pw-spin,
+.pw-check,
+.pw-ring0,
+.pw-ring1,
+.pw-ring2,
+.pw-glass-edge,
+.pw-handle,
+.pw-empty,
+.pw-sock-body,
+.pw-sock-cuff {
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.pw-panel {
+  fill: #fbf3e2;
+  stroke: #8a7356;
+}
+.pw-line,
+.pw-tick {
+  fill: none;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.6);
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
+.pw-pointer {
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 2.2);
+}
+.pw-dial-shadow {
+  fill: #3b2a1a;
+  opacity: .22;
+}
+.pw-dial {
+  fill: #d9c5a0;
+}
+.pw-dial-cap {
+  fill: #f6ecd6;
+  stroke: #b9a47f;
+}
+/* Lamps: yellow SPIN, red CHECK; off = faint ink. */
+.pw-spin,
+.pw-check {
+  fill: #b9a47f;
+  stroke-width: calc(var(--u) * 1);
+}
+.pw-spin.pw-on {
+  fill: #ffc21a;
+  filter: drop-shadow(0 0 calc(var(--u) * 6) #ffb400);
+}
+.pw-check.pw-on {
+  fill: #c2402f;
+  filter: drop-shadow(0 0 calc(var(--u) * 5) #c2402f);
+}
+/* Door: chrome-like ring in sepia light and mid bands. */
+.pw-door-shadow {
+  fill: #3b2a1a;
+  opacity: .18;
+}
+.pw-ring0 {
+  fill: #b9a47f;
+}
+.pw-ring1 {
+  fill: #fbf3e2;
+  stroke: #b9a47f;
+}
+.pw-ring2 {
+  fill: #8a7356;
+  stroke: #8a7356;
+}
+.pw-glass {
+  fill: #d2d2c6; /* #2f6fb8 at 15 % on paper: air behind the glass */
+}
+.pw-glass-edge {
+  fill: none;
+}
+.pw-water {
+  fill: var(--pw-water);
+  opacity: .6;
+}
+.pw-surface {
+  fill: none;
+  stroke: #2f6fb8;
+  stroke-width: calc(var(--u) * 2.4);
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
+.pw-ripple {
+  fill: none;
+  stroke: #fbf3e2;
+  stroke-opacity: .6;
+  stroke-width: calc(var(--u) * 1.6);
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
+.pw-bubble {
+  fill: #fbf3e2;
+  fill-opacity: .35;
+  stroke: #fbf3e2;
+  stroke-width: calc(var(--u) * 1.4);
+  vector-effect: non-scaling-stroke;
+}
+.pw-shine {
+  fill: none;
+  stroke: #fff8ea;
+  stroke-opacity: .85;
+  stroke-width: calc(var(--u) * 3);
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
+.pw-handle {
+  fill: #d9c5a0;
+}
+/* Socks: light sepia body, cuff band varied by sepia tone only. */
+.pw-sock-body {
+  fill: #f1e5cb;
+  stroke-width: calc(var(--u) * 1.4);
+}
+.pw-sock-cuff {
+  stroke-width: calc(var(--u) * 1.4);
+}
+.iso.pw .pw-sock .iso-fill,
+.iso.pw .pw-sock .iso-top {
+  fill: #f6ecd6 !important;
+}
+.iso.pw .pw-sock .iso-shade {
+  fill: #eadbbd !important;
+}
+.iso.pw .pw-c0 .iso-fill,
+.iso.pw .pw-c0 .iso-top,
+.iso.pw .pw-c0 .iso-shade,
+.pw-sock-cuff.pw-c0 {
+  fill: #8a7356 !important;
+}
+.iso.pw .pw-c1 .iso-fill,
+.iso.pw .pw-c1 .iso-top,
+.iso.pw .pw-c1 .iso-shade,
+.pw-sock-cuff.pw-c2 {
+  fill: #b9a47f !important;
+}
+.iso.pw .pw-c2 .iso-fill,
+.iso.pw .pw-c2 .iso-top,
+.iso.pw .pw-c2 .iso-shade {
+  fill: #d9c5a0 !important;
+}
+.iso.pw .pw-c3 .iso-fill,
+.iso.pw .pw-c3 .iso-top,
+.iso.pw .pw-c3 .iso-shade {
+  fill: #3b2a1a !important;
+}
+/* Empty slot at the end of the tray. */
+.pw-empty {
+  fill: #e2d0ad;
+  stroke: #b9a47f;
+  stroke-width: calc(var(--u) * 1.4);
+}
+.pw-pool {
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+/* Callout LCD strip, text and red dashed warning box. */
+.iso.pw .pw-lcd {
+  fill: url(#pw-lcd-glass) !important;
+}
+.pw-lcd-text {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  fill: #14243a;
+}
+.pw-warn {
+  fill: none;
+  stroke: #c2402f;
+  stroke-width: calc(var(--u) * 1.8);
+  stroke-dasharray: calc(var(--u) * 6) calc(var(--u) * 4);
+  vector-effect: non-scaling-stroke;
+}
+/* Drum mouth behind the door: dark rim, drum wall, perforations and lifters turning with the drum. */
+.pw-mouth-rim {
+  fill: #d9c5a0;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.4);
+  vector-effect: non-scaling-stroke;
+}
+.pw-mouth {
+  fill: #8a7356;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.pw-drum-back {
+  fill: #b9a47f;
+}
+.pw-hole {
+  fill: #3b2a1a;
+  opacity: .45;
+}
+.pw-lifter {
+  fill: #d9c5a0;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.2);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+/* Glass in the door: a light tint so the drum shows through. */
+.pw-glass {
+  fill: #d2d2c6;
+  fill-opacity: .28;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.pw-hinge {
+  fill: #b9a47f;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.4);
+  vector-effect: non-scaling-stroke;
+}
+/* Socks in the drum (front plane) and on the tray (lying on their side). */
+.pw-sock-in {
+  fill: #f1e5cb;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.3);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.pw-sock-top,
+.pw-wall-a,
+.pw-wall-b {
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.3);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.pw-sock-top {
+  fill: #f6ecd6;
+}
+.pw-wall-a {
+  fill: #e2d0ad;
+}
+.pw-wall-b {
+  fill: #eadbbd;
+}
+.pw-sock-in.pw-c0,
+.pw-sock-top.pw-c0 {
+  fill: #8a7356;
+}
+.pw-sock-in.pw-c1,
+.pw-sock-top.pw-c1 {
+  fill: #b9a47f;
+}
+.pw-sock-in.pw-c2,
+.pw-sock-top.pw-c2 {
+  fill: #d9c5a0;
+}
+.pw-sock-in.pw-c3,
+.pw-sock-top.pw-c3 {
+  fill: #3b2a1a;
+}
+/* Circuit tiles, labels, parity outline (rust), warning outlines (red dashed), unknown marks. */
+.iso.pw .pw-tile .iso-face-text,
+.iso.pw .pw-labels .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", ui-monospace, monospace !important;
+  font-weight: 600 !important;
+}
+.iso.pw .pw-labels .iso-face-text {
+  font-weight: 500 !important;
+}
+.pw-parity {
+  fill: none;
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 2.6);
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.pw-missed {
+  fill: none;
+  stroke: #c2402f;
+  stroke-width: calc(var(--u) * 4.5);
+  stroke-dasharray: calc(var(--u) * 10) calc(var(--u) * 6);
+  vector-effect: non-scaling-stroke;
+}
+.pw-unknown text {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif;
+  font-weight: 600;
+  font-size: 26px;
+  fill: #8a7356;
+}
+/* CHECK lamp: clear lens when off, red with a halo and a red pool on the board when lit. */
+.iso.pw .pw-lamp .iso-fill,
+.iso.pw .pw-lamp .iso-top,
+.iso.pw .pw-lamp .iso-shade {
+  fill: #fffaf0 !important;
+  fill-opacity: .55;
+}
+.iso.pw [data-lamp][data-on] .pw-lamp .iso-fill,
+.iso.pw [data-lamp][data-on] .pw-lamp .iso-top,
+.iso.pw [data-lamp][data-on] .pw-lamp .iso-shade {
+  fill: #c2402f !important;
+  fill-opacity: 1;
+}
+.iso.pw [data-lamp][data-on] .pw-lamp {
+  filter: drop-shadow(0 0 calc(var(--u) * 8) #c2402f);
+}
+.pw-lamp-pool {
+  opacity: 0;
+}
+[data-lamp][data-on] .pw-lamp-pool {
+  opacity: 1;
+}
+/* Noise spark: light rust bolt and burst. */
+.pw-bolt,
+.pw-burst {
+  fill: none;
+  stroke: #f0a868;
+  stroke-width: calc(var(--u) * 3.2);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.pw-spark-head {
+  fill: #f0a868;
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 1.2);
+  vector-effect: non-scaling-stroke;
+}
+/* Table (Oxanium): four rows below the long board; hidden in the analogy, in at the fold. */
+.iso.pw .reel-centre {
+  position: relative;
+}
+.iso.pw .reel-below {
+  position: absolute;
+  left: 50%;
+  top: var(--pw-table-top, 70%);
+  opacity: var(--pw-table-in, 0) !important;
+  transform: translate(-50%, calc((1 - var(--pw-table-in, 0)) * var(--fw) * .08)) !important;
+}
+.pw-table {
+  border-collapse: separate;
+  border-spacing: 0 calc(var(--fw) * .006);
+}
+.reel .pw-table td {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif !important;
+  font-weight: 500 !important;
+  font-size: calc(var(--fw) * .04);
+  white-space: nowrap;
+  padding: calc(var(--fw) * .01) calc(var(--fw) * .024) !important;
+  color: #b9a47f;
+  border-radius: calc(var(--fw) * .01);
+}
+.reel .pw-table tr[data-on] td {
+  color: var(--anatomy-text);
+}
+.reel .pw-table tr[data-active] td {
+  color: #b5541c;
+  background: #3b2a1a1a;
+  font-weight: 600 !important;
+}
+/* Door rings are annuli around the glass, so the drum shows through. */
+.pw-ring0,
+.pw-ring1,
+.pw-ring2 {
+  fill-rule: evenodd;
+}
+/* Without-it desk: engineer and chair (copied from hex-without-sample; sepia surfaces and inks only). */
+.iso.pw .pw-chair .iso-fill,
+.iso.pw .pw-chair .iso-shade {
+  fill: #d9c5a0 !important;
+}
+.iso.pw .pw-chair .iso-top {
+  fill: #e2d0ad !important;
+}
+.pw-tube-out {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pw-tube-in {
+  fill: none;
+  stroke: #eadbbd;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pw-tube-chair { stroke: #d9c5a0; }
+.pw-tube-trousers { stroke: #b9a47f; }
+.pw-tube-shoe { stroke: #8a7356; }
+.pw-tube-shirt { stroke: #eadbbd; }
+.pw-tube-skin { stroke: #ecdcbc; }
+.pw-tube-cable { stroke: #8a7356; }
+.pw-skin {
+  fill: #ecdcbc;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.pw-hair {
+  fill: #8a7356;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.pw-shirt-fill, .pw-shirt-top, .pw-chair-back, .pw-chair-face {
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.pw-shirt-fill { fill: #eadbbd; }
+.pw-shirt-top { fill: #fbf3e2; }
+.pw-chair-back { fill: #d9c5a0; }
+.pw-chair-face { fill: #e2d0ad; stroke: #8a7356; }
+.pw-seam {
+  fill: none;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
+/* Monitors: dark sepia glass when off, blue backlit LCD when on, photo blocks in blue-black. */
+.pw-scr-off {
+  fill: #3b2a1a;
+  fill-opacity: .82;
+}
+.pw-scr {
+  fill: url(#pw-lcd-glass);
+  stroke: #fbf3e2;
+  stroke-width: calc(var(--u) * 1.2);
+  vector-effect: non-scaling-stroke;
+}
+.pw-photo {
+  fill: #14243a;
+}
+.pw-photo.pw-photo-bad {
+  fill: #b5541c;
+}
+/* Receiver warning lamp: dark sepia glass off, red with a red halo while the parity check fails. */
+.pw-warn-lamp {
+  fill: #5a4630;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.2);
+  vector-effect: non-scaling-stroke;
+}
+.pw-warn-lamp[data-on] {
+  fill: #c2402f;
+  filter: drop-shadow(0 0 calc(var(--u) * 6) #c2402f);
+}
+/* Bits on the cable: 1 = rust dot, 0 = hollow; the parity bit is a diamond with a rust edge. */
+.pw-dot,
+.pw-pdot {
+  fill: #fbf3e2;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.4);
+  vector-effect: non-scaling-stroke;
+}
+.pw-dot.pw-one {
+  fill: #b5541c;
+  stroke: #3b2a1a;
+}
+.pw-pdot {
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 2);
+  stroke-linejoin: round;
+}
+.pw-pdot.pw-one {
+  fill: #b5541c;
+}
+/* Thought bubble: paper fill, ink outline, "?" in ink. */
+.pw-bubble-shape {
+  fill: #fbf3e2;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 2.6);
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.pw-bubble-shape.pw-trail {
+  stroke-width: calc(var(--u) * 3.4);
+}
+.pw-question {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif;
+  font-weight: 600;
+  fill: #3b2a1a;
+}
+/* A data 1 being counted: rust (active). */
+.iso.pw .iso-face-text.pw-hot {
+  fill: #b5541c !important;
+}
+/* Pairs: an ink arc over each two counted items; the one left alone outlined rust; the empty slot red dashed. */
+.pw-arc {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 2.6);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.pw-alone {
+  fill: none;
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 3.4);
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.pw-slot {
+  fill: none;
+  stroke: none;
+  vector-effect: non-scaling-stroke;
+}
+.pw-slot[data-state="alone"] {
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 3.4);
+}
+.pw-slot[data-state="empty"] {
+  stroke: #c2402f;
+  stroke-width: calc(var(--u) * 4.5);
+  stroke-dasharray: calc(var(--u) * 10) calc(var(--u) * 6);
+}
+/* The sock the machine eats: rust outline while it flashes. */
+.pw-lost .pw-sock-in {
+  stroke: #b5541c !important;
+  stroke-width: calc(var(--u) * 2.6) !important;
+}
+/* Bits on the wires: a rust dot for a 1, a hollow ring for a 0. */
+.pw-bit {
+  fill: #efe3c8;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.pw-bit.pw-one {
+  fill: #b5541c;
+  stroke: #b5541c;
+}
+/* Readout: one large live line. */
+.reel .pw-table td[data-readout] {
+  font-size: calc(var(--fw) * .058);
+  color: var(--anatomy-strong);
+  font-variant-numeric: tabular-nums;
+}
+/* Standing socks on the rack (black and white pairs) and the same colours in the drum. */
+.pw-sock-front,
+.pw-sock-back,
+.pw-sock-cuff,
+.pw-peg {
+  stroke-width: calc(var(--u) * 1.4);
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.pw-sock-front.pw-black { fill: #2a1d10; stroke: #1e140a; }
+.pw-sock-back.pw-black { fill: #4a3726; stroke: #1e140a; }
+.pw-sock-cuff.pw-black { fill: #5a4630; stroke: #1e140a; }
+.pw-sock-front.pw-white { fill: #fffaf0; stroke: #3b2a1a; }
+.pw-sock-back.pw-white { fill: #d9c5a0; stroke: #3b2a1a; }
+.pw-sock-cuff.pw-white { fill: #d9c5a0; stroke: #3b2a1a; }
+.pw-peg { fill: #d9c5a0; stroke: #3b2a1a; }
+.pw-sock-in.pw-black { fill: #2a1d10; }
+.pw-sock-in.pw-white { fill: #fffaf0; }
+.pw-rack-post,
+.pw-rack-bar {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.pw-rack-post { stroke: #8a7356; stroke-width: calc(var(--u) * 2.6); }
+.pw-rack-bar { stroke: #3b2a1a; stroke-width: calc(var(--u) * 2.6); }

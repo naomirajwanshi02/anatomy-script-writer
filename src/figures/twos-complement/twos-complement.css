@@ -1,0 +1,288 @@
+﻿/* Two's complement figure: sepia tokens, cluster (from odometer-sample), bit tiles and readout table. */
+.iso.tc {
+  --anatomy-page: #efe3c8;
+  --anatomy-card: #efe3c8;
+  --anatomy-text: #5a4630;
+  --anatomy-strong: #2a1d10;
+  --anatomy-muted: #9a8466;
+  --anatomy-paper: #efe3c8;
+  --anatomy-face: #e8dbbd;
+  --anatomy-top: #f6ecd6;
+  --anatomy-shade-0: #e6d8b8;
+  --anatomy-shade-1: #e4d5b3;
+  --anatomy-shade-2: #e8dbbd;
+  --anatomy-shade-3: #e2d0ad;
+  --anatomy-lit-top: #fbf3e2;
+  --anatomy-lit-shade: #ecdcbc;
+  --anatomy-hi: #3b2a1a;
+  --anatomy-mid: #8a7356;
+  --anatomy-lo: #b9a47f;
+  --anatomy-faint: #d8c8a6;
+  --anatomy-lit: #1e140a;
+  --anatomy-halo: #efe3c8;
+  --anatomy-halo-opacity: .9;
+  --anatomy-dot: #2a1d10;
+  color: var(--anatomy-text);
+}
+.iso.tc .iso-face-text {
+  font-family: "Type Machine", "JetBrains Mono", ui-monospace, monospace !important;
+}
+/* Board engraving: Oxanium 500 as in hex-grouping; Devanagari falls back. */
+.iso.tc .tc-engrave .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", ui-monospace, monospace !important;
+  font-weight: 500 !important;
+}
+.tc-pool {
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+/* Recess wall, then the dark face (ink hi ~85 %). */
+.tc-recess {
+  fill: #d9c5a0;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.tc-face {
+  fill: #3b2a1ad9;
+}
+.tc-ring,
+.tc-tick,
+.tc-needle,
+.tc-bezel,
+.tc-icon-cut,
+.tc-icon-ray {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
+.tc-ring {
+  stroke: #b9a47f;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.tc-tick {
+  stroke: #d8c8a6;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.tc-tick-major {
+  stroke: #fbf3e2;
+  stroke-width: calc(var(--u) * 2.6);
+}
+.tc-dial-num {
+  fill: #fbf3e2;
+  font-family: "Type Machine", "JetBrains Mono", monospace;
+}
+.tc-needle {
+  stroke: #fff8ea;
+  stroke-width: calc(var(--u) * 3.4);
+}
+.tc-hub {
+  fill: #8a7356;
+  stroke: #fbf3e2;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.tc-bezel {
+  fill: #1e140a;
+  stroke: #b9a47f;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.tc-drum-digit {
+  fill: #2a1d10;
+  font-family: "Merriweather", Georgia, serif;
+}
+.tc-icon-cut {
+  stroke: #1e140a;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.tc-icon-ray {
+  stroke-width: calc(var(--u) * 2.6);
+}
+.tc-icon-r {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif;
+  font-weight: 600;
+}
+/* Backlit LCD in the series blue, dark JetBrains Mono digits, red dashed warning box. */
+.iso.tc .tc-lcd {
+  fill: url(#tc-lcd-glass) !important;
+}
+.tc-lcd-text {
+  font-family: "JetBrains Mono", monospace;
+  fill: #14243a;
+}
+.tc-warn {
+  fill: none;
+  stroke: #c2402f !important;
+  stroke-width: calc(var(--u) * 1.8) !important;
+  stroke-dasharray: calc(var(--u) * 6) calc(var(--u) * 4);
+  vector-effect: non-scaling-stroke;
+}
+/* Binnacle: thin bezel lip, gauge faces, red zone, glass shine, engraved brand badge. */
+.tc-lip {
+  fill: #fbf3e2;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.tc-gauge-face {
+  fill: #1e140a;
+  fill-opacity: .92;
+}
+.tc-red-zone {
+  fill: none;
+  stroke: #c2402f;
+  stroke-width: calc(var(--u) * 5);
+  vector-effect: non-scaling-stroke;
+}
+.tc-shine {
+  fill: none;
+  stroke: #fff8ea;
+  stroke-opacity: .15;
+  stroke-width: calc(var(--u) * 5);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.tc-badge {
+  fill: #8a7356;
+  font-family: "Type Machine", "JetBrains Mono", monospace;
+  letter-spacing: .08em;
+}
+/* Bit tiles: rust accent on active tiles; the falling carry digit in rust. */
+.tc-accent {
+  fill: none;
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 2.6);
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.iso.tc .iso-face-text.tc-rust {
+  fill: #b5541c !important;
+}
+/* Carry marks: a small rust 1 floating above the tiles while the adder carries it left. */
+.iso.tc .iso-face-text.tc-carry-mark {
+  fill: #b5541c !important;
+  font-family: "Oxanium", "JetBrains Mono", sans-serif !important;
+  font-weight: 600 !important;
+}
+/* Readout table: out of the layout, under the long board; hidden in the analogy, in at the fold. */
+.iso.tc .reel-centre {
+  position: relative;
+}
+.iso.tc .reel-below {
+  position: absolute;
+  left: 50%;
+  top: var(--tc-table-top, 70%);
+  opacity: var(--tc-table-in, 0) !important;
+  transform: translate(-50%, calc((1 - var(--tc-table-in, 0)) * var(--fw) * .08)) !important;
+}
+/* Readout: the counter's reading = its signed value (Oxanium 600, tabular), a small muted step tag, then two fixed
+   lines (5 - 3 as an addition, the path strip) that fade in. The value turns rust in the key hold. */
+.iso.tc .tc-read {
+  display: grid;
+  width: max-content;
+  justify-items: center;
+  row-gap: calc(var(--fw) * .012);
+  padding: calc(var(--fw) * .028) calc(var(--fw) * .05);
+  border: calc(var(--u) * 2) solid #3b2a1a;
+  border-radius: calc(var(--fw) * .014);
+  font-family: "Oxanium", "JetBrains Mono", sans-serif;
+  font-variant-numeric: tabular-nums;
+  white-space: pre;
+  color: #2a1d10;
+}
+.iso.tc .tc-main {
+  display: grid;
+  grid-template-columns: auto auto 2.4em;
+  column-gap: calc(var(--fw) * .02);
+  align-items: baseline;
+  font-weight: 600;
+  font-size: calc(var(--fw) * .07);
+  line-height: 1.15;
+}
+.iso.tc .tc-rbits {
+  letter-spacing: .06em;
+}
+.iso.tc .tc-req {
+  color: #9a8466;
+}
+.iso.tc .tc-rval {
+  text-align: left;
+}
+.iso.tc .tc-main[data-key] .tc-rval,
+.iso.tc .tc-main[data-key] .tc-rbits {
+  color: #b5541c;
+}
+.iso.tc .tc-rtag {
+  font-weight: 500;
+  font-size: calc(var(--fw) * .034);
+  color: #9a8466;
+}
+.iso.tc .tc-sub {
+  font-weight: 500;
+  font-size: calc(var(--fw) * .042);
+  color: #5a4630;
+}
+/* Binary counter: dark window, dark drums with paper digits (Merriweather, odometer rule), gear teeth, reading-line
+   ticks, axle, pinions (rust while turning), the empty seat and the rust wrap flash. */
+.tc-cwin {
+  fill: #1e140a;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+  vector-effect: non-scaling-stroke;
+}
+.tc-bdrum-digit {
+  fill: #fbf3e2;
+  font-family: "Merriweather", Georgia, serif;
+  font-weight: 700;
+}
+.tc-tooth,
+.tc-cline,
+.tc-axle,
+.tc-flash {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.tc-tooth {
+  stroke: #b9a47f;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.tc-cline {
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 2.6);
+}
+.tc-axle {
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 2.6);
+}
+.tc-broll {
+  fill: none;
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 2.6);
+  vector-effect: non-scaling-stroke;
+}
+.tc-seat {
+  fill: none;
+  stroke: #b9a47f;
+  stroke-width: calc(var(--u) * 1.8);
+  stroke-dasharray: calc(var(--u) * 3) calc(var(--u) * 3);
+  vector-effect: non-scaling-stroke;
+}
+.tc-pinion {
+  fill: #d9c5a0;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.tc-pinion.tc-pin-on {
+  stroke: #b5541c;
+  fill: #f0a868;
+}
+.tc-pin-hub {
+  fill: #3b2a1a;
+}
+.tc-flash {
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 3.2);
+}

@@ -1,0 +1,89 @@
+/* Banner-plane series badge: kit solids and sepia tokens (src/iso/iso.css); rust only for the episode number.
+   Paper page like the figures; capture.mjs --transparent clears it so only the plane and banner remain. */
+.iso.bp {
+  --fw: min(100vw, 56.25vh);
+  --u: calc(var(--fw) / 1080);
+  --anatomy-weight: 1.8px;
+}
+.bp-frame {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+.bp-svg {
+  display: block;
+  width: var(--fw);
+  height: auto;
+  overflow: hidden;
+}
+.bp-svg path {
+  vector-effect: non-scaling-stroke;
+}
+.bp-strip {
+  stroke: none;
+  fill: var(--anatomy-face);
+}
+.bp-strip[data-shade="top"] {
+  fill: var(--anatomy-top);
+}
+.bp-strip[data-shade="s2"] {
+  fill: var(--anatomy-shade-3);
+}
+.bp-strip[data-shade="s1"] {
+  fill: var(--anatomy-shade-2);
+}
+.bp .bp-edge {
+  stroke: var(--anatomy-hi);
+  stroke-width: 2.2px;
+}
+.bp .bp-hem {
+  stroke: var(--anatomy-faint);
+  stroke-width: 1.6px;
+}
+.bp .bp-pole {
+  stroke: var(--anatomy-hi);
+  stroke-width: 4.5px;
+}
+.bp .bp-rope {
+  stroke: var(--anatomy-mid);
+  stroke-width: 2px;
+}
+.bp .bp-gear {
+  stroke: var(--anatomy-hi);
+  stroke-width: 3px;
+}
+.bp-tire {
+  fill: var(--anatomy-hi);
+}
+.bp-hub {
+  fill: var(--anatomy-top);
+}
+.bp-glass {
+  fill: var(--anatomy-lo);
+  fill-opacity: .6;
+  stroke: var(--anatomy-hi);
+  stroke-width: 1.8px;
+}
+.bp .bp-stripe {
+  stroke: var(--anatomy-lo);
+  stroke-width: 2.6px;
+}
+.bp-disc {
+  fill: var(--anatomy-hi);
+  fill-opacity: .08;
+  stroke: var(--anatomy-lo);
+  stroke-width: 1px;
+}
+.bp .bp-blade {
+  stroke: var(--anatomy-hi);
+  stroke-width: 4px;
+}
+.bp-ch {
+  fill: var(--anatomy-strong);
+  font-family: var(--anatomy-mono);
+  font-weight: 700;
+}
+.bp-num {
+  fill: var(--accent);
+}

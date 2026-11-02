@@ -118,7 +118,7 @@ def main():
     for f in FILLER:
         if f in low:
             E(f"banned phrase: '{f}'")
-    for ch in SYMBOLS:
+    for ch in ["Q̄", *SYMBOLS[2:]]:  # "Q̄" is two code points; a plain Q (as in QUARTER) is fine
         if ch in strip_tags(block).replace("'s", "").replace("'t", "").replace("'re", "").replace("'ll", ""):
             E(f"raw symbol '{ch}': spell it for speech")
 

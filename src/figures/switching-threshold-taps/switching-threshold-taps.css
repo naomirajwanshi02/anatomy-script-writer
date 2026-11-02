@@ -1,0 +1,350 @@
+/* Switching threshold as two taps: sepia tokens, stand, plates, taps, linkage, streams, valves, straps, readout.
+   Water faces, glass and drops come from the analogy kit (src/iso/analogy/water.css). */
+.iso.st {
+  --anatomy-page: #efe3c8;
+  --anatomy-card: #efe3c8;
+  --anatomy-paper: #efe3c8;
+  --anatomy-halo: #efe3c8;
+  --anatomy-hi: #3b2a1a;
+  --anatomy-mid: #8a7356;
+  --anatomy-lo: #b9a47f;
+  --anatomy-faint: #d8c8a6;
+  --anatomy-lit: #1e140a;
+  --anatomy-face: #f6ecd6;
+  --anatomy-top: #fbf3e2;
+  --anatomy-lit-top: #fff8ea;
+  --anatomy-lit-shade: #ecdcbc;
+  --anatomy-shade-0: #d9c5a0;
+  --anatomy-shade-1: #e2d0ad;
+  --anatomy-shade-2: #eadbbd;
+  --anatomy-shade-3: #f1e5cb;
+  --anatomy-text: #5a4630;
+  --anatomy-strong: #2a1d10;
+  --anatomy-muted: #9a8466;
+  --anatomy-dot: #3b2a1a;
+  --accent: #b5541c;
+  --liquid: #2f6fb8;
+  background: #efe3c8;
+  color: var(--anatomy-text);
+}
+
+/* Engraved labels on parts: Type Machine; the board engraving: Oxanium 500. */
+.iso.st .iso-face-text {
+  font-family: "Type Machine", "JetBrains Mono", ui-monospace, monospace !important;
+}
+.iso.st .st-engrave .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", ui-monospace, monospace !important;
+  font-weight: 500 !important;
+}
+.iso.st .st-label .iso-face-text,
+.iso.st .st-brand .iso-face-text {
+  fill: #3b2a1a !important;
+  letter-spacing: .06em;
+}
+
+/* Stand braces, plates and the tag arm. */
+.st-brace,
+.st-plate,
+.st-arm,
+.st-tick,
+.st-half-ring {
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.st-brace {
+  fill: #d9c5a0;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.st-plate {
+  fill: #fbf3e2;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+}
+.st-arm {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 2.6);
+}
+.st-tick {
+  fill: none;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 2.6);
+}
+.st-tick {
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 3.4);
+}
+.st-tick-mid {
+  stroke: #1e140a;
+  stroke-width: calc(var(--u) * 6);
+}
+/* Lever 0 / 1 marks: lit ink with a pale halo. */
+.iso.st .st-marks .iso-face-text {
+  fill: #1e140a !important;
+  font-weight: 700;
+  paint-order: stroke;
+  stroke: #fff8ea;
+  stroke-width: 1.2px;
+}
+/* Half mark: a tick ring round the glass at 50 %. */
+.st-half-ring {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 2.6);
+}
+
+/* Taps: the handle bar on each wheel. */
+.st-handle {
+  stroke: #3b2a1a !important;
+  stroke-width: calc(var(--u) * 5) !important;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Lever rod and link rods (reel weight 5 via the kit's [class$=-rod]). */
+.st-rod,
+.st-link-rod {
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Falling streams: a blue column with darker drops running down it. */
+.st-column {
+  fill: none;
+  stroke: color-mix(in srgb, var(--liquid) 75%, #efe3c8);
+  stroke-linecap: round;
+}
+.reel .st-drops {
+  stroke-width: calc(var(--u) * 3.4);
+  stroke-dasharray: calc(var(--u) * 4) calc(var(--u) * 12);
+  vector-effect: non-scaling-stroke;
+}
+
+/* Readout: Vin and Vout values beside an empty Vout-against-Vin graph card. */
+.st-readout {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--fw) * .07);
+}
+.st-values {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--fw) * .025);
+  font-family: "Oxanium", "JetBrains Mono", monospace;
+  font-variant-numeric: tabular-nums;
+}
+.st-val {
+  display: flex;
+  align-items: baseline;
+  gap: calc(var(--fw) * .03);
+}
+.st-name {
+  width: calc(var(--fw) * .13);
+  font-weight: 500;
+  font-size: calc(var(--fw) * .04);
+  color: var(--anatomy-muted);
+}
+.st-num {
+  font-weight: 600;
+  font-size: calc(var(--fw) * .065);
+  color: var(--anatomy-strong);
+}
+.st-graph {
+  display: block;
+  width: calc(var(--fw) * .32);
+  height: auto;
+  overflow: visible;
+  font-family: "Oxanium", "JetBrains Mono", monospace;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  font-size: 18px;
+}
+.st-graph text {
+  fill: var(--anatomy-muted);
+}
+.st-graph .st-axis-name {
+  fill: var(--anatomy-strong);
+  font-size: 21px;
+  font-weight: 600;
+}
+.st-card {
+  fill: #fbf3e2;
+  stroke: #8a7356;
+  stroke-width: 2;
+}
+.st-axis {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: 2.6;
+  stroke-linejoin: round;
+}
+.st-half {
+  fill: none;
+  stroke: #b9a47f;
+  stroke-width: 2;
+  stroke-dasharray: 8 6;
+}
+
+/* Scene groups (opacity written by the loop). */
+.st-joint {
+  fill: #3b2a1a;
+}
+
+/* Highlights: rust rings and outlines that pulse on their word. */
+.st-ring,
+.st-glow {
+  fill: none;
+  stroke: #b5541c;
+  stroke-width: calc(var(--u) * 4);
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.st-ghost {
+  fill: none;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 2.6);
+  stroke-dasharray: calc(var(--u) * 10) calc(var(--u) * 6);
+  vector-effect: non-scaling-stroke;
+}
+.st-ghost-pipe {
+  stroke: #2f6fb8;
+}
+.iso.st .st-ghost-text .iso-face-text {
+  fill: #3b2a1a !important;
+  font-family: "JetBrains Mono", ui-monospace, monospace !important;
+  font-weight: 700;
+}
+.st-arrows path {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 4);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Rails: VDD dark, GND light, engraved names. */
+.st .rail[data-rail=vdd] { --rail: #4a3726; }
+.st .rail[data-rail=gnd] { --rail: #a08a68; }
+.st .rail .iso-top { fill: color-mix(in srgb, var(--rail) 38%, var(--anatomy-top)) !important; }
+.st .rail .iso-face,
+.st .rail .iso-fill,
+.st .rail .iso-shade { fill: color-mix(in srgb, var(--rail) 20%, var(--anatomy-face)) !important; }
+.st .rail .iso-edge,
+.st .rail .iso-crease { stroke: color-mix(in srgb, var(--rail) 60%, var(--anatomy-mid)) !important; }
+.iso.st .rail-name .iso-face-text { font-weight: 600; letter-spacing: .06em; }
+.iso.st .rail-name[data-rail=vdd] .iso-face-text { fill: color-mix(in srgb, #4a3726 80%, #1e140a) !important; }
+.iso.st .rail-name[data-rail=gnd] .iso-face-text { fill: color-mix(in srgb, #a08a68 80%, #1e140a) !important; }
+
+/* Straps: neutral; solid rust while current flows (brightness --i) with light rust dashes in the current direction. */
+.st-strap,
+.st-flow {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.st-strap {
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 4);
+}
+.st-flow {
+  display: none;
+  stroke: #f0a868;
+  stroke-width: calc(var(--u) * 3.4);
+  stroke-dasharray: calc(var(--u) * 4) calc(var(--u) * 12);
+  animation: iso-flow 1.6s linear infinite;
+}
+[data-strap][data-on="1"] .st-strap {
+  stroke: color-mix(in srgb, #b5541c calc(var(--i, 1) * 100%), #8a7356);
+}
+[data-strap=bus][data-dir=fwd] .st-flow[data-flow-dir=rev],
+[data-strap=bus][data-dir=rev] .st-flow[data-flow-dir=fwd] {
+  display: none !important;
+}
+[data-strap][data-on="1"] .st-flow {
+  display: inline;
+  opacity: var(--i, 1);
+}
+.st-gate-wire {
+  stroke-width: calc(var(--u) * 2.6) !important;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Valves: body tinted in the device hue; gate bar in the full hue while it conducts, faint tint while off. */
+.st-valve[data-valve=p] { --hue: #2f6fb8; }
+.st-valve[data-valve=n] { --hue: #c2402f; }
+.st-vbody .iso-top { fill: color-mix(in srgb, var(--hue) 30%, var(--anatomy-top)) !important; }
+.st-vbody .iso-face,
+.st-vbody .iso-fill,
+.st-vbody .iso-shade { fill: color-mix(in srgb, var(--hue) 18%, var(--anatomy-face)) !important; }
+.st-vbody .iso-edge,
+.st-vbody .iso-crease { stroke: color-mix(in srgb, var(--hue) 50%, var(--anatomy-mid)) !important; }
+.st-vgate .iso-top,
+.st-vgate .iso-face,
+.st-vgate .iso-fill,
+.st-vgate .iso-shade { fill: color-mix(in srgb, var(--hue) 22%, var(--anatomy-shade-2)) !important; }
+.st-valve[data-open="1"] .st-vgate .iso-top,
+.st-valve[data-open="1"] .st-vgate .iso-face,
+.st-valve[data-open="1"] .st-vgate .iso-fill,
+.st-valve[data-open="1"] .st-vgate .iso-shade,
+.st-valve[data-flash="1"] .st-vgate .iso-top,
+.st-valve[data-flash="1"] .st-vgate .iso-face,
+.st-valve[data-flash="1"] .st-vgate .iso-fill,
+.st-valve[data-flash="1"] .st-vgate .iso-shade { fill: var(--hue) !important; }
+.st-valve[data-flash="1"] .st-vbody .iso-top { fill: color-mix(in srgb, var(--hue) 55%, var(--anatomy-top)) !important; }
+.st-vglow {
+  fill: none;
+  stroke: var(--hue);
+  stroke-width: calc(var(--u) * 4);
+  vector-effect: non-scaling-stroke;
+}
+.st-hole {
+  fill: #fbf3e2;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 2.4);
+  vector-effect: non-scaling-stroke;
+}
+.st-electron {
+  fill: #3b2a1a;
+}
+
+/* Graph: swept curves (active rust, earlier ink), operating point, VM tick, noise brackets. */
+.st-curve {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+.st-curve[data-active="1"] {
+  stroke: #b5541c;
+  stroke-width: 4;
+}
+.st-point {
+  fill: #b5541c;
+}
+.st-vm {
+  transform-box: fill-box;
+  transform-origin: bottom;
+}
+.st-vm path {
+  stroke: #1e140a;
+  stroke-width: 4;
+}
+.st-vm text {
+  fill: #2a1d10 !important;
+  font-weight: 600;
+  font-size: 20px;
+}
+.st-brackets path {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+@media (prefers-reduced-motion: reduce) {
+  .st-flow {
+    animation: none;
+  }
+}

@@ -1,0 +1,225 @@
+/* Noise margins on a road (full figure): sepia tokens, grey-sepia tarmac, rust car, upright 0-1 V scale. */
+.iso.nm {
+  --anatomy-page: #efe3c8;
+  --anatomy-card: #efe3c8;
+  --anatomy-text: #5a4630;
+  --anatomy-strong: #2a1d10;
+  --anatomy-muted: #9a8466;
+  --anatomy-paper: #efe3c8;
+  --anatomy-face: #e8dbbd;
+  --anatomy-top: #f6ecd6;
+  --anatomy-shade-0: #e6d8b8;
+  --anatomy-shade-1: #e4d5b3;
+  --anatomy-shade-2: #e8dbbd;
+  --anatomy-shade-3: #e2d0ad;
+  --anatomy-lit-top: #fbf3e2;
+  --anatomy-lit-shade: #ecdcbc;
+  --anatomy-hi: #3b2a1a;
+  --anatomy-mid: #8a7356;
+  --anatomy-lo: #b9a47f;
+  --anatomy-faint: #d8c8a6;
+  --anatomy-lit: #1e140a;
+  --anatomy-halo: #efe3c8;
+  --anatomy-halo-opacity: .9;
+  --anatomy-dot: #2a1d10;
+  color: var(--anatomy-text);
+}
+/* Type Machine on board parts and plates; Oxanium for the board engraving, the scale numbers and the readout. */
+.iso.nm .iso-face-text {
+  font-family: "Type Machine", "JetBrains Mono", ui-monospace, monospace !important;
+}
+.iso.nm .nm-engrave .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", ui-monospace, monospace !important;
+  font-weight: 500 !important;
+}
+.iso.nm .nm-scale .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif !important;
+  font-weight: 600 !important;
+  font-variant-numeric: tabular-nums;
+  fill: #3b2a1a !important;
+  letter-spacing: 0;
+}
+.iso.nm .nm-digit .iso-face-text { fill: #8a7356 !important; }
+.iso.nm .nm-brand .iso-face-text {
+  fill: #3b2a1a !important;
+  letter-spacing: .06em;
+}
+
+/* ---------- Road / folding panel ---------- */
+.nm-tar { fill: #5a4630; stroke: none; }
+.nm-face { fill: #fbf3e2; stroke: none; }
+.nm-b1 { fill: #eadbbd; stroke: none; }
+.nm-b0 { fill: #e2d0ad; stroke: none; }
+.nm-strip { fill: #8a7356; stroke: none; }
+.nm-fill { fill: #fff8ea; stroke: none; }
+.nm-hr, .nm-hg {
+  fill: none;
+  stroke: #b9a47f;
+  stroke-width: calc(var(--u) * 2.4);
+  stroke-linecap: round;
+}
+.nm-speck {
+  fill: none;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 4);
+  stroke-linecap: round;
+}
+.nm-white {
+  fill: none;
+  stroke: #fbf3e2;
+  stroke-width: calc(var(--u) * 4.5);
+  stroke-linecap: butt;
+}
+.nm-white.nm-lane { stroke-width: calc(var(--u) * 5.5); }
+/* Lane-line glow (pulses on "above six", "that's the lane line", the 0.4 line). */
+.nm-lineglow {
+  fill: none;
+  stroke: #fffdf2;
+  stroke-width: calc(var(--u) * (5.5 + 5 * var(--p, 0)));
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 5px #fff6c8) drop-shadow(0 0 2px #fffdf2);
+}
+.nm-flash { fill: #fff8ea; stroke: none; }
+.nm-gline {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * (3.4 + 1.8 * var(--thick, 0)));
+  stroke-linecap: round;
+}
+.nm-outline {
+  fill: none;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 1.8);
+  stroke-linejoin: round;
+}
+
+/* ---------- Gauge column ---------- */
+.iso.nm .nm-col .iso-top { fill: #fbf3e2 !important; }
+.iso.nm .nm-col .iso-fill,
+.iso.nm .nm-col .iso-shade { fill: #e2d0ad !important; }
+.nm-minor, .nm-major {
+  fill: none;
+  stroke-linecap: round;
+}
+.nm-minor { stroke: #8a7356; stroke-width: calc(var(--u) * 2); }
+.nm-major { stroke: #3b2a1a; stroke-width: calc(var(--u) * 2.8); }
+.nm-glow {
+  fill: none;
+  stroke: #1e140a;
+  stroke-width: calc(var(--u) * 5);
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 4px #fff6c8) drop-shadow(0 0 2px #fff8ea);
+}
+.nm-marker1, .nm-marker0 {
+  stroke: #1e140a;
+  stroke-width: calc(var(--u) * 2.2);
+  stroke-linejoin: round;
+}
+.nm-marker1 { fill: color-mix(in srgb, #b5541c calc(var(--fill, 0) * 100%), #fbf3e2); }
+.nm-marker0 { fill: #3b2a1a; }
+/* Margin brackets: engraved double arrow (pale cut offset under a dark line); one pulse thickens it. */
+.nm-bracket path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.nm-bracket .nm-ink { stroke: #3b2a1a; stroke-width: calc(var(--u) * (3.4 + 2.4 * var(--pulse, 0))); }
+.nm-bracket .nm-cut { stroke: #fff8ea; stroke-width: calc(var(--u) * 3.4); transform: translate(1px, 1.2px); }
+
+/* ---------- Wires, gates, lamp ---------- */
+.iso.nm .gate-flow { stroke: #b5541c !important; }
+[data-wire][data-on="0"] .gate-flow { display: none; }
+.nm-neighbour {
+  fill: none;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 2.6);
+  stroke-dasharray: calc(var(--u) * 10) calc(var(--u) * 5);
+}
+.iso.nm .nm-gate .iso-top { fill: color-mix(in srgb, #fff8ea calc(var(--pulse, 0) * 100%), #f6ecd6) !important; }
+.nm-sym {
+  fill: none;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 3.4);
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.nm-bulb-glow { pointer-events: none; mix-blend-mode: normal; }
+
+/* ---------- Cars, sign, wind ---------- */
+.iso.nm .nm-rust .iso-top { fill: color-mix(in srgb, #b5541c 82%, #f0a868) !important; }
+.iso.nm .nm-rust .iso-fill,
+.iso.nm .nm-rust .iso-shade { fill: #b5541c !important; }
+.iso.nm .nm-rust .iso-shade[data-shade="0"],
+.iso.nm .nm-rust .iso-shade[data-shade="1"] { fill: color-mix(in srgb, #b5541c 78%, #3b2a1a) !important; }
+.iso.nm .nm-glass .iso-top { fill: #fbf3e2 !important; }
+.iso.nm .nm-glass .iso-fill,
+.iso.nm .nm-glass .iso-shade { fill: #ecdcbc !important; }
+.iso.nm .nm-post .iso-fill,
+.iso.nm .nm-post .iso-shade,
+.iso.nm .nm-post .iso-top { fill: #8a7356 !important; }
+.iso.nm .nm-sign .iso-top { fill: #fbf3e2 !important; }
+.iso.nm .nm-sign .iso-fill,
+.iso.nm .nm-sign .iso-shade { fill: #fbf3e2 !important; }
+.nm-tyre { fill: #2a1d10; stroke: #1e140a; stroke-width: calc(var(--u) * 1.8); }
+.nm-hub { fill: #8a7356; stroke: none; }
+.nm-tail { fill: #f0a868; stroke: #1e140a; stroke-width: calc(var(--u) * 1.2); }
+.nm-plate { fill: #fbf3e2; stroke: #1e140a; stroke-width: calc(var(--u) * 1.2); }
+.nm-shadow { fill: #1e140a; opacity: .28; stroke: none; }
+.nm-ghost-line {
+  fill: #efe3c8;
+  fill-opacity: .35;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 2.6);
+  stroke-dasharray: calc(var(--u) * 8) calc(var(--u) * 6);
+  stroke-linejoin: round;
+}
+.nm-streak {
+  fill: none;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 5);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.nm-streak[data-tone="hi"] { stroke: #3b2a1a; }
+
+/* ---------- Readout ---------- */
+.nm-ro-box { fill: #fbf3e2; stroke: #8a7356; stroke-width: calc(var(--u) * 1.8); }
+.nm-ro {
+  font-family: "Oxanium", "JetBrains Mono", sans-serif;
+  font-variant-numeric: tabular-nums;
+  font-size: 26px;
+  fill: #5a4630;
+}
+.nm-ro-val { font-weight: 600; fill: #b5541c; }
+.nm-ro-unit { font-weight: 500; }
+.nm-stage svg { will-change: transform; }
+
+/* ---------- Cars (mesh faces: f-t top, f-s side, f-e end) ---------- */
+.car-rust, .car-sepia, .car-glass, .car-tyre, .car-tail, .car-tail0, .car-plate {
+  stroke: #1e140a;
+  stroke-width: calc(var(--u) * 1.5);
+  stroke-linejoin: round;
+}
+.car-rust.f-t { fill: color-mix(in srgb, #b5541c 82%, #f0a868); }
+.car-rust.f-s { fill: #b5541c; }
+.car-rust.f-e { fill: color-mix(in srgb, #b5541c 78%, #3b2a1a); }
+.car-sepia.f-t { fill: #e2d0ad; }
+.car-sepia.f-s { fill: #b9a47f; }
+.car-sepia.f-e { fill: #9a8466; }
+.car-glass.f-t { fill: #fbf3e2; }
+.car-glass.f-s { fill: #ecdcbc; }
+.car-glass.f-e { fill: #e2d0ad; }
+.car-tyre { fill: #2a1d10; }
+.car-hub { fill: #8a7356; stroke: none; }
+.car-tail { fill: #f0a868; stroke-width: calc(var(--u) * 1.2); }
+.car-tail0 { fill: #fbf3e2; stroke-width: calc(var(--u) * 1.2); }
+.car-plate { fill: #fbf3e2; stroke-width: calc(var(--u) * 1.2); }
+.car-shadow { fill: #1e140a; opacity: .28; stroke: none; }
+.car-ghost {
+  fill: #efe3c8;
+  fill-opacity: .3;
+  stroke: #8a7356;
+  stroke-width: calc(var(--u) * 2.4);
+  stroke-dasharray: calc(var(--u) * 8) calc(var(--u) * 6);
+  stroke-linejoin: round;
+}
+/* Safety-room arrows on the tarmac: pale line over a dark cut. */
+.nm-bracket .nm-ink { stroke: #fff8ea !important; }
+.nm-bracket .nm-cut { stroke: #1e140a !important; stroke-width: calc(var(--u) * 5) !important; transform: none !important; }
+.iso.nm .nm-digit .iso-face-text { fill: #efe3c8 !important; }

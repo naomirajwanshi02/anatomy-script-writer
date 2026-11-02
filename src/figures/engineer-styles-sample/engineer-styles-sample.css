@@ -1,0 +1,112 @@
+/* Engineer styles tester: sepia tokens (as hex-without-sample), desk scene parts, blue LCD, engineer shading. */
+.iso.es {
+  --anatomy-page: #efe3c8;
+  --anatomy-card: #efe3c8;
+  --anatomy-text: #5a4630;
+  --anatomy-strong: #2a1d10;
+  --anatomy-muted: #9a8466;
+  --anatomy-paper: #efe3c8;
+  --anatomy-face: #e8dbbd;
+  --anatomy-top: #f6ecd6;
+  --anatomy-shade-0: #e6d8b8;
+  --anatomy-shade-1: #e4d5b3;
+  --anatomy-shade-2: #e8dbbd;
+  --anatomy-shade-3: #e2d0ad;
+  --anatomy-lit-top: #fbf3e2;
+  --anatomy-lit-shade: #ecdcbc;
+  --anatomy-hi: #3b2a1a;
+  --anatomy-mid: #8a7356;
+  --anatomy-lo: #b9a47f;
+  --anatomy-faint: #d8c8a6;
+  --anatomy-lit: #1e140a;
+  --anatomy-halo: #efe3c8;
+  --anatomy-halo-opacity: .9;
+  --anatomy-dot: #2a1d10;
+  color: var(--anatomy-text);
+}
+/* Board engraving: Oxanium 500; Devanagari falls back. */
+.iso.es .es-engrave .iso-face-text {
+  font-family: "Oxanium", "JetBrains Mono", ui-monospace, monospace !important;
+  font-weight: 500 !important;
+}
+.es-label {
+  font-family: "Type Machine", "JetBrains Mono", monospace;
+  fill: #5a4630;
+}
+/* Backlit LCD in the series blue. */
+.iso.es .es-lcd {
+  fill: url(#es-lcd-glass) !important;
+}
+.es-lcd-text {
+  font-family: "JetBrains Mono", monospace;
+  fill: #14243a;
+}
+.es-pool {
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+/* Chair base and seat: dark upholstery and metal, sepia only (kit fills need !important). */
+.iso.es .es-chair .iso-fill,
+.iso.es .es-chair .iso-shade {
+  fill: #5a4630 !important;
+}
+.iso.es .es-chair .iso-top {
+  fill: #8a7356 !important;
+}
+.iso.es .es-seat .iso-fill,
+.iso.es .es-seat .iso-shade {
+  fill: #3b2a1a !important;
+}
+.iso.es .es-seat .iso-top {
+  fill: #8a7356 !important;
+}
+/* Engineer: ink outline layer under gradient fills. */
+.es-out path {
+  fill: #3b2a1a;
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 3.6);
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.es-fill {
+  stroke: none;
+}
+.es-edge,
+.es-blob,
+.es-pad {
+  stroke: #3b2a1a;
+  stroke-width: calc(var(--u) * 1.8);
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.es-pad {
+  stroke: #2a1d10;
+  stroke-width: calc(var(--u) * 1.2);
+}
+.es-seam,
+.es-fold,
+.es-knit,
+.es-strand,
+.es-ear {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.es-seam { stroke: #8a7356; stroke-width: calc(var(--u) * 1.6); }
+.es-seam-dark { stroke: #2a1d10; }
+.es-fold { stroke: #b9a47f; stroke-width: calc(var(--u) * 1.6); }
+.es-knit { stroke: #b9a47f; stroke-width: calc(var(--u) * 1.3); stroke-dasharray: calc(var(--u) * 3) calc(var(--u) * 2.5); }
+.es-strand { stroke: #2a1d10; stroke-width: calc(var(--u) * 1.3); opacity: .55; }
+.es-ear { stroke: #b9a47f; stroke-width: calc(var(--u) * 1.3); }
+/* Headphone band: dark ink under a thin mid highlight; glasses temple arms in lit ink. */
+.es-band,
+.es-band-hi,
+.es-glasses {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.es-band { stroke: #2a1d10; stroke-width: calc(var(--u) * 7); }
+.es-band-hi { stroke: #8a7356; stroke-width: calc(var(--u) * 2); }
+.es-glasses { stroke: #1e140a; stroke-width: calc(var(--u) * 2.2); }
