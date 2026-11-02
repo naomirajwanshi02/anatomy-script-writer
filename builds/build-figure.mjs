@@ -46,8 +46,11 @@ export async function buildFigure({ entry, out, title, model }) {
     write: false,
     logLevel: "warning",
   });
-  const js = res.outputFiles.find((f) => f.path.endsWith(".js")).text;
-  const css = res.outputFiles.find((f) => f.path.endsWith(".css"))?.text ?? "";
+  // Figure sources write font URLs as __ANATOMY_ROOT__/fonts/...; fill in this project's folder as a file:// URL.
+  const rootUrl = pathToFileURL(root).href.replace(/\/$/, "");
+  const withRoot = (s) => s.replaceAll("__ANATOMY_ROOT__", rootUrl);
+  const js = withRoot(res.outputFiles.find((f) => f.path.endsWith(".js")).text);
+  const css = withRoot(res.outputFiles.find((f) => f.path.endsWith(".css"))?.text ?? "");
   const page = readFileSync(resolve(root, "src/page.css"), "utf8");
   const fit = readFileSync(resolve(root, "src/iso/fit-plate.js"), "utf8");
 

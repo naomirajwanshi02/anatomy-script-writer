@@ -4,7 +4,7 @@ The script kit plus everything `/htmlmp4` and `/new-figure` need: figure sources
 
 ## Set up
 
-1. **Folder location:** unzip so the project folder is exactly `D:\Anatomy` (rename `reel-kit` to `Anatomy` and put it on drive D). About 40 figure files and the font rules load fonts from `file:///D:/Anatomy/...`. If there is no D drive, ask Claude to replace `D:/Anatomy` with the new folder path in `src/` and `builds/` first.
+1. **Folder location:** any folder works. Figure sources write font URLs as `__ANATOMY_ROOT__/fonts/...`, and `builds/build-figure.mjs` fills in the project folder's absolute `file://` URL at build time (the notes pipeline already resolves Samble from the project folder). Rebuild a page after moving the project.
 2. Open the folder in Claude Code. Keep the hidden `.claude` folder.
 3. Install **Node 22+**, **Google Chrome** and **ffmpeg** (on PATH), then run `npm install` in the folder.
 4. Install **Python 3** for the checkers.

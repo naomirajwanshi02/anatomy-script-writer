@@ -277,7 +277,7 @@ Use `--skip-render` to re-encode from an existing `.mov`, `--audio` for another 
 
 | Symptom | Cause and fix |
 |---|---|
-| Notes show in a fallback script font | The page could not load Samble. Pages use the absolute file URL of `D:/Anatomy/samble/samble.otf`; if the project moved, rebuild the page with `npm run notes -- NN`. |
+| Notes show in a fallback script font | The page could not load Samble. Pages use the absolute file URL of `samble/samble.otf` inside the project folder; if the project moved, rebuild the page with `npm run notes -- NN`. |
 | `patch not found (board slab …)` | The source page differs from the one the cue was written for. Search the page for `board:Ft(` and update the patch. |
 | Engraving floats off the edge | The slab or camera differs. Re-measure `topAt`, `slope` and `face` (section 4). |
 | `open() got an unexpected keyword argument 'metadata_errors'` | PyAV mismatch; `transcribe.py` already decodes with ffmpeg, so this only appears if you call `faster_whisper` on a file path directly. |
