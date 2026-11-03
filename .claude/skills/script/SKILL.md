@@ -40,7 +40,7 @@ Run from the repo root on the scratch files.
 | `python3 script-writer/check-voice.py <block> --series <chip\|de\|verilog> --episode N` | PASS; TONE 80+ (SCRIPTS.md 3a, the house style); every WARN fixed or answered in one line |
 | `python3 script-writer/ig/hookscore.py hooks.txt` (one hook per line, no tags) | the shipped hook scores 80+ STRONG; a number in the hook is usually what gets it there |
 | `python3 script-writer/ig/beats.py <block or page>` | no flags: every sentence 4 s or less (about 12 words), the teaser echoes a hook word ("Loops"), length on target |
-| `python3 script-writer/check-page.py page.md` | PASS |
+| `python3 script-writer/check-page.py page.md` | PASS, no WARN (every board event tied to its spoken words) |
 | `python3 script-writer/check-annotations.py page.md --series <s>` | PASS; WARNs fixed or answered |
 | `python3 script-writer/ig/caption.py caption.txt` (chip-design caption) | PASS on length, first line and concrete hook (put a number in it); the hashtag-in-window and no-ask WARNs follow from the owner's one-line caption and are fine |
 

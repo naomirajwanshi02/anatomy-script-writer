@@ -8,6 +8,12 @@ argument-hint: "<chip | de | verilog> <N> [voiceover mp3]"
 
 Arguments: `$ARGUMENTS` (series, episode number, path to the mp3; no series = chip design). The episode's Notion page (written by `/script`, layout of `script-writer/example/ep13-decoder.md`) is the baseline: **On the board** is the figure brief, **Annotation** is the exact list of marks to draw. Do the steps in order. CLAUDE.md rules apply throughout (edit in place, short replies, no git, check frames on paper).
 
+**Two sources of truth, read fresh on every run (owner, 2026-11-03):**
+- **What to show = the Notion page, fetched now.** Never build from an older saved `NN.page.md`, memory, the README/HANDOFF change lists, an earlier chat, or what the figure already does. If the page and the figure disagree, the page wins; the change list comes from `page-diff.py` (step 2), not from recollection.
+- **When to show it = the recorded voice.** Every figure event and every mark is timed from the spoken words in `NN.words.json` (`annotations.mjs board` and `plan`). The page's seconds are planning numbers only; never copy them into a timeline.
+- Words on the figure (labels, tags, state words, ghost text) use the page's words; a word the page changed (ep 11: wobble → shake) changes on the figure too.
+- Anything the page asks for that cannot be built, or a cue the recording does not say, is reported to the owner, never guessed or silently dropped.
+
 ## 1. Load the rules
 
 Run this skill in a fresh chat, not after `/script` in the same one (token budget, owner 2026-11-02): the Notion page and the files below carry everything it needs.
@@ -17,14 +23,15 @@ Read `rules/notes.md`, `builds/notes/README.md`, `script-writer/ANNOTATIONS.md`,
 ## 2. Read the episode page from Notion
 
 - Find the row as `/script` does (its SKILL.md section 2 table: chip-design `collection://34fc9dbf-37af-4377-b5f2-a48a2a84515c`, else search by database name). No row, or Notion not connected: say so and stop.
-- Fetch the page and save its content (the part inside `<content>`) as `builds/notes/episodes/<dir>/NN.page.md` (`<dir>` = `chip-design/` for chip, none for DE as in the existing files). This copy is what every later check and the sign-off read.
+- Fetch the page and save its content (the part inside `<content>`) as `builds/notes/episodes/<dir>/NN.page.md` (`<dir>` = `chip-design/` for chip, none for DE as in the existing files). This copy is what every later check and the sign-off read. Always re-fetch, even when a copy exists: if one does, first rename it to `NN.page.prev.md` (the version the figure was last built from).
+- **Change list:** with a `NN.page.prev.md`, run `python script-writer/page-diff.py <NN.page.prev.md> <NN.page.md>`. Every change it prints (voice, On the board, Annotation, caption) goes into step 3 or step 6, or is reported to the owner with the reason; none is skipped. With no previous copy and an existing figure, the change list is the full On the board column checked event by event against the figure.
 - Run `python script-writer/check-page.py <page.md>` and `python script-writer/check-annotations.py <page.md> --series <s>`. Both must PASS. On FAIL: list the errors and stop; the page is fixed with `/script`, never here.
 - Episode folder: `shorts/<series>/NN <interview question>/` (question from the CSV row).
 
 ## 3. HTML figure
 
 - **Figure exists** (slug in `series/reel-builds.csv`, memory chip-design-progress, or `src/figures/<slug>/`): compare it with On the board. Change only what the page asks for that the figure does not show (CLAUDE.md section 1). Run its build.
-- **Revised page, figure built on an older take** (`series/reel-builds.csv` Status `script revised: re-record, rebuild`; the README handover lists what changed per episode): never rebuild the figure. First do the re-take map (step 5, once the new mp3 is transcribed), then add only what the revised page adds: the row 1 events marked `Visual hook:` and any event whose cue words changed, written into the figure's own timeline in old-take seconds (the `notes:retake` gap list says which old-take span each new line plays over). Leave every other event alone; the map moves them to the new take.
+- **Revised page, figure built on an older take** (`series/reel-builds.csv` Status `script revised: re-record, rebuild`; the README handover lists what changed per episode): never rebuild the figure. First do the re-take map (step 5, once the new mp3 is transcribed), then add every change in the step 2 change list (row 1 `Visual hook:` events, changed board events and cue words, renamed words on the figure), written into the figure's own timeline in old-take seconds (the `notes:retake` gap list says which old-take span each new line plays over). Leave every other event alone; the map moves them to the new take.
 - **Figure in the taps world** (water rig + CMOS inverter, episodes 18 onward): start from the kit (`src/iso/taps/README.md`); skip the two-panel sample when only config changes (parts on or off, timeline, model numbers, readouts).
 - **No figure yet:** follow `/new-figure` with the On the board column as the spec source: chip-design two-panel still sample first (analogy start frame and circuit key-state frame, DE circuit design), then the short spec, both stopping for the owner's OK (the owner's own rule; never skip). Then the figure-builder agent builds it.
 - **Token budget (owner, 2026-11-02):** Opus only for the figure-builder; Sonnet for the blind viewer and other checking agents. Give each builder the brief once with every known fix batched (from the sample review, the spec and anything you noticed), so one fix round is the norm; a second round only when the owner asks, never a third. Render check frames at scale 0.5 and 10 fps from a copy. Keep a builder alive with SendMessage for fixes rather than starting a new one, unless its context is already very large. Small fixes (a size, a width, a position, a colour, a timing number) you make directly in the figure's files, without a builder.
@@ -37,13 +44,14 @@ Read `rules/notes.md`, `builds/notes/README.md`, `script-writer/ANNOTATIONS.md`,
 1. Copy the mp3 into the episode folder (keep its ElevenLabs name).
 2. `npm run notes:transcribe -- "<mp3>" builds/notes/episodes/<dir>/NN.words.json`. **Re-take:** this overwrites the old take's transcript, which the re-take map needs: it must already be saved as `NN.old.words.json` (done for chip-design 11-18; for any other episode copy it first).
 3. Compare the transcript with the page's voice block, word by word. Report differences in one line each (the recording wins for timing; a changed or dropped phrase that an annotation quotes is reported in step 6).
+4. `node builds/notes/annotations.mjs board <page.md> <words.json>` lists every On the board event (`12.3 ("cue words"): what happens`) at the time its words are spoken in this recording. This list is the figure's timeline for step 5. It exits 1 and prints `??` for a cue the recording does not say: report those (the take differs from the page) before building; never time them by guess. Events cued before 1.35 s start at 1.35 s, in the page's order, once the board has landed (the visual hook during the entrance).
 
 ## 5. Time-scale the figure to the voice
 
 - **Shortcut:** when the figure is built after the recording and the page's times are already the recorded times, build the figure straight on the voice timing (figure time = voice time, as episodes 14, 15 and 17) and skip `voice.ts`.
 
 - **Re-take (figure built on an older take):** `npm run notes:retake -- builds/notes/episodes/<dir>/NN.old.words.json builds/notes/episodes/<dir>/NN.words.json --write <slug>`. It aligns the two transcripts word by word and writes the voice page: `src/figures/<slug>/voice.ts` (the new `LOOP` and a `RETAKE` map, new take time → old take time; an existing `voice.ts` is kept as `voice-take1.ts` and composed), plus `src/main-<slug>-voice.tsx` and `builds/build-<slug>-voice.mjs` when missing (same output file). Build with `node builds/build-<slug>-voice.mjs`. It prints the spans spoken in only one take: the new ones are where the revised page's new events go (step 3), the dropped ones are squeezed. Every figure from 11 to 18 already has the `setTimeMap` hook in `live.tsx`. Then check one sheet at the hook, the fold, the key state and the loop end.
-- Copy the voice-page pattern of the closest figure (`src/figures/parity-wash/voice.ts`, `builds/build-parity-wash-voice.mjs`, its `build:<slug>-voice` npm script): `ANCHORS` of `[voice s, figure s]`, one per On the board cue word, with the voice time read from `NN.words.json`. Flat stretches hold a state while the voice explains; the key state gets the longest hold.
+- Copy the voice-page pattern of the closest figure (`src/figures/parity-wash/voice.ts`, `builds/build-parity-wash-voice.mjs`, its `build:<slug>-voice` npm script): `ANCHORS` of `[voice s, figure s]`, one per On the board cue word, with the voice time taken from the step 4 `board` list (never from the page's planned seconds). Flat stretches hold a state while the voice explains; the key state gets the longest hold.
 - `LOOP` = last word end + about 1 s, minus the 3 s entrance, so the end card has its 4 s and the loop still ends on its start frame.
 - Build it to `<question> (<analogy>, voice).html`. Look at one sheet (`npm run notes:sheet`) at the fold, the key state and the loop end; each event must land on its words (SCRIPTS.md section 6).
 
@@ -70,6 +78,7 @@ Follow `script-writer/UNDERSTANDING-TEST.md` (video stage); the notes are part o
 ## 7. Final sign-off (all must PASS before export)
 
 1. `python script-writer/check-annotations.py <page.md> --series <s>`: the plan itself.
+1b. `node builds/notes/annotations.mjs board <page.md> <words.json>`: exit 0 (every board cue spoken), and every change from the step 2 change list is either in the figure or in the report.
 2. `node builds/notes/annotations.mjs signoff <page.md> <words.json> builds/notes/episodes/<dir>/NN.mjs`: every planned mark is built with the same words, starts 0-0.5 s after its spoken words (1 s with a tie), wipes as planned, every tie is drawn, and no unplanned note was added.
 3. `npm run notes:check -- "<notes page>"`: R1-R8 overlaps and crowding.
 

@@ -5,11 +5,12 @@ import { canon, transcriptTokens } from "./spell.mjs";
 // Planned annotations (Annotation column of an episode page, script-writer/ANNOTATIONS.md section 5) against the recording.
 //   node builds/notes/annotations.mjs plan    <page.md> <words.json>              resolved in/out times per mark
 //   node builds/notes/annotations.mjs signoff <page.md> <words.json> <cue.mjs>    every planned mark built as planned
+//   node builds/notes/annotations.mjs board   <page.md> <words.json>              every On the board event at its spoken words
 // Times resolve from the quoted spoken words in the transcript; the planned seconds in brackets only pick the
 // occurrence when a phrase is said more than once.
 const [mode, pagePath, wordsPath, cuePath] = process.argv.slice(2);
-if (!["plan", "signoff"].includes(mode) || !wordsPath || (mode === "signoff" && !cuePath)) {
-  console.error("usage: annotations.mjs plan <page.md> <words.json> | signoff <page.md> <words.json> <cue.mjs>");
+if (!["plan", "signoff", "board"].includes(mode) || !wordsPath || (mode === "signoff" && !cuePath)) {
+  console.error("usage: annotations.mjs plan|board <page.md> <words.json> | signoff <page.md> <words.json> <cue.mjs>");
   process.exit(2);
 }
 // a page fetched from Notion: <b>A-B s</b> times, escaped [tags]
@@ -78,6 +79,27 @@ const when = (s) => {
   const t0 = fb && Math.abs(+fb[1] - +m[2]) < 0.6 ? rowStart(last) : null;
   return t0 == null ? null : { t: t0 + (+fb[1] - last.t0) };
 };
+
+// board: the figure's timeline from the page and the recording (htmlmp4 step 5): every On the board event
+// written as `12.3 ("cue words"): what happens` resolves to the time its words are spoken.
+if (mode === "board") {
+  let bad = 0;
+  console.log(`voice ends ${voiceEnd.toFixed(2)} s; fold line starts ${foldAt == null ? "?" : foldAt.toFixed(2)} s`);
+  for (const r of rows) {
+    const ev = [...r.board.matchAll(/(\d+(?:\.\d+)?)(?:-[\d.]+)? \("([^"]+)"(?: \+ ([\d.]+) s)?\):?\s*([^]*?)(?=\s\d+(?:\.\d+)?(?:-[\d.]+)? \("|$)/g)];
+    console.log(`-- row "${r.voice.replace(/\[[^\]]*\]\s*/g, "").slice(0, 50)}"`);
+    for (const [, planned, cue, plus, what] of ev) {
+      const hit0 = at(cue, +planned - (+plus || 0));
+      const hit = hit0 && { ...hit0, t: hit0.t + (+plus || 0) };
+      if (!hit) bad++;
+      const tt = hit ? hit.t.toFixed(2) : "  ??";
+      const early = hit && hit.t < 1.35 ? " (before the board lands: starts at 1.35)" : "";
+      console.log(`${tt.padStart(6)}  "${cue}"${hit?.loose ? " (first word only: check by ear)" : ""}${early}  ${what.slice(0, 90)}`);
+    }
+  }
+  if (bad) console.log(`WARN  ${bad} cue(s) not spoken in the recording: the take differs from the page (report, do not guess)`);
+  process.exit(bad ? 1 : 0);
+}
 
 const marks = [];
 const problems = [];

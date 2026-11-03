@@ -21,6 +21,7 @@ Repo: <https://github.com/naomirajwanshi02/anatomy-script-writer/tree/claude/bra
 | 21 | none yet | final | record | build |
 
 - The Notion page of each episode (`book-concepts.csv`) is the source of truth: voice block, **On the board** (figure brief), **Annotation** (exact marks). The same pages are in `scripts/` here.
+- **`/htmlmp4` always follows the Notion page and the voice (2026-11-03):** it re-fetches the page every run, diffs it against the last built copy (`script-writer/page-diff.py`) and applies every change; every figure event is timed from its spoken words (`node builds/notes/annotations.mjs board <page> <words.json>`), never from the page's planned seconds (SCRIPTS.md section 6). 11's page has a new visual hook (dog first, then car 1 shakes, car 5 steady).
 - **House script style (2026-11-03):** SCRIPTS.md section 3a. Scripts sound like a friend explaining: the flip ("…, right? Nope."), 1-3 word punches, a turn phrase ("Here's the weird part."), "Because/See/So" openers, two viewer questions. `check-voice.py` prints a TONE score (aim 80+) and rejects dub-breaking idioms. 11 is the first episode in it (TONE 100); 12-21 score 0-40 and get the same pass when the owner asks. Platform is Instagram Reels and YouTube Shorts.
 - What changed in 11-18: a new hook, a second line, split lines, a teaser that loops, new captions. Row 1 of each page now has a `Visual hook:` sentence with events in the first 3 s. Facts, analogies, numbers and the circuit halves are unchanged. Per-episode details: README.md section 2.
 
@@ -81,7 +82,9 @@ $files = @(
   'CLAUDE.md',
   'SCRIPTS.md',
   'script-writer/SCRIPT-WRITER.md',
-  'script-writer/check-voice.py'
+  'script-writer/check-voice.py',
+  'script-writer/check-page.py',
+  'script-writer/page-diff.py'
 )
 foreach ($f in $files) {
   $dest = Join-Path 'D:/Anatomy' $f

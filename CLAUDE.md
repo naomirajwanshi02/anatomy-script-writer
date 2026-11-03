@@ -85,6 +85,7 @@ Gate-level wires: a neutral base trace with a rust dotted flow overlay only whil
   - Races and latches: an output changes only if its new value holds for the whole delay (inertial delay), so the faster gate wins.
   - CMOS: tank level follows an RC curve 1 - e^(-t/τ) on rise and e^(-t/τ) on fall, with τ proportional to 1 / effective width.
 - Timeline in each model: times of lever moves, part arrivals and caption changes; everything else is computed.
+- **Voiced figures: every timeline event is tied to the spoken word the page names, never to a fixed second** (SCRIPTS.md section 6); its time comes from the recording (`node builds/notes/annotations.mjs board <page> <words.json>`), so a re-take moves it with its words.
 
 ## 7. Logic and physics that must be correct (check against these, do not "simplify" them wrongly)
 

@@ -10,7 +10,9 @@ Checks:
 - annotation notes ("In X s ..., out Y s" / "to the end"): at most 3 on screen, at least
   1.5 s between new notes, each up at least 2.5 s, none during a fold, no Samble-missing
   characters (× − ≈), the end card starts 4 s before the end;
-- every quoted cue word in columns 2 and 3 ("on \"...\"", 12.3 (\"...\")) is spoken in that row.
+- every quoted cue word in columns 2 and 3 ("on \"...\"", 12.3 (\"...\")) is spoken in that row;
+- WARN: an On the board event timed by seconds alone ("16.0: the lamp lights") instead of by its spoken words
+  ("16.0 (\"lamp lights\"): the lamp lights"); seconds alone cannot follow the recording (SCRIPTS.md section 6).
 """
 import argparse, re, sys
 
@@ -22,6 +24,7 @@ text = open(a.page, encoding="utf-8").read()
 # a page fetched from Notion: <b>A-B s</b> times, escaped [tags]
 text = re.sub(r"<b>([\d.]+-[\d.]+ s)</b>", r"**\1**", text).replace("\\[", "[").replace("\\]", "]")
 err = []
+warn = []
 
 m = re.search(r"```txt\n(.*?)```", text, re.S)
 if not m:
@@ -62,6 +65,8 @@ for r in rows:
         notes.append((mm.group(3), i, o))
     # cue words must be spoken in this row
     spoken = norm(re.sub(r"\[[^\]]*\]", "", r[2])).lower()
+    for bare in re.findall(r"(?<![\w.(\-])(\d+\.\d(?:-\d+\.\d)?): ", r[3]):
+        warn.append(f"row {r[0]} s: board event at \"{bare}:\" has no spoken cue; write it as {bare} (\"words it lands on\"): …")
     for q in re.findall(r"(?:on |\d \()\"([^\"]+)\"", r[3] + " " + r[4]):
         if norm(q).lower() not in spoken:
             err.append(f"cue \"{q}\" at {r[0]} s is not spoken in that row")
@@ -91,5 +96,7 @@ if notes and "end card" in text and not re.search(rf"In {end - 4:.1f} s \(4 s be
 
 for e in err:
     print("ERROR", e)
+for w in warn:
+    print("WARN ", w)
 print(f"{'FAIL' if err else 'PASS'}: {len(rows)} rows, {len(notes)} notes, {len(folds)} folds, video {end} s")
 sys.exit(1 if err else 0)
