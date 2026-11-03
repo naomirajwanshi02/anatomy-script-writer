@@ -92,7 +92,8 @@ $files = @(
   'rules/notes.md',
   'script-writer/ANNOTATIONS.md',
   'script-writer/SETUP.md',
-  'builds/notes/signoff.mjs'
+  'builds/notes/signoff.mjs',
+  'builds/notes/notes-kit.mjs'
 )
 foreach ($f in $files) {
   $dest = Join-Path 'D:/Anatomy' $f

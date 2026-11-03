@@ -3,7 +3,7 @@
 // Finds the fixed sign-off in the recording ("Now you can explain what most engineers can't. Follow, and keep it
 // that way.") and prints the notes and pen entries, timed from the spoken words, to paste into the episode's cue file
 // (`notes: [...]` and `pen: [...]`). Then run autoplace, notes:check and the signoff check as usual.
-//   "final score" + "you" on "you", a big "1" on "explain", "most engineers" on "most", a big "0" on "can't":
+//   "final score" + "you" on "you", a big olive "1" on "explain", "most engineers" on "most", a big red "0" on "can't":
 //   a scoreboard in bits, top zone above the board (x 330 / 720, y from --y, default 440).
 //   Ending (sample 7): "Follow" writes on "Follow" at y 1530 (line-boils), in the free paper between the takeaway box and
 //   the strip both apps cover (one video serves Instagram Reels and YouTube Shorts); a short olive arrow points down-left
@@ -47,9 +47,9 @@ const r = (v) => +v.toFixed(2);
 const notes = [
   [540, Y, 40, r(YOU), 0.5, "END", "final score"],
   [330, Y + 70, 56, r(YOU + 0.05), 0.3, "END", "you"],
-  [330, Y + 190, 110, r(EXPLAIN + 0.05), 0.25, "END", "1"],
+  [330, Y + 190, 110, r(EXPLAIN + 0.05), 0.25, "END", "1", "#4f5d24"],
   [720, Y + 70, 56, r(MOST), 0.6, "END", "most engineers"],
-  [720, Y + 190, 110, r(CANT + 0.05), 0.25, "END", "0"],
+  [720, Y + 190, 110, r(CANT + 0.05), 0.25, "END", "0", "#c2402f"],
 ];
 const follow = [530, 1530, 76, r(FOLLOW), 0.5, "END", "Follow"];
 const pen = [
@@ -62,7 +62,7 @@ const pen = [
 const q = (s) => JSON.stringify(s);
 console.log(`// Sign-off (builds/notes/signoff.mjs, from ${wordsPath}): you ${YOU}, explain ${EXPLAIN}, most ${MOST}, can't ${CANT}, Follow ${FOLLOW}, keep ${KEEP}`);
 console.log("// notes: [...]");
-for (const n of notes) console.log(`      [${n.slice(0, 5).join(", ")}, END, ${q(n[6])}, { group: "signoff" }],`);
+for (const n of notes) console.log(`      [${n.slice(0, 5).join(", ")}, END, ${q(n[6])}, { group: "signoff"${n[7] ? `, color: "${n[7]}"` : ""} }],`);
 console.log(`      [${follow.slice(0, 5).join(", ")}, END, "Follow", { alive: true, group: "signoff" }],`);
 console.log("// pen: [...]");
 for (const p of pen) console.log(`      { t: ${p.t}, d: ${p.d}, w: END, p: ${q(p.p)} }, // ${p.c}`);

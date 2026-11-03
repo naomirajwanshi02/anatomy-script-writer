@@ -59,7 +59,7 @@ Files in this kit:
 
 - Notes are Samble, brown-black #2a1d10, with olive hand-drawn arrows, rings and boxes. **Samble has no "≈", "−" (U+2212) or "×"**: write "about" (or "near"), "-" and "x" in notes.
 - At most 3 notes on screen (the episode badge counts), at least 1.5 s between new notes, nothing during a fold, no note over a part, label or readout, no pen stroke through text.
-- End card: the boxed takeaway in the centre of the subtitle area, appearing 4 s before the end, and the sign-off sequence: the "1 : 0" scoreboard pun (owner, 2026-11-03): "final score" and "you" write on "you", a big "1" on "explain", "most engineers" on "most", a big "0" on "can't", in the top zone above the board, then the handwritten "Follow" with its arrow to the follow button and a double underline with sparks on "keep it that way" (SCRIPTS.md section 2; built by `npm run notes:signoff`). No printed subtitles.
+- End card: the boxed takeaway in the centre of the subtitle area, appearing 4 s before the end, and the sign-off sequence: the "1 : 0" scoreboard pun (owner, 2026-11-03): "final score" and "you" write on "you", a big olive "1" on "explain", "most engineers" on "most", a big red "0" (#c2402f) on "can't", in the top zone above the board, then the handwritten "Follow" with its arrow to the follow button and a double underline with sparks on "keep it that way" (SCRIPTS.md section 2; built by `npm run notes:signoff`). No printed subtitles.
 
 ### Logic and physics (never simplify wrongly)
 

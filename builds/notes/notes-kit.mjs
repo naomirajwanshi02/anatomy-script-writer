@@ -57,6 +57,7 @@ const BOIL = [1, 7, 13, 21].map((seed, i) =>
 //   Growing past 1 accelerates ("larger and larger"); up to 1 it eases out.
 // opts.group = notes that read as one block (the interview answer) count once for the crowding check.
 // opts.alive = line boil: the strokes wobble through moving noise, like hand-drawn animation (end card).
+// opts.color = ink for this note only (the sign-off score: "1" olive #4f5d24, "0" red #c2402f); default brown-black.
 function notesHtml(notes) {
   return notes.map(([x, y, sz, t, d, w, txt, o = {}]) => {
     const chars = [...txt];
@@ -68,7 +69,7 @@ function notesHtml(notes) {
     if (o.alive) ink = chars.map((c, i) => (c === "→" ? letter(c, i) : `<span class="nt-boil">${letter(c, i)}</span>`)).join("");
     const cls = "nt-w" + (o.grow ? " nt-grow" : "");
     const grp = o.group ? ` data-group="${o.group}"` : "";
-    return `<i class="${cls}"${grp} style="--x:${x};--y:${y};--s:${sz};--w:${s(w)};--t:${s(t)};--gd:${s(o.grow ?? 0)};--g0:${o.growFrom ?? 0.55};--g1:${o.growTo ?? 1};--ge:${(o.growTo ?? 1) > 1 ? "cubic-bezier(.45,0,.8,1)" : "cubic-bezier(.2,.7,.3,1)"}">${ink}</i>`;
+    return `<i class="${cls}"${grp} style="--x:${x};--y:${y};--s:${sz};--w:${s(w)};--t:${s(t)};--gd:${s(o.grow ?? 0)};--g0:${o.growFrom ?? 0.55};--g1:${o.growTo ?? 1};--ge:${(o.growTo ?? 1) > 1 ? "cubic-bezier(.45,0,.8,1)" : "cubic-bezier(.2,.7,.3,1)"}${o.color ? `;color:${o.color}` : ""}">${ink}</i>`;
   }).join("\n");
 }
 

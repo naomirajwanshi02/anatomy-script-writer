@@ -50,7 +50,7 @@ This project makes short isometric explainer figures for a digital electronics I
 - Water in analogy figures is blue #2f6fb8 and turns into the rust signal as it folds into the circuit (the water kit's `liquidColor`).
 - Everything else stays neutral sepia. Never add a new colour. If something needs emphasis, use ink tone (lo, mid, hi, lit) or rust.
 - Lever 0/1 marks, if a figure has them, are lit ink (#1e140a) with a pale halo, not rust. Rust stays reserved for current and active items.
-- My iPad annotations: words in brown-black #2a1d10, arrows, circles and underlines in olive #4f5d24, pen 3-4 px. Figures never use olive, so the two never mix up.
+- My iPad annotations: words in brown-black #2a1d10, arrows, circles and underlines in olive #4f5d24, pen 3-4 px. Figures never use olive, so the two never mix up. One exception, the sign-off score: the "1" is olive and the "0" is the warning red #c2402f (`npm run notes:signoff`).
 
 ## 4. Wires and signals
 
