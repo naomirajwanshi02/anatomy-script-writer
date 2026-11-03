@@ -33,6 +33,7 @@ Anything that is none of these (a sentence that explains, a second wording of a 
 - **Proper terms in the circuit half:** label each real part with its proper name (VDD, GND, PMOS, NMOS, output, charge = C x V, energy) when the voice names it or when it first appears, and tie it to its analogy partner where that helps ("VDD = roof").
 - **One name per thing:** the note uses the voice's and the figure's name for the part ("word line", not "WL" or "select line").
 - **Labels may echo, notes may not repeat:** a label of 1-3 words may write the voice's key word on the part it names (that is how DE 01-02 read). A note of 4 or more words must not repeat 3 words in a row from the voice in the same or the next row; it adds what the ear cannot hold (a sum, a count, a mapping).
+- **Cold open (owner, 2026-11-03):** the hook note writes itself from the first frame (0 s), in the top zone above the board, done by about 1.3 s; the CAPS word's underline under it comes on the spoken CAPS word. Every other mark waits for the landing (1.6 s). SCRIPTS.md section 4, visual hook.
 - **Size:** hook note 64-84 px, notes 42-48 px, never below 40. Sentence case, no full stop.
 - **Characters:** Samble has no "≈", "−" (U+2212) or "×": write "about", "-" and "x".
 

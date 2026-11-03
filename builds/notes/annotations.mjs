@@ -84,6 +84,7 @@ const when = (s) => {
 // written as `12.3 ("cue words"): what happens` resolves to the time its words are spoken.
 if (mode === "board") {
   let bad = 0;
+  let prevPlay = null;
   console.log(`voice ends ${voiceEnd.toFixed(2)} s; fold line starts ${foldAt == null ? "?" : foldAt.toFixed(2)} s`);
   for (const r of rows) {
     const ev = [...r.board.matchAll(/(\d+(?:\.\d+)?)(?:-[\d.]+)? \("([^"]+)"(?: \+ ([\d.]+) s)?\):?\s*([^]*?)(?=\s\d+(?:\.\d+)?(?:-[\d.]+)? \("|$)/g)];
@@ -92,8 +93,16 @@ if (mode === "board") {
       const hit0 = at(cue, +planned - (+plus || 0));
       const hit = hit0 && { ...hit0, t: hit0.t + (+plus || 0) };
       if (!hit) bad++;
+      // board events spoken before the landing has settled play from 1.6 s; in the hook row every later event
+      // keeps the page's order, at least 0.4 s after the one before (SCRIPTS.md section 4, visual hook)
+      let early = "";
+      if (hit) {
+        const floor = r === rows[0] && prevPlay != null ? prevPlay + 0.4 : 0;
+        const play = Math.max(hit.t, hit.t < 1.6 ? 1.6 : 0, floor);
+        if (r === rows[0]) prevPlay = play;
+        if (play > hit.t + 1e-9) early = ` (${hit.t < 1.6 ? "spoken before the landing" : "after the shifted event before it"}: plays at ${play.toFixed(2)})`;
+      }
       const tt = hit ? hit.t.toFixed(2) : "  ??";
-      const early = hit && hit.t < 1.35 ? " (before the board lands: starts at 1.35)" : "";
       console.log(`${tt.padStart(6)}  "${cue}"${hit?.loose ? " (first word only: check by ear)" : ""}${early}  ${what.slice(0, 90)}`);
     }
   }
@@ -111,8 +120,11 @@ for (const r of rows)
     const on = f[1]?.match(/^on "([^"]+)" \(([\d.]+)\)$|^at end-4 \(([\d.]+)\)$/);
     if (!k || !on) { problems.push(`row ${r.t0} s: cannot read "${ln.slice(0, 60)}" (run check-annotations.py)`); continue; }
     const tin = on[1] ? at(on[1], +on[2]) : { t: "end-4" };
-    // pen marks wait for the parts to land (entrance lands at 1.35 s; the checker's R4/R6 start at 1.6 s)
-    if (!k[1] && typeof tin?.t === "number" && tin.t < 1.6) tin.t = 1.6;
+    // cold open (SCRIPTS.md section 4): the hook note writes from the first frame; its CAPS underline (a pen
+    // under a note's text) keeps its spoken time; every other pen waits for the landing (R4/R6 start at 1.6 s)
+    const tagsHere = f.slice(k[1] ? 5 : 4);
+    if (k[1] && tagsHere.includes("hook") && typeof tin?.t === "number") tin.t = 0;
+    if (!k[1] && typeof tin?.t === "number" && tin.t < 1.6 && !/^under "/.test(f[2] ?? "")) tin.t = 1.6;
     const isNote = !!k[1];
     const outF = isNote ? f[2] : f[3];
     const m = {

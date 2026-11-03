@@ -12,7 +12,8 @@ Checks:
   characters (× − ≈), the end card starts 4 s before the end;
 - every quoted cue word in columns 2 and 3 ("on \"...\"", 12.3 (\"...\")) is spoken in that row;
 - WARN: row 1 breaks the visual hook rules (SCRIPTS.md section 4): no "Visual hook:", fewer than 2 cued events,
-  no event on the hook's CAPS word, or no "start frame";
+  no event on the hook's CAPS word, no "start frame", no hook note on the hook's first words (the cold open), or
+  no underline on the CAPS word;
 - WARN: an On the board event timed by seconds alone ("16.0: the lamp lights") instead of by its spoken words
   ("16.0 (\"lamp lights\"): the lamp lights"); seconds alone cannot follow the recording (SCRIPTS.md section 6).
 """
@@ -111,6 +112,16 @@ if rows:
             warn.append(f"row 1: no visual hook event on the CAPS word \"{caps[0]}\"")
         if "start frame" not in b1:
             warn.append("row 1: the visual hook does not say where it ends (\"the start frame\")")
+    a1 = rows[0][4]
+    first = norm(re.sub(r"\[[^\]]*\]", "", rows[0][2])).split()
+    hook_note = re.search(r'NOTE "[^"]+" · on "([^"]+)"[^<]*· hook', a1)
+    if not hook_note:
+        warn.append("row 1: no hook note (NOTE … · hook) to write from frame 0")
+    elif first and hook_note.group(1).split()[0].lower() != first[0].lower().strip(",."):
+        warn.append(f"row 1: the hook note is cued on \"{hook_note.group(1)}\", not the hook's first words: it must write from frame 0")
+    caps1 = re.findall(r"\b[A-Z]{2,}\b", " ".join(first))
+    if caps1 and not re.search(rf'PEN underline · on "[^"]*{caps1[0]}[^"]*"', a1):
+        warn.append(f"row 1: no olive underline on the CAPS word \"{caps1[0]}\" (PEN underline · on \"…{caps1[0]}…\" · under \"<word of the hook note>\")")
 
 for e in err:
     print("ERROR", e)
