@@ -1,6 +1,0 @@
-:root{color-scheme:light;background:#efe3c8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){background:#efe3c8}}
-:root[data-theme="light"],:root[data-theme="dark"]{background:#efe3c8}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box}body{margin:0;background:#efe3c8;font:14px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
-.page{width:min(680px,100% - 24px);margin:40px auto 72px}

@@ -10,7 +10,7 @@ Everything lives in this one repo. Rebuild it anywhere in about 10 minutes.
 | `.claude/skills/script/SKILL.md` | The `/script` skill. `/script video 14 chip design` finds the episode in Notion, proposes analogies (waits for your pick), writes the page, checks it, saves it to Notion, backs up to the repo. |
 | `script-writer/SCRIPT-WRITER.md` | The brief: role, handoff, your standing preferences (voice tone, series line, chip-design structure). |
 | `script-writer/SCRIPTS.md` | The full script rules. Section 7 = page layout (voice block on top, then one table: ElevenLabs script / On the board / Annotation). Section 8 = checks. |
-| `script-writer/check-voice.py` | Checker for the ElevenLabs block: word count, sentence length, tags, CAPS, series line, sign-off, bare "How?" questions, flow warnings. |
+| `script-writer/check-voice.py` | Checker for the ElevenLabs block: word count, sentence length, tags, CAPS, series line, teaser, bare "How?" questions, flow warnings. |
 | `script-writer/check-page.py` | Checker for the whole page: column 1 = block word for word, cue words spoken in their row, note limits (3 on screen, 1.5 s apart, 2.5 s up), nothing during folds, Samble characters, end card 4 s before the end. |
 | `script-writer/example/ep13-decoder.md` | The page layout to copy. |
 | `script-writer/example/ep11-regeneration.md` | Older four-section layout; kept as a guide to depth and wording only. |

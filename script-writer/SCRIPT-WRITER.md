@@ -1,6 +1,6 @@
 # Script writer brief (read first, every session)
 
-You write **scripts only** for a reel series: digital electronics and chip-design explainers for Instagram Reels and YouTube Shorts (9:16, about 60-90 s). Another Claude session (the owner's) builds the HTML figures, records nothing, and renders the MP4s. Your output is the episode page it builds from.
+You write **scripts only** for a reel series: digital electronics and chip-design explainers for Instagram, LinkedIn and YouTube Shorts (9:16, about 60-90 s). Another Claude session (the owner's) builds the HTML figures, records nothing, and renders the MP4s. Your output is the episode page it builds from.
 
 Files in this kit:
 - `SCRIPT-WRITER.md` (this file): your role, the handoff, and the project rules that affect scripts.
@@ -24,7 +24,7 @@ Files in this kit:
 
 ## 3. Owner's standing preferences
 
-- **Voice tone:** a friend explaining across a table, the house style (SCRIPTS.md 3a: the flip "…, right? Nope.", 1-3 word punches, "Here's the thing.", "Because…/See,/So…" openers, two viewer questions; TONE 80+), a little lift at the key moment, never hype. `[slightly excited]` at most once (never `[excited]`). Open with `[confident]`, never `[curious]` (Eleven v3 reads a `[curious]` first line too quietly). Plain conversational English, not Hinglish. Every line connects to the one before it; no abrupt jumps (a hook claim with no bridge, the series line cutting in right after the punchline, two "now the circuit" transitions in a row).
+- **Voice tone:** calm and natural, a little lift at the key moment, never hype. `[slightly excited]` at most once (never `[excited]`). Open with `[confident]`, never `[curious]` (Eleven v3 reads a `[curious]` first line too quietly). Plain conversational English, not Hinglish. Every line connects to the one before it; no abrupt jumps (a hook claim with no bridge, the series line cutting in right after the punchline, two "now the circuit" transitions in a row).
 - **Chip-design series line:** "Let's understand this in episode N of chip design." (N as a word), right after the `[thoughtful]` takeaway.
 - **Chip-design structure:** analogy example first (for a 15-year-old), then fold to a proper circuit explanation (gates, rails, transistors, wires, gauges, readouts) that teaches the real BTech concept in proper terms, explained in the context of the analogy, then fold back so the loop ends on its start frame. The circuit is shown as a circuit: do not make the analogy object itself turn into the circuit (ep 17's first redo did, and showed no circuit), and no analogy-to-circuit mapping tables on screen; short labels like "VDD = roof" are fine. Draw the circuit in the digital electronics CMOS style (DE 05, DE 08: rails, lever, PMOS/NMOS valve blocks, glass output tank, DE-style table, graph and meter readouts); take the concept from the analogy, never its objects (ep 17's stairs-and-drops circuit was rejected).
 - **No real-world close in chip-design:** analogy plus explanation only; no third "without it" scene, no desk with an engineer, no sight gag. Spend the time explaining slower, for a non-engineer aged 15+.
@@ -59,7 +59,7 @@ Files in this kit:
 
 - Notes are Samble, brown-black #2a1d10, with olive hand-drawn arrows, rings and boxes. **Samble has no "≈", "−" (U+2212) or "×"**: write "about" (or "near"), "-" and "x" in notes.
 - At most 3 notes on screen (the episode badge counts), at least 1.5 s between new notes, nothing during a fold, no note over a part, label or readout, no pen stroke through text.
-- End card: the boxed takeaway in the centre of the subtitle area, appearing 4 s before the end, and the sign-off sequence: the "1 : 0" scoreboard pun (owner, 2026-11-03): "final score" and "you" write on "you", a big olive "1" on "explain", "most engineers" on "most", a big red "0" (#c2402f) on "can't", in the top zone above the board, then the handwritten "Follow" with its arrow to the follow button and a double underline with sparks on "keep it that way" (SCRIPTS.md section 2; built by `npm run notes:signoff`). No printed subtitles.
+- End card: the boxed takeaway in the centre of the subtitle area, with "Episode N+1 →" at the very bottom, appearing 4 s before the end. No printed subtitles.
 
 ### Logic and physics (never simplify wrongly)
 

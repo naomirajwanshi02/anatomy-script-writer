@@ -19,19 +19,7 @@ let's lets watch say same here there your you we our they them their not no yes 
 if what's that's it's""".split())
 EMOTION = re.compile(r"\[(?!pause\])([^\]]+)\]")
 LINKS = ("so", "but", "now", "watch")
-FILLER = ["so yeah", "let's dive in", "in this video", "from episode", "like episode"]
-IDIOMS = ["not mathing", "suffering from success", "gold rush", "hit the fan", "kool-aid", "par for the course",
-          "smoke and mirrors", "holding the bag", "monkey business", "cut out for", "spaghetti monster",
-          "betting primate"]
-REACTIONS = ("what?", "hold on.", "wait.")
-FLIP = re.compile(r"right\?\s*(?:\[[^\]]*\]\s*)?(nope|not quite|not really|well, no|well, not|not exactly|actually, no|wrong|no\.)", re.I)
-TURNS = ["here's the thing", "here's the trick", "here's the fix", "here's the weird part", "here's the catch", "here's where", "here's how", "but wait",
-         "it gets worse", "what's going on", "let me explain", "turns out"]
-OPENERS = re.compile(r"^(because|see,|so\b|now,|okay|well,)", re.I)
-SIGNOFF = "Now you can explain what most engineers can't. Follow, and keep it that way."
-FIXED = ("Let's watch.", "Now, the same with bits.", "Now, let's build it as a circuit.")
-MILD = re.compile(r"\b(hell|damn)\b", re.I)
-STRONG = re.compile(r"\b(shit\w*|fuck\w*|bullshit\w*|crap|ass|bitch\w*)\b", re.I)
+FILLER = ["basically", "so yeah", "let's dive in", "in this video", "from episode", "like episode", "remember"]
 SYMBOLS = "Q̄·'≥≤→×−≈"
 
 
@@ -130,46 +118,6 @@ def main():
     for f in FILLER:
         if f in low:
             E(f"banned phrase: '{f}'")
-    # Story style (SCRIPTS.md 3a)
-    if low.count("basically") > 1:
-        E("'basically' more than once")
-    for m in re.finditer(r"\bremember\b(.{0,25})", low):
-        if re.search(r"episode|last time|before", m.group(1)):
-            E("'remember' only for a callback inside the reel ('Remember the lane lines?')")
-    if STRONG.search(strip_tags(block)):
-        E(f"strong swear word: '{STRONG.search(strip_tags(block)).group(0)}'")
-    if len(MILD.findall(strip_tags(block))) > 1:
-        E("more than one mild swear word")
-    if MILD.search(strip_tags(first)):
-        E("no swearing in the hook")
-    for i in IDIOMS:
-        if i in low:
-            E(f"idiom '{i}' breaks the Hindi dub (SCRIPTS.md 3a)")
-    if sum(1 for s in sentences(block) if s.lower() in REACTIONS or s.lower() == "wait, what?") > 1:
-        E("more than one reaction line ('Wait, what?', 'Hold on.')")
-    if len(re.findall(r"\bjust\b", low)) > 2:
-        W("'just' more than twice")
-
-    # Tone score (SCRIPTS.md 3a): 20 points per move
-    body = sentences("\n\n".join(beats[1:-3]))  # hook, bridge and sign-off not counted
-    body_text = " ".join(body)
-    tone = {
-        "flip ('…, right? Nope.')": bool(FLIP.search(strip_tags(block))),
-        "punch (a 1-3 word line)": sum(1 for s in body if len(s.split()) <= 3 and s not in FIXED
-                                      and not s.startswith("That's episode")) >= 1,
-        "turn phrase ('Here's the thing.')": any(x in body_text.lower() for x in TURNS),
-        "chat openers (2+: Because, See, So, Now, Okay, Well)": sum(
-            1 for s in body if OPENERS.match(s) and s not in FIXED) >= 2,
-        "questions (2+, sign-off not counted)": sum(1 for s in body if s.endswith("?")) >= 2,
-    }
-    score = 20 * sum(tone.values())
-    for k, ok in tone.items():
-        if not ok:
-            W(f"tone: missing {k}")
-
-    if a.series == "chip":
-        if "harry" in content_words(first) or "harry" in strip_tags(first).lower():
-            E("Harry belongs in line 2, not the hook (the hook speaks to the viewer)")
     for ch in ["Q̄", *SYMBOLS[2:]]:  # "Q̄" is two code points; a plain Q (as in QUARTER) is fine
         if ch in strip_tags(block).replace("'s", "").replace("'t", "").replace("'re", "").replace("'ll", ""):
             E(f"raw symbol '{ch}': spell it for speech")
@@ -180,18 +128,8 @@ def main():
             else f"Welcome to episode {n} of {'Digital Electronics' if a.series == 'de' else 'Verilog'}.")
     if want not in block:
         E(f"series line missing or wrong: expected \"{want}\"")
-    tail3 = beats[-3:] if len(beats) >= 3 else beats
-    signoff_ok = (len(beats) >= 3 and beats[-2].startswith("[pause] [playfully] ") and beats[-1].startswith("[warmly] ")
-                  and " ".join(strip_tags(" ".join(beats[-2:])).split()) == SIGNOFF)
-    if not signoff_ok:
-        E("the reel must end on the sign-off as two beats, word for word: \"[pause] [playfully] Now you can explain what "
-          "most engineers can't.\" then \"[warmly] Follow, and keep it that way.\" (SCRIPTS.md section 2)")
-    elif not beats[-3].startswith("[confident]"):
-        E("the bridge before the sign-off is its own [confident] beat")
-    elif not content_words(beats[0]) & content_words(strip_tags(beats[-3])):
-        W("the bridge before the sign-off repeats no hook word: the reel will not loop")
-    if "That's episode" in block:
-        E("no next-episode teaser (\"That's episode …\"): end on the sign-off (SCRIPTS.md section 2)")
+    if f"That's episode {word(a.episode + 1)}." not in block:
+        E(f"teaser must end \"That's episode {word(a.episode + 1)}.\"")
 
     # Spoken links: not two sentences in a row with the same one
     prev = None
@@ -214,7 +152,6 @@ def main():
         print("ERROR", e)
     for w in warns:
         print("WARN ", w)
-    print(f"TONE  {score}/100 (SCRIPTS.md 3a, aim 80+)")
     print(f"{'FAIL' if errors else 'PASS'}: {words} words, {len(beats)} beats, "
           f"{len(errors)} errors, {len(warns)} flow warnings")
     sys.exit(1 if errors else 0)

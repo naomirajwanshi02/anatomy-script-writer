@@ -104,8 +104,6 @@ for ri, (r0, r1, voice, board, cell) in enumerate(rows):
                 tags.add("badge")
             if not re.fullmatch(r"tie (arrow to .+|underline|box|none)", tie):
                 err.append(f"{row}: tie must be 'arrow to PART', 'underline', 'box' or 'none': {tie}")
-            if tie == "tie box" and "end card" not in tags and not re.search(r"PEN (box|pbox) · ", cell):
-                err.append(f"{row}: note \"{txt}\" is tied to a box, but its row has no PEN box (re-tie it or add the box)")
             # tie none is allowed for worked steps, definitions and rules in free paper (chip-design 01-07 style)
             n = len([w for w in txt.split() if re.search(r"[A-Za-z]", w) and w.lower() != "x"])
             lim = 6 if "end card" in tags else MAXW

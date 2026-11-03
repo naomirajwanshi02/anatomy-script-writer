@@ -1,6 +1,6 @@
 # Reel figure project: working rules
 
-This project makes short isometric explainer figures for a digital electronics Instagram Reels and YouTube Shorts series (9:16, about 10-30 s each, one interview question per reel). Each figure is screen-recorded and drawn over on an iPad, so clarity at phone size matters more than detail. Read this file fully at the start of every session. Topic rules live in `rules/` and are read only when the task needs them:
+This project makes short isometric explainer figures for a digital electronics Instagram/LinkedIn reel series (9:16, about 10-30 s each, one interview question per reel). Each figure is screen-recorded and drawn over on an iPad, so clarity at phone size matters more than detail. Read this file fully at the start of every session. Topic rules live in `rules/` and are read only when the task needs them:
 
 | File | Read it for |
 |---|---|
@@ -50,7 +50,7 @@ This project makes short isometric explainer figures for a digital electronics I
 - Water in analogy figures is blue #2f6fb8 and turns into the rust signal as it folds into the circuit (the water kit's `liquidColor`).
 - Everything else stays neutral sepia. Never add a new colour. If something needs emphasis, use ink tone (lo, mid, hi, lit) or rust.
 - Lever 0/1 marks, if a figure has them, are lit ink (#1e140a) with a pale halo, not rust. Rust stays reserved for current and active items.
-- My iPad annotations: words in brown-black #2a1d10, arrows, circles and underlines in olive #4f5d24, pen 3-4 px. Figures never use olive, so the two never mix up. One exception, the sign-off score: the "1" is olive and the "0" is the warning red #c2402f (`npm run notes:signoff`).
+- My iPad annotations: words in brown-black #2a1d10, arrows, circles and underlines in olive #4f5d24, pen 3-4 px. Figures never use olive, so the two never mix up.
 
 ## 4. Wires and signals
 
@@ -85,7 +85,6 @@ Gate-level wires: a neutral base trace with a rust dotted flow overlay only whil
   - Races and latches: an output changes only if its new value holds for the whole delay (inertial delay), so the faster gate wins.
   - CMOS: tank level follows an RC curve 1 - e^(-t/τ) on rise and e^(-t/τ) on fall, with τ proportional to 1 / effective width.
 - Timeline in each model: times of lever moves, part arrivals and caption changes; everything else is computed.
-- **Voiced figures: every timeline event is tied to the spoken word the page names, never to a fixed second** (SCRIPTS.md section 6); its time comes from the recording (`node builds/notes/annotations.mjs board <page> <words.json>`), so a re-take moves it with its words.
 
 ## 7. Logic and physics that must be correct (check against these, do not "simplify" them wrongly)
 

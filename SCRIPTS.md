@@ -10,8 +10,8 @@ Read before writing any script, voiceover, drawing plan or hook. CLAUDE.md cover
 ## 1. Audience and brand
 
 - **Viewer:** a 15+ short-form scroller who lands on one reel cold, has seen no other episode, and gives it about two seconds. Bar: a first-year BTech student follows every step; a non-engineer 15-year-old follows chip-design without pausing to think.
-- **Platform:** Instagram reels and YouTube Shorts, 9:16, English; Meta AI dubs it to Hindi, so plain English only: no idioms, slang, puns or cultural references (the story devices in section 3a are allowed).
-- **Brand:** sepia paper, brown ink, rust for active, yellow bulbs for lit; precise, told like a friend's story (section 3a); no hype words, no emojis on screen.
+- **Platform:** Instagram reels (also LinkedIn, YouTube Shorts), 9:16, English; Meta AI dubs it to Hindi, so plain English only: no idioms, slang, puns or cultural references.
+- **Brand:** sepia paper, brown ink, rust for active, yellow bulbs for lit; calm and precise; no hype words, no emojis on screen.
 - **Tracks:** Digital Electronics (`series/digital-electronics.csv`), Verilog (`series/verilog.csv`, circuit only), chip-design (`series/book-concepts.csv`). Posting: DE 1-15 alone, then about 2 DE : 1 Verilog (each Verilog reel codes a circuit already shown), testbench and SystemVerilog last.
 - **Who explains what:** the figure shows motion only, never explanation text. The voice says what to understand; my drawing shows where to look and carries the detail the voice skips (sums, lists, definitions, the reason behind a step). A note adds to the voice, never repeats it.
 
@@ -26,7 +26,7 @@ Read before writing any script, voiceover, drawing plan or hook. CLAUDE.md cover
 | Circuit | ~20-40 s | **A real circuit, explained in the context of the analogy (2026-11-02).** The fold lands on the actual circuit (rails, transistors, the wire and its capacitance, gates, readouts), never the analogy object relabelled. Each spoken line explains one real part or step in proper terms (VDD, GND, PMOS, NMOS, charge = C x V, energy) and ties it to what the analogy showed ("the supply's voltage is the roof"); the analogy part may appear as a ghost or label beside its circuit part. **Circuit design language (owner, 2026-11-02):** draw the circuit exactly like the digital electronics CMOS figures (DE 05 "How does a CMOS inverter work", DE 08 "Why does CMOS use almost no power when idle"): a clean flat board, VDD rail at the back and GND at the front, input lever, PMOS and NMOS valve blocks, the glass output tank on the output node, an output lamp where it helps, and DE-style readouts (a table with the current row highlighted, a waveform graph, an "I from VDD" meter). Take the concept from the analogy, never its objects: no stairs, buckets, drops climbing a source or other analogy devices built into the circuit; the circuit shows the concept with its own quantities (tank level = charge, the VDD label and rail = voltage, readouts = current and energy). Walk the key state as it happens. Audience: the analogy is for a 15-year-old, the circuit teaches a first-year BTech student. |
 | Answer | ~40-50 s | The one-line takeaway in plain words. |
 | Real-world close | DE and Verilog only | Where the problem hits real devices. **Never in chip-design** (no real-world scene, voice, drawing or figure; spend the time explaining slower). |
-| Sign-off | last 5-6 s | **(owner, 2026-11-03)** three short beats with a change of tone, so the listener hears the lesson end: (1) `[confident]` a bridge from this reel (at most 8 words) that repeats a hook word, so the reel loops (ep 11: "No shakes, clean bits."); (2) `[pause] [playfully] Now you can explain what most engineers can't.` (a smile in the voice, not a whisper; `[lightly]` if a take overplays it); (3) `[warmly] Follow, and keep it that way.` (friendly, not salesy). The sign-off words are fixed: "Now you can explain what most engineers can't. Follow, and keep it that way." No next-episode teaser: a new viewer has never seen another episode. On screen (no page rows needed): the "1 : 0" scoreboard pun (owner, 2026-11-03): "final score" and "you" write on "you", a big olive "1" on "explain", "most engineers" on "most", a big red "0" (#c2402f) on "can't", in the top zone above the board, then "Follow" with an arrow to the follow button and a double underline with sparks on "keep it that way" (ANNOTATIONS.md, end card; `/htmlmp4` builds it with `npm run notes:signoff`). |
+| Teaser | last 3-5 s | Answers what the reel leaves open and leads to the next episode's object: "… That's episode N+1." |
 
 - **Length:** DE and Verilog about 200 words (180-210), about 1.5 min. Chip-design 170-200 words with tags removed (digits and spaced letters count), about 60 s at voice speed 1.05-1.1. Cut words before clarity.
 - **Show, then say (chip-design):** every step the voice names happens on screen at that moment, one step per sentence, none skipped. Reuse the analogy's words in the circuit. One worked example done slowly beats two done fast.
@@ -35,52 +35,23 @@ Read before writing any script, voiceover, drawing plan or hook. CLAUDE.md cover
 
 - **Rule 1: FLOW comes first (2026-10-31).** Read the block aloud as one story; if any line could be swapped or dropped without the listener noticing, rewrite it.
   - Every beat picks up a word, question or promise from the one before. Never open a beat cold.
-  - The line after the hook takes it up as the viewer's own question, in the hook's own words.
+  - The line after the hook takes it up as the viewer's own question, in the hook's own words, never a phrase carried over from the previous teaser.
   - Never restate what the viewer has just seen. Move the story forward.
   - Set up a new idea before using it: no part, move or rule appears before a line introduces it.
   - No pronoun with an unclear owner. Name the thing.
   - Contrasts point back to the line they contrast with ("Every car behind follows." then "But no driver copies car one's wobble."). A what-if says "if" or "what if", never a bare claim.
   - At most one spoken link ("So", "But", "Now", "Watch") per beat, never two sentences in a row with the same one.
-- **Speaking, not writing:** 6-15 words per sentence (never over 15; the 1-3 word punches of section 3a are the exception), one idea each, active voice, present tense.
-- **Episodes stand alone (2026-10-30):** never "from episode N", "like episode N", or "remember" about another episode ("Remember the lane lines?" inside the same reel is fine, section 3a). Reused objects are introduced again in plain words. Only the series line names an episode.
+- **Speaking, not writing:** 6-15 words per sentence (never over 15), one idea each, active voice, present tense.
+- **Episodes stand alone (2026-10-30):** never "from episode N", "like episode N", "remember". Reused objects are introduced again in plain words. Only the series line and the teaser name episodes.
 - **One name per thing** everywhere (voice, notes, figure). No word a 14-year-old wouldn't know without a definition in the same sentence.
 - **Spell for speech:** "Q bar", "S bar", "V D D", "ground", "N-moss", "P-moss", "C-moss", "NAND", "flip-flop"; "one zero one one", "two to one", "ten to the power nine", "nanoseconds". No raw symbols (Q̄, ·, ', ≥, arrows).
 - **Honest:** every claim matches CLAUDE.md section 7; never claim more than the analogy shows. Say "one gate delay later", not seconds, unless time is the point.
-- **No filler:** no "so yeah", "let's dive in", "in this video". "Basically" at most once, as the plain restatement (section 3a).
+- **No filler:** no "basically", "so yeah", "let's dive in", "in this video".
 - **Model:** Eleven v3 (or v4), stability Creative or Natural, 2-3 takes. No SSML `<break>` tags.
 - **Pauses:** paragraph break between beats; `...` for a short weighted pause; `[pause]` at most 3 per script (before the fold, before a real-world close), never two cues in a row.
-- **Tags:** at most one emotion tag per beat. First line `[confident]` plus one CAPS word (never `[curious]` first: v3 reads it too quietly). `[curious]` for a question the viewer would ask; `[confident]` sign-off bridge, `[playfully]` and `[warmly]` only on the two fixed sign-off beats; `[warmly]`/`[thoughtful]` analogy and answer; `[confident]` real-world close; `[slightly excited]` exactly once, on the key state (never `[excited]`); `[exhales]`/`[sighs]` rarely; `[pause, then normally]` to reset. No sound-effect, accent, singing or crying tags.
+- **Tags:** at most one emotion tag per beat. First line `[confident]` plus one CAPS word (never `[curious]` first: v3 reads it too quietly). `[curious]` teaser question; `[warmly]`/`[thoughtful]` analogy and answer; `[confident]` real-world close; `[slightly excited]` exactly once, on the key state (never `[excited]`); `[exhales]`/`[sighs]` rarely; `[pause, then normally]` to reset. No sound-effect, accent, singing or crying tags.
 - **Emphasis:** at most one CAPS word per beat.
 - **Block format:** plain text, one paragraph per beat, tags inline, nothing else.
-
-## 3a. Tone: a friend explaining (2026-11-03, the house script style)
-
-Measured from about 9,000 words of a long-form explainer channel the owner likes (four videos, one creator), scaled to one 170-200 word reel. The hook stays as section 4 (80+, STRONG); everything after it sounds like a friend explaining across a table, not a lecture. The rates are what a reel should hit; `check-voice.py` prints a **TONE score out of 100** (20 per scored row) and warns on each miss. Aim for 80+. Tone never beats truth: a casual line still says exactly what the old line said.
-
-| Move (scored) | Per reel | Examples |
-|---|---|---|
-| **Flip:** agree with the viewer's easy guess, then turn it | 1 | "The next gate passes that on, right? Nope." / "More repeaters, more speed, right? Not quite." / "Sounds fair, right? Well, not exactly." |
-| **Punch:** a 1-3 word line right after a longer one | 1-2 | "Nope." "Dead straight." "Really fast." "Under half." |
-| **Turn phrase** before the surprising step | 1 | "Here's the thing." "Here's the weird part." "Here's how it works." "But wait, it gets worse." "So what's going on?" |
-| **Chat openers** carry the explanation | 2-4 sentences | "Because…" (his most used opener), "See,…", "So…", "Now,…", "Okay." "Well,…" |
-| **Questions** the viewer would ask, answered at once (sign-off not counted) | 2 | "So how does car five stay straight?" "Inside a lane? It barely cares." "Total wait? Forty-five ticks." |
-
-Also use, not scored:
-- **Question-then-answer fragment:** "Total wait? Forty-five ticks." (counts as a question).
-- **Lists of three:** "No hand, no tap, no switch." "More taps, more pipe, more wait."
-- **"Think of it like…" / "Imagine…"** for any extra everyday comparison inside the analogy.
-- **Plain restatement:** "Basically," or "In other words," at most once each, 12 words or fewer.
-- **Talk to the viewer:** "you", "your phone", "your key"; the stakes in one line when there is room (why it matters to them, or the interview answer).
-- **Callback** in the circuit half to an analogy part by name: "Remember the lane lines?"
-- **"just"** as a softener, at most twice.
-- **Rhythm:** most sentences 6-12 words (never over 15, section 3), broken by the punches.
-
-Never:
-- **The character opener** "This is X, and he's got a huge problem" (it scores WEAK as a hook) or a person added just for style. A person appears only when the analogy really has one acting (filling, pressing, steering); then he is Harry, the one recurring name, never a real person's surname or a famous single name, drawn as a flat 2D side profile (SCRIPT-WRITER.md 3).
-- **Idioms and slang** that break the Hindi dub (section 1): "the math is not mathing", "suffering from success", "gold rush", "hit the fan", "drink the Kool-Aid", "par for the course", "smoke and mirrors", "holding the bag", "monkey business", "cut out for him". `check-voice.py` rejects these.
-- **Swearing:** none by default (the reference uses about one per 2,000 words, so a reel almost never earns one). At most one "hell" or "damn", never in the hook; nothing stronger.
-- **Sarcasm about real people or companies**, legal jokes, sponsor-style asides.
-- **More than one reaction** ("Wait, what?", "Hold on.") per reel; a reaction is a punch, not a habit.
 
 ## 4. Hook rules
 
@@ -92,20 +63,7 @@ Never:
 - **Form of the hook (chip-design, 2026-11-02, from the ep 4 analysis):** best form is "Your <everyday object> never/always <a visible oddity>. Why?" (ep 4: "Your alarm clock never shows 07:3A. Why not?"): second person, a fact the viewer can check on their own object, ending as a question. Never state the mechanism or the result of a scene the viewer has not seen yet (17 "Half-height building, a quarter of the climbing", 18 "A slow handle sends water straight down the drain" were weaker). The second line never repeats the hook as a question. The answer comes back in the last 15 s in the hook's own words, with a tick (ep 4: "That's why your clock never shows A").
 - **Second line (2026-10-28):** refers only to what the viewer has heard or seen; never gives away the chip's result (that comes after the fold). Good forms: the viewer's question plus "Let's watch.", a hint at what the chip does, or a definition the hook needs.
 - **No bare question (2026-10-31):** the viewer's question names the hook's object and what it does, in the hook's words. Never a bare "How?" or "Why?" (ep 13: "How? Let's watch." after "Eight flats, one intercom, only THREE switches." asked how about nothing; fixed to "So how can three switches reach eight doorbells? Let's watch.").
-- **Visual hook (row 1 of On the board, owner 2026-11-03, from ep 11):** what the eye gets in the first 3 s, while the voice says the hook. The voice starts at 0 s, over the entrance (the board rises and its parts fall, landing at 1.35 s with a short shake, settled by 1.6 s).
-  - **Ink from frame 0 (the cold open):** the hook note (the NOTE tagged `hook`) starts writing itself on the first frame, in the top zone above where the board lands (place `above left` or `above right`, y about 300-600), and finishes by about 1.3 s, so the first frame and the muted first second already carry the surprise. Its words state the surprise on their own (picture plus note readable with the sound off), at most 6 words, never 3 voice words in a row. The hook's CAPS word gets an olive underline under its counterpart in the note, on the spoken CAPS word (`PEN underline · on "SHAKES" (…) · under "shaky" · out …`: under the hook note's counterpart word). The iPad layer sits above the figure, so falling parts never cover the ink. These two are the only marks before 1.6 s.
-  - **Board events start after the landing:** row 1 gives 2-4 events, each on a word of the hook (`("SHAKES"): …`). Events whose words come before 1.6 s play from 1.6 s in the page's order, at least 0.4 s apart; the ink carries the words on time, the board follows. Hook motion never looks like the landing shake (different part, direction or rhythm).
-  - **Cause before effect:** anything the hook says happens is caused on screen first, on an earlier word (ep 11: the dog darts out on "Car one", the shake comes on "SHAKES"). Never the effect first and the cause after.
-  - **The CAPS word gets its own event, and the motion is the word:** "shakes" is a fast small jitter, not a slow swerve; "fills" is a level rising; "bounces" is up and down; "jumps" is a sudden step. If the drawing would need a different verb, change the drawing, not the voice.
-  - **Big enough for a phone:** hook motion moves at least 20 px in the 1080-wide frame (about 2 % of the width; 6 px is invisible on a phone), and the actor is one of the biggest parts on the board, inside the safe area (not the top 15 % or the bottom 20 %).
-  - **One place to look:** during the hook only the actor (and its cause) moves or changes; everything else drives, flows or idles evenly in the background, with nothing else lighting up.
-  - **Both sides of the "but" in view:** a contrast hook (car one shakes, car five doesn't; one tap, three taps) shows both halves on screen together, side by side, from the landing on; no pan or zoom.
-  - **Numbers on screen:** a number in the hook (three taps, under HALF, TEN flushes) is visible as a readout, counter or count of parts by the time it is spoken (or from 1.6 s when it is spoken earlier).
-  - **Show the fact, not the reason:** the hook shows the surprising thing the viewer can check (car 5 steady, the tray waiting); the why comes after the series line. A faint ghost of the expected or failing case (at most 1 s) is allowed as a hint.
-  - **Ends on the start frame:** by the hook's last word every part is back where the loop's last frame leaves it, so the reel loops there.
-  - **No other text:** only the hook note and its underline; no caption.
-  - `check-page.py` warns when row 1 has no `Visual hook:`, fewer than 2 cued events, no event on the CAPS word, no "start frame", no hook note on the hook's first words, or no underline on the CAPS word.
-- Keep the hook's object name everywhere after it.
+- Keep the hook's object name everywhere after it. The previous teaser leads to this hook, but the hook works without it.
 
 ## 5. Drawing rules (annotations, 2026-11-01)
 
@@ -120,7 +78,6 @@ Never:
 - Each line plays while its event is on screen or up to 0.5 s before it; never about an event not yet shown or long gone.
 - The key-state hold is the longest; the key-state explanation sits on it.
 - Planned times use about 3 words per second; after recording they are redone from the real word times.
-- **Every event is tied to a spoken word, never to a fixed second (owner, 2026-11-03).** Each On the board event and each mark names the words it lands on: `12.3 ("lamp lights"): the lamp lights`, `NOTE "…" · on "lamp lights" (12.3)`. The seconds are only the plan; after recording, `/htmlmp4` times every event from those words (`annotations.mjs board` and `plan`), so a re-take, a faster read or an extra pause moves the event with its words. An event with no word of its own takes the nearest spoken word before it (`"car five"` + 0.5 s: …). The visual hook too: the hook note writes from 0 s; board events cued before the landing has settled (1.6 s) start at 1.6 s in the page's order, at least 0.4 s apart (section 4). `check-page.py` warns on a board event timed by seconds alone.
 
 ## 7. Output format
 
@@ -130,7 +87,7 @@ Never:
 1. **The ElevenLabs block** at the very top (a ```txt code block, final text), then one line of ElevenLabs notes (model, settings, word count, expected length) and one line on times and notes (planned at about 3 words per second; note check result).
 2. **One table, three columns:** `ElevenLabs script | On the board | Annotation`. One row per voice line or short group of lines, in order.
    - **ElevenLabs script:** the row's time range in bold (`**6.1-11.3 s**`), then the exact words of the block, tags included. Read top to bottom, column 1 is the block word for word.
-   - **On the board:** what the figure shows at that moment, each event with its time and the word it lands on (`7.4 ("wings A"): plate A pulses`); never a time alone (section 6). The first row also sets up the board (building, parts, labels); the key-state row says what the model computes; fold rows describe the fold; the last row the fold back to the start frame. This column is the brief for the HTML figure.
+   - **On the board:** what the figure shows at that moment, each event with its time and the word it lands on (`7.4 ("wings A"): plate A pulses`). The first row also sets up the board (building, parts, labels); the key-state row says what the model computes; fold rows describe the fold; the last row the fold back to the start frame. This column is the brief for the HTML figure.
    - **Annotation:** one mark per line, joined with `<br>`, in the `script-writer/ANNOTATIONS.md` section 5 format (`NOTE "2 x 2 x 2 = 8 flats" · on "wings A" (7.4) · out "Every doorbell" (14.2) · above left · tie arrow to the building`; `PEN ring · on "turns ON" (48.2) · round row 5's lit lamp · out "Each extra" (52.3) · key`). "Nothing new." when nothing is added. `/htmlmp4` builds the reel from these lines and re-times them from the quoted words.
 3. **Post caption (2026-11-01)**, at the very end under a `## Caption` heading: one short line (plain English, no emojis, the episode's surprise or takeaway, under about 15 words), then on the next line exactly 5 hashtags picked from this list only, the 5 that fit the episode best: #ai #artificialintelligence #machinelearning #deeplearning #generativeai #aitools #chatgpt #llm #aiagents #futuretech #technology #tech #aichips #aihardware #gpu #nvidia #semiconductors #chipdesign #vlsi #computerarchitecture #npu #edgeai
 - No other sections. The detailed script and the 15-year-old questions are worked out in scratch for the checks (section 8) and not put on the page. Global figure rules come from CLAUDE.md.
@@ -142,7 +99,7 @@ Order of work: detailed script (scratch), then the page, then recorded voice, th
 
 1. **Facts:** every number, code and claim computed in a scratch script, never by eye; matches CLAUDE.md section 7.
 2. **Run `python3 script-writer/check-voice.py <file> --series chip --episode N`** on the block and **`python3 script-writer/check-page.py <page.md>`** on the whole page; both must PASS (the page checker covers column 1 = block, cue words spoken in their row, note limits, folds, Samble characters, end card at 4 s before the end). For each WARN, rewrite the beat or say in the change log why it does not open cold. Then do the counts the script cannot see.
-2. **Counts:** word range; no sentence over 15 words; tags, CAPS and `[pause]` limits; right series line and episode number; the sign-off word for word, after a bridge that repeats a hook word.
+2. **Counts:** word range; no sentence over 15 words; tags, CAPS and `[pause]` limits; right series line and episode number; teaser leads to episode N+1's object.
 3. **Read-aloud:** block read with tags removed against section 3 (flow, links, one name per thing).
 4. **15-year-old pass:** after every sentence, write the question a curious non-engineer would ask; answer it at that moment (V, D or F), or cut the sentence that raised it. Every term defined on first use; every recipe gets its why.
 5. **Sync:** every spoken claim has its F or D at that moment; every F step is in the On the board column in order; every named group has its box.
