@@ -5,8 +5,10 @@
 // (`notes: [...]` and `pen: [...]`). Then run autoplace, notes:check and the signoff check as usual.
 //   "final score" + "you" on "you", a big "1" on "explain", "most engineers" on "most", a big "0" on "can't":
 //   a scoreboard in bits, top zone above the board (x 330 / 720, y from --y, default 440).
-//   Ending (sample 7): "Follow" writes on "Follow" at the very bottom (y 1693, line-boils), an olive arrow toward the
-//   platform's follow button, then a double underline and three small sparks on "keep it that way".
+//   Ending (sample 7): "Follow" writes on "Follow" at y 1530 (line-boils), in the free paper between the takeaway box and
+//   the strip both apps cover (one video serves Instagram Reels and YouTube Shorts); a short olive arrow points down-left
+//   toward the corner where both apps put their follow/subscribe button (tip at y 1625, above both apps' text); then a
+//   double underline and three small sparks on "keep it that way".
 // All scoreboard notes share group "signoff", so the crowding check counts them once.
 import { readFileSync } from "node:fs";
 import { arrow, line } from "./pen.mjs";
@@ -49,12 +51,12 @@ const notes = [
   [720, Y + 70, 56, r(MOST), 0.6, "END", "most engineers"],
   [720, Y + 190, 110, r(CANT + 0.05), 0.25, "END", "0"],
 ];
-const follow = [530, 1693, 76, r(FOLLOW), 0.5, "END", "Follow"];
+const follow = [530, 1530, 76, r(FOLLOW), 0.5, "END", "Follow"];
 const pen = [
-  { t: r(FOLLOW + 0.2), d: 0.4, p: arrow(410, 1676, 374, 1742, 14), c: 'arrow -> the platform\'s follow button' },
-  { t: r(KEEP), d: 0.25, p: line(420, 1724, 650, 1720), c: "underline 1" },
-  { t: r(KEEP + 0.15), d: 0.25, p: line(432, 1742, 640, 1740), c: "underline 2" },
-  { t: r(KEEP + 0.4), d: 0.2, p: line(684, 1636, 702, 1614, 0) + " " + line(700, 1660, 728, 1654, 0) + " " + line(690, 1684, 712, 1696, 0), c: "sparks" },
+  { t: r(FOLLOW + 0.2), d: 0.4, p: arrow(408, 1540, 300, 1625, 16), c: 'arrow down-left, toward the follow button (both apps)' },
+  { t: r(KEEP), d: 0.25, p: line(420, 1566, 650, 1562), c: "underline 1" },
+  { t: r(KEEP + 0.15), d: 0.25, p: line(432, 1584, 640, 1582), c: "underline 2" },
+  { t: r(KEEP + 0.4), d: 0.2, p: line(684, 1476, 702, 1454, 0) + " " + line(700, 1500, 728, 1494, 0) + " " + line(690, 1524, 712, 1536, 0), c: "sparks" },
 ];
 
 const q = (s) => JSON.stringify(s);
