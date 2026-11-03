@@ -27,7 +27,11 @@ Here's the catch. A ping alone reads zero zero, and so does silence. So a third 
 
 [thoughtful] Basically, a priority encoder: the highest wire on wins, not the first.
 
-[confident] Your call wins, every time. Now you can explain what most engineers can't. Follow, and keep it that way.
+[confident] Your call wins, every time.
+
+[pause] [playfully] Now you can explain what most engineers can't.
+
+[warmly] Follow, and keep it that way.
 ```
 
 **ElevenLabs:** Eleven v3 (same voice), stability Creative or Natural, 2-3 takes. 199 words (<code>check-voice.py</code>: PASS), about 66 s planned; voice speed about 1.05. Codes are written as words ("zero one", "one one") so the take does not read "01" as "one"; keep the take whose "valid" is said as one word, not spelled.
@@ -52,7 +56,7 @@ Times are planned (about 3 words per second, video 72.9 s); redo them from the r
 | **52.2-56.5 s** Here's the catch. A ping alone reads zero zero, and so does silence. | 53.2 ("A ping alone"): lever 1 drops, then lever 0 flips up, with rust dots on wire 0; both output lamps dark. 55.2 ("and so does"): lever 0 drops; all four levers down; both lamps still dark: the same picture. 56.2 ("silence"): hold. | NOTE "00: ping, or nothing?" · on "A ping alone" (53.2) · out "valid" (58.1) · below left · tie arrow to the output bits |
 | **56.8-60.5 s** So a third bit, valid, says if any wire is on. | 57.1 ("a third bit"): a third glass-bulb lamp rises below the two, label "valid", clear glass. 58.1 ("valid,"): lever 0 flips up: the valid lamp lights yellow; the two output lamps stay dark. 59.1 ("any wire"): lever 0 drops: the valid lamp goes dark. | NOTE "ping: valid 1, silence: valid 0" · on "valid" (58.1) · out "not the first" (63.8) · above left · tie arrow to the valid lamp |
 | **60.8-64.8 s** [thoughtful] Basically, a priority encoder: the highest wire on wins, not the first. | 61.1 ("a priority"): lever 1 flips up first: lamps 0 1, valid lit. 62.5 ("highest wire"): lever 3 flips up after it: lamps 1 1. 63.5 ("wins,"): wire 3 pulses. 63.8 ("not the first"): lever 1 shows the "1st" tag for 1 s; the outputs do not change. | NOTE "call came last, still wins" · on "priority" (61.5) · out fold (65.1) · below centre · tie arrow to the encoder's output bits |
-| **65.1-72.9 s** [confident] Your call wins, every time. Now you can explain what most engineers can't. Follow, and keep it that way. | 65.1-66.7 fold back to the phone: the levers slide back into the four tiles, the lamps grow back into the speaker; only the music tile rust, the music arcs playing (the start frame). Held to the end. Sign-off on screen (iPad layer, nothing to build in the figure): the "1 : 0" scoreboard (olive 1, red 0) and "Follow" with its arrow, underlines and sparks, from <code>npm run notes:signoff</code>. | NOTE "top-ranked input always wins" · at end-4 (68.9) · out end · end card · tie box |
+| **65.1-72.9 s** [confident] Your call wins, every time. [pause] [playfully] Now you can explain what most engineers can't. [warmly] Follow, and keep it that way. | 65.1-66.7 fold back to the phone: the levers slide back into the four tiles, the lamps grow back into the speaker; only the music tile rust, the music arcs playing (the start frame). Held to the end. Sign-off on screen (iPad layer, nothing to build in the figure): the "1 : 0" scoreboard (olive 1, red 0) and "Follow" with its arrow, underlines and sparks, from <code>npm run notes:signoff</code>. | NOTE "top-ranked input always wins" · at end-4 (68.9) · out end · end card · tie box |
 
 ## Caption
 

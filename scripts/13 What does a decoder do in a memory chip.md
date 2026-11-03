@@ -19,7 +19,11 @@ More rows, more wires, right? Nope. Each extra wire doubles the rows. Twenty wir
 
 [thoughtful] Basically, that's the decoder: a few wires in, one row out.
 
-[confident] Three switches, never two. Now you can explain what most engineers can't. Follow, and keep it that way.
+[confident] Three switches, never two.
+
+[pause] [playfully] Now you can explain what most engineers can't.
+
+[warmly] Follow, and keep it that way.
 ```
 
 **ElevenLabs:** Eleven v3 (same voice), stability Creative or Natural, 2-3 takes. 200 words (<code>check-voice.py</code>: PASS), about 67 s planned; voice speed about 1.05. If a take reads "wings A and B" as "uh", keep the take whose "A" is said as the letter.
@@ -45,7 +49,7 @@ Times are planned (about 3 words per second, video 73.5 s); redo them from the r
 | **51.4-54.7 s** That line, the word line, opens its row for reading. | Key hold continues (46.6-52.3 s, the longest hold). 51.4 ("That line"): row 5's line pulses. 52.1 ("the word line"): it thickens. 53.1 ("opens its"): row 5's eight cells light pale, left to right. 54.1 ("for reading"): their bits (1 0 1 1 0 0 1 0, from the model, not hand-set) slide out past the row's right end. | NOTE "word line = the row's on-switch" · on "the word line" (52.1) · out "Each extra" (57.0) · above right · tie arrow to row 5's word line |
 | **55.0-61.7 s** More rows, more wires, right? Nope. Each extra wire doubles the rows. Twenty wires pick one of about a million. | 57.0 ("Each extra wire"): a fourth lever slides in beside the three. 58.0 ("doubles the rows"): the 8-row stack copies itself into a second stack (16 rows), drawn smaller. 59.0 ("Twenty wires"): the levers multiply to twenty, small; the stack zooms out into a dense block of thin rows. 60.7 ("about a million"): one thin row glows rust. 59.4 ("More rows" + 4.4 s): back to three levers and eight rows, row 5 lit. | NOTE "3→8, 4→16, 10→1024" · on "Each extra wire" (57.0) · out "That's the decoder" (62.3) · above left · tie arrow to the levers<br>NOTE "2^20 = 1,048,576" · on "about a million" (60.7) · out fold (66.0) · above right · tie underline |
 | **62.0-65.7 s** [thoughtful] Basically, that's the decoder: a few wires in, one row out. | 62.0 ("Basically"): the column of eight checkers glows. 63.3 ("a few wires"): the three address wires pulse. 64.7 ("one row out"): row 5's word line pulses. | NOTE "decoder: 3 in, 8 out" · on "decoder" (63.0) · out fold (66.0) · left of the checker column · tie arrow to the checker column |
-| **66.0-73.5 s** [confident] Three switches, never two. Now you can explain what most engineers can't. Follow, and keep it that way. | 66.0-67.6 fold back to the building: row 5's lamp becomes the B-ground-right doorbell, still ringing; then the levers return to the middle and the bulb goes out (the start frame). Held to the end. Sign-off on screen (iPad layer, nothing to build in the figure): the "1 : 0" scoreboard (olive 1, red 0) and "Follow" with its arrow, underlines and sparks, from <code>npm run notes:signoff</code>. | NOTE "n wires pick 1 of 2^n rows" · at end-4 (69.5) · out end · end card · tie box |
+| **66.0-73.5 s** [confident] Three switches, never two. [pause] [playfully] Now you can explain what most engineers can't. [warmly] Follow, and keep it that way. | 66.0-67.6 fold back to the building: row 5's lamp becomes the B-ground-right doorbell, still ringing; then the levers return to the middle and the bulb goes out (the start frame). Held to the end. Sign-off on screen (iPad layer, nothing to build in the figure): the "1 : 0" scoreboard (olive 1, red 0) and "Follow" with its arrow, underlines and sparks, from <code>npm run notes:signoff</code>. | NOTE "n wires pick 1 of 2^n rows" · at end-4 (69.5) · out end · end card · tie box |
 
 ## Caption
 

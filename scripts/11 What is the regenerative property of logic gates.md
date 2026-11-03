@@ -29,7 +29,11 @@ Remember the lane lines? Gate after gate, every bump vanishes.
 
 [thoughtful] Basically, every gate puts the bit back in its lane. That's regeneration.
 
-[confident] No shakes, clean bits. Now you can explain what most engineers can't. Follow, and keep it that way.
+[confident] No shakes, clean bits.
+
+[pause] [playfully] Now you can explain what most engineers can't.
+
+[warmly] Follow, and keep it that way.
 ```
 
 **ElevenLabs:** Eleven v3 (same voice), stability Creative or Natural, 2-3 takes. 200 words (<code>check-voice.py</code>: PASS), about 67 s planned; voice speed about 1.05. Re-record (story-style rewrite 2026-11-03). Tone: <code>SCRIPTS.md</code> section 3a. Numbers are said as "tenths"; keep them as written.
@@ -54,7 +58,7 @@ Times are planned (about 3 words per second, video 73.3 s); redo them from the r
 | **55.6-57.6 s** [slightly excited] It sends out a CLEAN one. | Key state. 55.6 ("It sends"): gate 2 pulses. 56.9 ("CLEAN one"): gate 2's output gauge sits at 1.0, readout "1.0". Computed in the model: each gate is a buffer (two inverters, gain about 8 at 0.5 V, flat outside about 0.39-0.61 V); every output comes from its input through that curve; 0.45 → 0.55 V in gives about 0.17 → 0.83 V out; 0.7, 0.8 and 0.9 V in all give about 1.0 V out. | NOTE "0.7 in → 1.0 out" · on "It sends" (55.6) · out "Gate after" (59.2) · above left · tie arrow to the readout<br>PEN ring · on "CLEAN one" (56.9) · round gate 2's output gauge · out "Basically" (61.5) · key |
 | **57.9-61.2 s** Remember the lane lines? Gate after gate, every bump vanishes. | 57.9 ("Remember the lane lines"): ghost lane lines show over the gauges' bands for 1 s. 59.2 ("Gate after gate"): bumps hit every wire segment along the chain; each gate's input gauge dips, each output gauge stays at 1.0, one gate after another, left to right. Below the chain, a faint ghost "copying" wire (input + bump, no restoring) shows its level sinking 0.9 → 0.5 along its length (computed: five bumps of 0.08 V). | NOTE "copying instead: 0.9 → 0.5" · on "Gate after" (59.2) · out "Basically" (61.5) · below centre · tie arrow to the ghost copying wire |
 | **61.5-65.5 s** [thoughtful] Basically, every gate puts the bit back in its lane. That's regeneration. | 61.5 ("Basically"): every output gauge pulses in its 1 band together; the ghost wire fades. 64.8 ("That's regeneration"): hold. | NOTE "past the middle line → wrong bit" · on "Basically" (61.5) · out fold (65.8) · above right · tie none |
-| **65.8-73.3 s** [confident] No shakes, clean bits. Now you can explain what most engineers can't. Follow, and keep it that way. | 65.8-67.4 fold back: the wire becomes the road, the gate boxes become the five cars in the upper lane, the dog back at the roadside behind the ROLLIN sign (the start frame). Held to the end. Sign-off on screen (iPad layer, nothing to build in the figure): the "1 : 0" scoreboard (olive 1, red 0) and "Follow" with its arrow, underlines and sparks, from <code>npm run notes:signoff</code>. | NOTE "each gate cleans the bit" · at end-4 (69.3) · out end · end card · tie box |
+| **65.8-73.3 s** [confident] No shakes, clean bits. [pause] [playfully] Now you can explain what most engineers can't. [warmly] Follow, and keep it that way. | 65.8-67.4 fold back: the wire becomes the road, the gate boxes become the five cars in the upper lane, the dog back at the roadside behind the ROLLIN sign (the start frame). Held to the end. Sign-off on screen (iPad layer, nothing to build in the figure): the "1 : 0" scoreboard (olive 1, red 0) and "Follow" with its arrow, underlines and sparks, from <code>npm run notes:signoff</code>. | NOTE "each gate cleans the bit" · at end-4 (69.3) · out end · end card · tie box |
 
 ## Caption
 

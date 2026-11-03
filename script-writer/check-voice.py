@@ -151,7 +151,7 @@ def main():
         W("'just' more than twice")
 
     # Tone score (SCRIPTS.md 3a): 20 points per move
-    body = sentences("\n\n".join(beats[1:-1]))  # hook and sign-off not counted
+    body = sentences("\n\n".join(beats[1:-3]))  # hook, bridge and sign-off not counted
     body_text = " ".join(body)
     tone = {
         "flip ('…, right? Nope.')": bool(FLIP.search(strip_tags(block))),
@@ -180,9 +180,15 @@ def main():
             else f"Welcome to episode {n} of {'Digital Electronics' if a.series == 'de' else 'Verilog'}.")
     if want not in block:
         E(f"series line missing or wrong: expected \"{want}\"")
-    if not strip_tags(beats[-1]).strip().endswith(SIGNOFF):
-        E(f"last beat must end with the sign-off, word for word: \"{SIGNOFF}\" (SCRIPTS.md section 2)")
-    elif not content_words(beats[0]) & content_words(strip_tags(beats[-1]).replace(SIGNOFF, "")):
+    tail3 = beats[-3:] if len(beats) >= 3 else beats
+    signoff_ok = (len(beats) >= 3 and beats[-2].startswith("[pause] [playfully] ") and beats[-1].startswith("[warmly] ")
+                  and " ".join(strip_tags(" ".join(beats[-2:])).split()) == SIGNOFF)
+    if not signoff_ok:
+        E("the reel must end on the sign-off as two beats, word for word: \"[pause] [playfully] Now you can explain what "
+          "most engineers can't.\" then \"[warmly] Follow, and keep it that way.\" (SCRIPTS.md section 2)")
+    elif not beats[-3].startswith("[confident]"):
+        E("the bridge before the sign-off is its own [confident] beat")
+    elif not content_words(beats[0]) & content_words(strip_tags(beats[-3])):
         W("the bridge before the sign-off repeats no hook word: the reel will not loop")
     if "That's episode" in block:
         E("no next-episode teaser (\"That's episode …\"): end on the sign-off (SCRIPTS.md section 2)")

@@ -27,7 +27,11 @@ Out comes thirteen.
 
 [thoughtful] Basically, three in, two out.
 
-[confident] Every column, three in. Now you can explain what most engineers can't. Follow, and keep it that way.
+[confident] Every column, three in.
+
+[pause] [playfully] Now you can explain what most engineers can't.
+
+[warmly] Follow, and keep it that way.
 ```
 
 **ElevenLabs:** Eleven v3 (same voice), stability Creative or Natural, 2-3 takes. 195 words (<code>check-voice.py</code>: PASS), about 65 s planned; voice speed about 1.05. Bits are said as words ("one zero", "one one"); keep them as written.
@@ -50,7 +54,7 @@ Times are planned (about 3 words per second, video 71.1 s); redo them from the r
 | **54.3-60.0 s** Watch six plus seven. [slightly excited] Third column: one, one, and a carry. THREE ones. Write one, carry one. | 54.3 ("Watch six"): row A fills 0 1 1 0, then row B 0 1 1 1; the first two columns resolve quickly (sums 1, 0; a carry dot into column 3). Key state, hold about 4 s: 55.6 ("Third column"): box 3 highlights; its A, B, carry in pulse on "one, one, and a carry". 58.0 ("THREE ones"): all three glow together, readout "3 = 11". 58.6 ("Write one"): its sum tile lights. 59.3 ("carry one"): carry out lights and a dot runs into box 4. Computed in the model: one column-addition function for both halves (digit, digit, carry in → written digit, carry out); 58 + 67: (8, 7, 0 → 5, 1), (5, 6, 1 → 2, 1) = 125; 6 + 7 = 0110 + 0111: (0, 1, 0 → 1, 0), (1, 1, 0 → 0, 1), (1, 1, 1 → 1, 1), (0, 0, 1 → 1, 0) = 1101 = 13; for all 8 input rows sum = 1 for totals 1 or 3, carry = 1 for totals 2 or 3. | NOTE "6 + 7 = 0110 + 0111" · on "Watch six" (54.3) · out "Out comes" (60.3) · above right · tie arrow to the bit rows<br>PEN ring · on "THREE ones" (58.0) · round box 3's three inputs · out "Out comes" (60.3) · key |
 | **60.3-61.3 s** Out comes thirteen. | Box 4 finishes (sum 1, carry out 0); the sum row 1 1 0 1 pulses once left to right. The figure prints no "13" (the note gives it). | NOTE "1101 = 8 + 4 + 1 = 13" · on "Out comes" (60.3) · out fold (63.6) · below centre · tie arrow to the sum row |
 | **61.6-63.3 s** [thoughtful] Basically, three in, two out. | 61.6 ("Basically"): every box's three inputs pulse together, then its two outputs. | Nothing new. |
-| **63.6-71.1 s** [confident] Every column, three in. Now you can explain what most engineers can't. Follow, and keep it that way. | 63.6-65.2 fold back to the paper: the bit tiles become 58 over 67 with an empty answer row and empty carry boxes (the start frame). Held to the end. Sign-off on screen (iPad layer, nothing to build in the figure): the "1 : 0" scoreboard (olive 1, red 0) and "Follow" with its arrow, underlines and sparks, from <code>npm run notes:signoff</code>. | NOTE "each column: 3 in, 2 out" · at end-4 (67.1) · out end · end card · tie box |
+| **63.6-71.1 s** [confident] Every column, three in. [pause] [playfully] Now you can explain what most engineers can't. [warmly] Follow, and keep it that way. | 63.6-65.2 fold back to the paper: the bit tiles become 58 over 67 with an empty answer row and empty carry boxes (the start frame). Held to the end. Sign-off on screen (iPad layer, nothing to build in the figure): the "1 : 0" scoreboard (olive 1, red 0) and "Follow" with its arrow, underlines and sparks, from <code>npm run notes:signoff</code>. | NOTE "each column: 3 in, 2 out" · at end-4 (67.1) · out end · end card · tie box |
 
 ## Caption
 
