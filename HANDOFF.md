@@ -82,8 +82,6 @@ $files = @(
   'script-writer/ig/LICENSE',
   'script-writer/ig/beats.py',
   'script-writer/ig/caption.py',
-  'script-writer/ig/hooks.json',
-  'script-writer/ig/hookscore.py',
   'scripts/11 What is the regenerative property of logic gates.md',
   'scripts/12 How does a full adder work.md',
   'scripts/14 What is a priority encoder.md',

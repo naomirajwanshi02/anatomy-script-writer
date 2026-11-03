@@ -14,12 +14,12 @@ Copy the files listed in section 6 from this repo into `D:/Anatomy` at the same 
 
 - Episodes 11-18 and 21 were scored with the script-writer tools and fixed where they scored low. Facts, analogies, worked numbers and circuit claims are unchanged.
 - Every episode got:
-  - a new hook, all scoring 80+ STRONG on `script-writer/ig/hookscore.py`, with the Hook title updated in Notion and in `series/book-concepts.csv`;
+  - a new hook, with the Hook title updated in Notion and in `series/book-concepts.csv`;
   - a second line that takes up the hook;
   - lines over 4 s split;
   - a teaser that echoes a hook word, so the reel loops;
   - a caption whose first line has a number.
-- Every page passes `check-voice.py`, `check-page.py` and `check-annotations.py`. The hook score total over 11-18 went from 340 to 705.6 out of 800.
+- Every page passes `check-voice.py`, `check-page.py` and `check-annotations.py`.
 - 11 and 12 moved from the old four-section page to the current layout (voice block, 3-column table, NOTE/PEN annotations, caption). Their figure details (car colours, dog, gate curve, model numbers, paper sums) now live in the On the board column.
 - 21: the capacitance line was wrong because it made capacitance a flip threshold; it now says "how much charge a piece holds". Annotations were converted to the current format and a caption added. The model numbers were re-checked by simulation: 8 pieces 27.2 ticks, 16 pieces 103.0, ratio 3.78 (32 pieces: 3.88).
 - Episodes 19 and 20 were not part of this revision (19 was revised separately in commit b75af2a).
@@ -128,8 +128,6 @@ New (21):
 - `script-writer/ig/LICENSE`
 - `script-writer/ig/beats.py`
 - `script-writer/ig/caption.py`
-- `script-writer/ig/hooks.json`
-- `script-writer/ig/hookscore.py`
 - `scripts/11 What is the regenerative property of logic gates.md`
 - `scripts/12 How does a full adder work.md`
 - `scripts/14 What is a priority encoder.md`
@@ -174,6 +172,6 @@ Earlier episodes' built pages, voice mp3s and videos (`shorts/`, about 67 GB). S
 | `SCRIPTS.md` | Full script rules |
 | `rules/chip-design.md`, `rules/analogy.md` | Chip-design story shape, analogy objects |
 | `script-writer/` | Brief, annotation rules, understanding test, checkers (`check-voice.py`, `check-page.py`, `check-annotations.py`, `storyboard.py`), example pages |
-| `script-writer/ig/` | Scoring tools from the MIT [instagram-agent-skill](https://github.com/Jakeschincariol/instagram-agent-skill), patched for the voice block: `hookscore.py` (hook score), `beats.py` (beat timing and loop), `caption.py` (caption lint), `hooks.json` (26 hook formulas) |
+| `script-writer/ig/` | Scoring tools from the MIT [instagram-agent-skill](https://github.com/Jakeschincariol/instagram-agent-skill), patched for the voice block: `beats.py` (beat timing and loop), `caption.py` (caption lint). The hook-score tool was removed on 2026-11-03: the owner judges hooks by reading them, not by a metric |
 | `series/*.csv` | Episode lists (backup; Notion wins) |
 | `scripts/` | Finished pages, as examples and backup |

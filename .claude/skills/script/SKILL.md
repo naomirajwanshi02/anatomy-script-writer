@@ -29,7 +29,7 @@ Another workspace: search the database by name. Query the row whose `#` is N and
 
 ## 4. Write
 
-The page is SCRIPTS.md section 7, laid out exactly like the example; annotations in the ANNOTATIONS.md section 5 format; chip-design ends with `## Caption`. Work in scratch: the detailed script, the 15-year-old questions, and every number, sum and bit pattern computed in a script. Hooks: draft 3 in the SCRIPTS.md section 4 forms (`script-writer/ig/hooks.json` has 26 more formulas for ideas) and keep the best that scores highest in step 5.
+The page is SCRIPTS.md section 7, laid out exactly like the example; annotations in the ANNOTATIONS.md section 5 format; chip-design ends with `## Caption`. Work in scratch: the detailed script, the 15-year-old questions, and every number, sum and bit pattern computed in a script. Hooks: draft 3 in the SCRIPTS.md section 4 forms and keep the one that best passes the cold-viewer test (section 4); judge it by reading it, not by a score.
 
 ## 5. Score and fix (repeat until every line holds)
 
@@ -38,7 +38,6 @@ Run from the repo root on the scratch files.
 | Tool | Target |
 |---|---|
 | `python3 script-writer/check-voice.py <block> --series <chip\|de\|verilog> --episode N` | PASS; TONE 80+ (SCRIPTS.md 3a, the house style); every WARN fixed or answered in one line |
-| `python3 script-writer/ig/hookscore.py hooks.txt` (one hook per line, no tags) | the shipped hook scores 80+ STRONG; a number in the hook is usually what gets it there |
 | `python3 script-writer/ig/beats.py <block or page>` | no flags: every sentence 4 s or less (about 12 words), the bridge before the sign-off echoes a hook word ("Loops"), length on target |
 | `python3 script-writer/check-page.py page.md` | PASS, no WARN (every board event tied to its spoken words) |
 | `python3 script-writer/check-annotations.py page.md --series <s>` | PASS; WARNs fixed or answered |
@@ -63,4 +62,4 @@ The `ig/` tools come from an Instagram creator kit. They are patched for spelt-o
 ## 7. Back up and report
 
 - Mirror Hook title, Analogy and Status in the backup CSV; save the page as `scripts/<NN> <interview question>.md`. On the laptop, no git (CLAUDE.md). In a cloud session, commit and push: the container is deleted.
-- In chat: the Notion link, one table of scores (each tool's result, hook score, TONE score, rating), what the passes changed, and one line per CSV change. Next step for the owner: record the voice, then `/htmlmp4 <series> <N> <mp3>` in a new chat.
+- In chat: the Notion link, one table of scores (each tool's result, TONE score, rating), what the passes changed, and one line per CSV change. Next step for the owner: record the voice, then `/htmlmp4 <series> <N> <mp3>` in a new chat.

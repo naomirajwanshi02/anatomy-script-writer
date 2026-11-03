@@ -26,7 +26,7 @@ Here's the trick. We chain three inverters, each four times wider: one, four, si
 [warmly] Follow, and keep it that way.
 ```
 
-**ElevenLabs:** Eleven v3 (same voice), stability Creative or Natural, 2-3 takes. 198 words (<code>check-voice.py</code>: PASS), about 66 s planned; voice speed about 1.05. Hook score 81.4 STRONG (<code>ig/hookscore.py</code>); beat sheet clean, loops on "match" and "log" (<code>ig/beats.py</code>). "P-moss" and "N-moss" are spelt as they sound; keep them as written.
+**ElevenLabs:** Eleven v3 (same voice), stability Creative or Natural, 2-3 takes. 198 words (<code>check-voice.py</code>: PASS), about 66 s planned; voice speed about 1.05. Beat sheet clean, loops on "match" and "log" (<code>ig/beats.py</code>). "P-moss" and "N-moss" are spelt as they sound; keep them as written.
 
 Times are planned (about 3 words per second, video 71.4 s); redo them from the recording. Notes: Samble, brown-black #2a1d10; pen marks olive #4f5d24. Annotations follow <code>script-writer/ANNOTATIONS.md</code> (one mark per line; times re-resolve from the quoted words in the recording). <code>check-annotations.py</code>: PASS.
 
