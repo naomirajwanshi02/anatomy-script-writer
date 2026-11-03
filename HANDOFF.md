@@ -8,10 +8,10 @@ Repo: <https://github.com/naomirajwanshi02/anatomy-script-writer/tree/claude/bra
 
 | # | Figure (`src/figures/`) | Script (Notion) | Voice | Reel |
 |---|---|---|---|---|
-| 11 | `regen-convoy2` | rewritten 2026-11-03 in the house style (`scripts/11…`; Notion not yet updated) | re-record | rebuild |
-| 12 | `full-adder-columns` | revised, final | re-record | rebuild |
-| 13 | `decoder-intercom` | revised, final | re-record | rebuild |
-| 14 | `priority-phone` | revised, final | re-record | rebuild |
+| 11 | `regen-convoy2` | rewritten 2026-11-03 (house style, visual hook, sign-off) | re-record | rebuild |
+| 12 | `full-adder-columns` | rewritten 2026-11-03 (house style, visual hook, sign-off) | re-record | rebuild |
+| 13 | `decoder-intercom` | rewritten 2026-11-03 (house style, visual hook, sign-off) | re-record | rebuild |
+| 14 | `priority-phone` | rewritten 2026-11-03 (house style, visual hook, sign-off) | re-record | rebuild |
 | 15 | `tristate-tank` | revised, final | re-record | rebuild |
 | 16 | `switching-threshold-taps` | revised, final | re-record | rebuild |
 | 17 | `bucket-stairs` | revised, final | re-record | rebuild |
