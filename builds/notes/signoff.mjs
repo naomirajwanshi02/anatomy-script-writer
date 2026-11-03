@@ -56,7 +56,7 @@ const pen = [
   { t: r(FOLLOW + 0.2), d: 0.4, p: arrow(408, 1540, 300, 1625, 16), c: 'arrow down-left, toward the follow button (both apps)' },
   { t: r(KEEP), d: 0.25, p: line(420, 1566, 650, 1562), c: "underline 1" },
   { t: r(KEEP + 0.15), d: 0.25, p: line(432, 1584, 640, 1582), c: "underline 2" },
-  { t: r(KEEP + 0.4), d: 0.2, p: line(684, 1476, 702, 1454, 0) + " " + line(700, 1500, 728, 1494, 0) + " " + line(690, 1524, 712, 1536, 0), c: "sparks" },
+  { t: r(KEEP + 0.4), d: 0.2, p: line(664, 1520, 682, 1498, 0) + " " + line(678, 1546, 706, 1540, 0) + " " + line(668, 1572, 690, 1584, 0), c: "sparks" },
 ];
 
 const q = (s) => JSON.stringify(s);
