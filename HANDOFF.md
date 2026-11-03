@@ -12,9 +12,9 @@ Repo: <https://github.com/naomirajwanshi02/anatomy-script-writer/tree/claude/bra
 | 12 | `full-adder-columns` | rewritten 2026-11-03 (house style, visual hook, sign-off) | re-record | rebuild |
 | 13 | `decoder-intercom` | rewritten 2026-11-03 (house style, visual hook, sign-off) | re-record | rebuild |
 | 14 | `priority-phone` | rewritten 2026-11-03 (house style, visual hook, sign-off) | re-record | rebuild |
-| 15 | `tristate-tank` | rewritten 2026-11-03 (house style, visual hook, sign-off; Notion pending) | re-record | rebuild |
-| 16 | `switching-threshold-taps` | rewritten 2026-11-03 (house style, visual hook, sign-off; Notion pending) | re-record | rebuild |
-| 17 | `bucket-stairs` | rewritten 2026-11-03 (house style, visual hook, sign-off; Notion pending) | re-record | rebuild |
+| 15 | `tristate-tank` | rewritten 2026-11-03 (house style, visual hook, sign-off) | re-record | rebuild |
+| 16 | `switching-threshold-taps` | rewritten 2026-11-03 (house style, visual hook, sign-off) | re-record | rebuild |
+| 17 | `bucket-stairs` | rewritten 2026-11-03 (house style, visual hook, sign-off) | re-record | rebuild |
 | 18 | `short-circuit-taps` | revised, final | re-record | rebuild |
 | 19 | none yet | final | record | build |
 | 20 | none yet | final | record | build |
