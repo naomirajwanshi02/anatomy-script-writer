@@ -248,7 +248,7 @@ for (const g of groups) {
   // A note inside its tied box (the end card) moves only with the box: frozen. A note outside its box may move.
   const inside = (b, o) => b[0] >= o[0] && b[1] >= o[1] && b[2] <= o[2] && b[3] <= o[3];
   const boxed = g.boxTie && g.notes.every((n) => inside(box(n), union(g.boxTie.pts.map(([x, y]) => [x, y, x, y]))));
-  g.frozen = boxed || g.notes.some((n) => n.o.alive || /^Episode \d/.test(n.text.trim()));
+  g.frozen = boxed || g.notes.some((n) => n.o.alive || /^(Episode \d|Follow$)/.test(n.text.trim()));
 }
 const gBox = (g) => union(g.notes.map(box));
 const arrowOf = (p) => (p.arrow ? arrowPts(p.arrow.x1, p.arrow.y1, p.arrow.x2, p.arrow.y2, p.arrow.bend) : p.pts);

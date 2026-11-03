@@ -26,7 +26,7 @@ Read before writing any script, voiceover, drawing plan or hook. CLAUDE.md cover
 | Circuit | ~20-40 s | **A real circuit, explained in the context of the analogy (2026-11-02).** The fold lands on the actual circuit (rails, transistors, the wire and its capacitance, gates, readouts), never the analogy object relabelled. Each spoken line explains one real part or step in proper terms (VDD, GND, PMOS, NMOS, charge = C x V, energy) and ties it to what the analogy showed ("the supply's voltage is the roof"); the analogy part may appear as a ghost or label beside its circuit part. **Circuit design language (owner, 2026-11-02):** draw the circuit exactly like the digital electronics CMOS figures (DE 05 "How does a CMOS inverter work", DE 08 "Why does CMOS use almost no power when idle"): a clean flat board, VDD rail at the back and GND at the front, input lever, PMOS and NMOS valve blocks, the glass output tank on the output node, an output lamp where it helps, and DE-style readouts (a table with the current row highlighted, a waveform graph, an "I from VDD" meter). Take the concept from the analogy, never its objects: no stairs, buckets, drops climbing a source or other analogy devices built into the circuit; the circuit shows the concept with its own quantities (tank level = charge, the VDD label and rail = voltage, readouts = current and energy). Walk the key state as it happens. Audience: the analogy is for a 15-year-old, the circuit teaches a first-year BTech student. |
 | Answer | ~40-50 s | The one-line takeaway in plain words. |
 | Real-world close | DE and Verilog only | Where the problem hits real devices. **Never in chip-design** (no real-world scene, voice, drawing or figure; spend the time explaining slower). |
-| Teaser | last 3-5 s | Answers what the reel leaves open and leads to the next episode's object: "… That's episode N+1." |
+| Sign-off | last 5-6 s | **(owner, 2026-11-03)** `[confident]`, one short bridge from this reel (at most 8 words) that repeats a hook word, so the reel loops (ep 11: "No shakes, just clean bits."), then the fixed sign-off, word for word: "Now you can explain what most engineers can't. Follow, and keep it that way." No next-episode teaser: a new viewer has never seen another episode. On screen: the end card's handwritten follow prompt (ANNOTATIONS.md, end card). |
 
 - **Length:** DE and Verilog about 200 words (180-210), about 1.5 min. Chip-design 170-200 words with tags removed (digits and spaced letters count), about 60 s at voice speed 1.05-1.1. Cut words before clarity.
 - **Show, then say (chip-design):** every step the voice names happens on screen at that moment, one step per sentence, none skipped. Reuse the analogy's words in the circuit. One worked example done slowly beats two done fast.
@@ -35,21 +35,21 @@ Read before writing any script, voiceover, drawing plan or hook. CLAUDE.md cover
 
 - **Rule 1: FLOW comes first (2026-10-31).** Read the block aloud as one story; if any line could be swapped or dropped without the listener noticing, rewrite it.
   - Every beat picks up a word, question or promise from the one before. Never open a beat cold.
-  - The line after the hook takes it up as the viewer's own question, in the hook's own words, never a phrase carried over from the previous teaser.
+  - The line after the hook takes it up as the viewer's own question, in the hook's own words.
   - Never restate what the viewer has just seen. Move the story forward.
   - Set up a new idea before using it: no part, move or rule appears before a line introduces it.
   - No pronoun with an unclear owner. Name the thing.
   - Contrasts point back to the line they contrast with ("Every car behind follows." then "But no driver copies car one's wobble."). A what-if says "if" or "what if", never a bare claim.
   - At most one spoken link ("So", "But", "Now", "Watch") per beat, never two sentences in a row with the same one.
 - **Speaking, not writing:** 6-15 words per sentence (never over 15; the 1-3 word punches of section 3a are the exception), one idea each, active voice, present tense.
-- **Episodes stand alone (2026-10-30):** never "from episode N", "like episode N", or "remember" about another episode ("Remember the lane lines?" inside the same reel is fine, section 3a). Reused objects are introduced again in plain words. Only the series line and the teaser name episodes.
+- **Episodes stand alone (2026-10-30):** never "from episode N", "like episode N", or "remember" about another episode ("Remember the lane lines?" inside the same reel is fine, section 3a). Reused objects are introduced again in plain words. Only the series line names an episode.
 - **One name per thing** everywhere (voice, notes, figure). No word a 14-year-old wouldn't know without a definition in the same sentence.
 - **Spell for speech:** "Q bar", "S bar", "V D D", "ground", "N-moss", "P-moss", "C-moss", "NAND", "flip-flop"; "one zero one one", "two to one", "ten to the power nine", "nanoseconds". No raw symbols (Q̄, ·, ', ≥, arrows).
 - **Honest:** every claim matches CLAUDE.md section 7; never claim more than the analogy shows. Say "one gate delay later", not seconds, unless time is the point.
 - **No filler:** no "so yeah", "let's dive in", "in this video". "Basically" at most once, as the plain restatement (section 3a).
 - **Model:** Eleven v3 (or v4), stability Creative or Natural, 2-3 takes. No SSML `<break>` tags.
 - **Pauses:** paragraph break between beats; `...` for a short weighted pause; `[pause]` at most 3 per script (before the fold, before a real-world close), never two cues in a row.
-- **Tags:** at most one emotion tag per beat. First line `[confident]` plus one CAPS word (never `[curious]` first: v3 reads it too quietly). `[curious]` teaser question; `[warmly]`/`[thoughtful]` analogy and answer; `[confident]` real-world close; `[slightly excited]` exactly once, on the key state (never `[excited]`); `[exhales]`/`[sighs]` rarely; `[pause, then normally]` to reset. No sound-effect, accent, singing or crying tags.
+- **Tags:** at most one emotion tag per beat. First line `[confident]` plus one CAPS word (never `[curious]` first: v3 reads it too quietly). `[curious]` for a question the viewer would ask; `[confident]` sign-off; `[warmly]`/`[thoughtful]` analogy and answer; `[confident]` real-world close; `[slightly excited]` exactly once, on the key state (never `[excited]`); `[exhales]`/`[sighs]` rarely; `[pause, then normally]` to reset. No sound-effect, accent, singing or crying tags.
 - **Emphasis:** at most one CAPS word per beat.
 - **Block format:** plain text, one paragraph per beat, tags inline, nothing else.
 
@@ -63,7 +63,7 @@ Measured from about 9,000 words of a long-form explainer channel the owner likes
 | **Punch:** a 1-3 word line right after a longer one | 1-2 | "Nope." "Dead straight." "Really fast." "Under half." |
 | **Turn phrase** before the surprising step | 1 | "Here's the thing." "Here's the weird part." "Here's how it works." "But wait, it gets worse." "So what's going on?" |
 | **Chat openers** carry the explanation | 2-4 sentences | "Because…" (his most used opener), "See,…", "So…", "Now,…", "Okay." "Well,…" |
-| **Questions** the viewer would ask, answered at once (teaser not counted) | 2 | "So how does car five stay straight?" "Inside a lane? It barely cares." "Total wait? Forty-five ticks." |
+| **Questions** the viewer would ask, answered at once (sign-off not counted) | 2 | "So how does car five stay straight?" "Inside a lane? It barely cares." "Total wait? Forty-five ticks." |
 
 Also use, not scored:
 - **Question-then-answer fragment:** "Total wait? Forty-five ticks." (counts as a question).
@@ -105,7 +105,7 @@ Never:
   - **Ends on the start frame:** by the hook's last word every part is back where the loop's last frame leaves it, so the reel loops there.
   - **No other text:** only the hook note and its underline; no caption.
   - `check-page.py` warns when row 1 has no `Visual hook:`, fewer than 2 cued events, no event on the CAPS word, no "start frame", no hook note on the hook's first words, or no underline on the CAPS word.
-- Keep the hook's object name everywhere after it. The previous teaser leads to this hook, but the hook works without it.
+- Keep the hook's object name everywhere after it.
 
 ## 5. Drawing rules (annotations, 2026-11-01)
 
@@ -142,7 +142,7 @@ Order of work: detailed script (scratch), then the page, then recorded voice, th
 
 1. **Facts:** every number, code and claim computed in a scratch script, never by eye; matches CLAUDE.md section 7.
 2. **Run `python3 script-writer/check-voice.py <file> --series chip --episode N`** on the block and **`python3 script-writer/check-page.py <page.md>`** on the whole page; both must PASS (the page checker covers column 1 = block, cue words spoken in their row, note limits, folds, Samble characters, end card at 4 s before the end). For each WARN, rewrite the beat or say in the change log why it does not open cold. Then do the counts the script cannot see.
-2. **Counts:** word range; no sentence over 15 words; tags, CAPS and `[pause]` limits; right series line and episode number; teaser leads to episode N+1's object.
+2. **Counts:** word range; no sentence over 15 words; tags, CAPS and `[pause]` limits; right series line and episode number; the sign-off word for word, after a bridge that repeats a hook word.
 3. **Read-aloud:** block read with tags removed against section 3 (flow, links, one name per thing).
 4. **15-year-old pass:** after every sentence, write the question a curious non-engineer would ask; answer it at that moment (V, D or F), or cut the sentence that raised it. Every term defined on first use; every recipe gets its why.
 5. **Sync:** every spoken claim has its F or D at that moment; every F step is in the On the board column in order; every named group has its box.

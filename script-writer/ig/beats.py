@@ -158,8 +158,8 @@ def analyse(raw, wpm=180, target=None):
 
     # Does the last line hand you back to the first one?
     first = {w.lower() for w in words(rows[0]["text"]) if w.lower() not in STOPWORDS}
-    # patched: the last paragraph (the teaser) is the loop line; it must end on
-    # "That's episode N.", so the echo of the hook sits in the beats before it.
+    # patched: the last paragraph (the bridge and the fixed sign-off) is the loop line;
+    # the bridge before the sign-off carries the echo of the hook.
     tail = [r for r in rows if r["para"] == rows[-1]["para"]]
     last = {w.lower() for r in tail for w in words(r["text"]) if w.lower() not in STOPWORDS}
     loop = sorted(pretty(w) for w in first & last)

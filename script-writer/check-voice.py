@@ -28,6 +28,7 @@ FLIP = re.compile(r"right\?\s*(?:\[[^\]]*\]\s*)?(nope|not quite|not really|well,
 TURNS = ["here's the thing", "here's the trick", "here's the weird part", "here's the catch", "here's where", "here's how", "but wait",
          "it gets worse", "what's going on", "let me explain", "turns out"]
 OPENERS = re.compile(r"^(because|see,|so\b|now,|okay|well,)", re.I)
+SIGNOFF = "Now you can explain what most engineers can't. Follow, and keep it that way."
 FIXED = ("Let's watch.", "Now, the same with bits.", "Now, let's build it as a circuit.")
 MILD = re.compile(r"\b(hell|damn)\b", re.I)
 STRONG = re.compile(r"\b(shit\w*|fuck\w*|bullshit\w*|crap|ass|bitch\w*)\b", re.I)
@@ -150,7 +151,7 @@ def main():
         W("'just' more than twice")
 
     # Tone score (SCRIPTS.md 3a): 20 points per move
-    body = sentences("\n\n".join(beats[1:-1]))  # hook and teaser not counted
+    body = sentences("\n\n".join(beats[1:-1]))  # hook and sign-off not counted
     body_text = " ".join(body)
     tone = {
         "flip ('…, right? Nope.')": bool(FLIP.search(strip_tags(block))),
@@ -159,7 +160,7 @@ def main():
         "turn phrase ('Here's the thing.')": any(x in body_text.lower() for x in TURNS),
         "chat openers (2+: Because, See, So, Now, Okay, Well)": sum(
             1 for s in body if OPENERS.match(s) and s not in FIXED) >= 2,
-        "questions (2+, teaser not counted)": sum(1 for s in body if s.endswith("?")) >= 2,
+        "questions (2+, sign-off not counted)": sum(1 for s in body if s.endswith("?")) >= 2,
     }
     score = 20 * sum(tone.values())
     for k, ok in tone.items():
@@ -179,8 +180,12 @@ def main():
             else f"Welcome to episode {n} of {'Digital Electronics' if a.series == 'de' else 'Verilog'}.")
     if want not in block:
         E(f"series line missing or wrong: expected \"{want}\"")
-    if f"That's episode {word(a.episode + 1)}." not in block:
-        E(f"teaser must end \"That's episode {word(a.episode + 1)}.\"")
+    if not strip_tags(beats[-1]).strip().endswith(SIGNOFF):
+        E(f"last beat must end with the sign-off, word for word: \"{SIGNOFF}\" (SCRIPTS.md section 2)")
+    elif not content_words(beats[0]) & content_words(strip_tags(beats[-1]).replace(SIGNOFF, "")):
+        W("the bridge before the sign-off repeats no hook word: the reel will not loop")
+    if "That's episode" in block:
+        E("no next-episode teaser (\"That's episode …\"): end on the sign-off (SCRIPTS.md section 2)")
 
     # Spoken links: not two sentences in a row with the same one
     prev = None

@@ -163,7 +163,7 @@ try {
     await evaluate(`window.__isoStep(${t === 0 ? 0 : STEP}, ${t.toFixed(2)})`);
     const { out, vis } = await evaluate(probe);
     const counted = new Map();
-    for (const n of vis) if (!/^Episode [0-9]/.test(n.text.trim())) counted.set(n.key, n.text);
+    for (const n of vis) if (!/^(Episode [0-9]|Follow$)/.test(n.text.trim())) counted.set(n.key, n.text);
     if (counted.size > MAX) out.push(`R7 ${counted.size} notes on screen (max ${MAX}): ` + [...counted.values()].map((x) => JSON.stringify(x.slice(0, 18))).join(" "));
     for (const [key, text] of counted) {
       if (shown.has(key)) continue;

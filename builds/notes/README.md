@@ -219,7 +219,7 @@ Do this at two x positions; the slope is Δy/Δx.
 - **At most 2-3 notes appear together**, and a note never repeats the voiceover word for word, with one exception: the **real-world close** ("without it": what the viewer's world would cost or break without the concept; SCRIPTS.md section 3) is written out in full below the board, one line per spoken line, and stays until the end card needs the space. It replaces the old interview answer block.
 - **End card (every video):**
   - The takeaway (2-4 words, e.g. "2 levels = safe") is written boxed in the centre of the subtitle area (x 540, y ≈ 1408; box 360-720 x 1372-1444).
-  - "Episode N+1 →" sits at the very bottom (x 540, y ≈ 1693, about 1 cm on a phone below the takeaway area) with `{ alive: true }`. It writes in 4 s before the video ends and stays at a fixed size; its strokes line-boil (noise displacement, style 1 of `testers/episode-card-wiggle.html`). It does not grow.
+  - **Follow prompt (2026-11-03, replaces "Episode N+1 →"):** "Follow" sits at the very bottom (x ≈ 420, y ≈ 1693) with `{ alive: true }`, written on the spoken word "Follow" of the sign-off (time from `words.json`). An olive `arrow()` curves from it down-left toward the platform's follow button (tip ≈ x 150, y 1760), drawn with the word; on "keep it that way" an olive `tick()` lands about 20 px after the word. Fixed size; its strokes line-boil (noise displacement, style 1 of `testers/episode-card-wiggle.html`). It does not grow.
   - Alternatives are in `testers/episode-card-styles.html`.
   - Clear anything in that area first (01 wipes the interview answer at 52.6).
 

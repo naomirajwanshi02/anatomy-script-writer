@@ -59,7 +59,7 @@ Files in this kit:
 
 - Notes are Samble, brown-black #2a1d10, with olive hand-drawn arrows, rings and boxes. **Samble has no "≈", "−" (U+2212) or "×"**: write "about" (or "near"), "-" and "x" in notes.
 - At most 3 notes on screen (the episode badge counts), at least 1.5 s between new notes, nothing during a fold, no note over a part, label or readout, no pen stroke through text.
-- End card: the boxed takeaway in the centre of the subtitle area, with "Episode N+1 →" at the very bottom, appearing 4 s before the end. No printed subtitles.
+- End card: the boxed takeaway in the centre of the subtitle area, appearing 4 s before the end, and the handwritten "Follow" prompt with its arrow to the follow button, on the spoken word "Follow" of the fixed sign-off (SCRIPTS.md section 2). No printed subtitles.
 
 ### Logic and physics (never simplify wrongly)
 
