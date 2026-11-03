@@ -15,9 +15,9 @@ Repo: <https://github.com/naomirajwanshi02/anatomy-script-writer/tree/claude/bra
 | 15 | `tristate-tank` | rewritten 2026-11-03 (house style, visual hook, sign-off) | re-record | rebuild |
 | 16 | `switching-threshold-taps` | rewritten 2026-11-03 (house style, visual hook, sign-off) | re-record | rebuild |
 | 17 | `bucket-stairs` | rewritten 2026-11-03 (house style, visual hook, sign-off) | re-record | rebuild |
-| 18 | `short-circuit-taps` | revised, final | re-record | rebuild |
-| 19 | none yet | final | record | build |
-| 20 | none yet | final | record | build |
+| 18 | `short-circuit-taps` | rewritten 2026-11-03 (house style, visual hook, sign-off) | re-record | rebuild |
+| 19 | none yet | rewritten 2026-11-03 (house style, visual hook, sign-off) | record | build |
+| 20 | none yet | rewritten 2026-11-03 (house style, visual hook, sign-off) | record | build |
 | 21 | none yet | final | record | build |
 
 - The Notion page of each episode (`book-concepts.csv`) is the source of truth: voice block, **On the board** (figure brief), **Annotation** (exact marks). The same pages are in `scripts/` here.
