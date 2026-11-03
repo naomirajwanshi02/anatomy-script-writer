@@ -10,8 +10,8 @@ Read before writing any script, voiceover, drawing plan or hook. CLAUDE.md cover
 ## 1. Audience and brand
 
 - **Viewer:** a 15+ short-form scroller who lands on one reel cold, has seen no other episode, and gives it about two seconds. Bar: a first-year BTech student follows every step; a non-engineer 15-year-old follows chip-design without pausing to think.
-- **Platform:** Instagram reels (also LinkedIn, YouTube Shorts), 9:16, English; Meta AI dubs it to Hindi, so plain English only: no idioms, slang, puns or cultural references.
-- **Brand:** sepia paper, brown ink, rust for active, yellow bulbs for lit; calm and precise; no hype words, no emojis on screen.
+- **Platform:** Instagram reels and YouTube Shorts, 9:16, English; Meta AI dubs it to Hindi, so plain English only: no idioms, slang, puns or cultural references (the story devices in section 3a are allowed).
+- **Brand:** sepia paper, brown ink, rust for active, yellow bulbs for lit; precise, told like a friend's story (section 3a); no hype words, no emojis on screen.
 - **Tracks:** Digital Electronics (`series/digital-electronics.csv`), Verilog (`series/verilog.csv`, circuit only), chip-design (`series/book-concepts.csv`). Posting: DE 1-15 alone, then about 2 DE : 1 Verilog (each Verilog reel codes a circuit already shown), testbench and SystemVerilog last.
 - **Who explains what:** the figure shows motion only, never explanation text. The voice says what to understand; my drawing shows where to look and carries the detail the voice skips (sums, lists, definitions, the reason behind a step). A note adds to the voice, never repeats it.
 
@@ -42,16 +42,31 @@ Read before writing any script, voiceover, drawing plan or hook. CLAUDE.md cover
   - Contrasts point back to the line they contrast with ("Every car behind follows." then "But no driver copies car one's wobble."). A what-if says "if" or "what if", never a bare claim.
   - At most one spoken link ("So", "But", "Now", "Watch") per beat, never two sentences in a row with the same one.
 - **Speaking, not writing:** 6-15 words per sentence (never over 15), one idea each, active voice, present tense.
-- **Episodes stand alone (2026-10-30):** never "from episode N", "like episode N", "remember". Reused objects are introduced again in plain words. Only the series line and the teaser name episodes.
+- **Episodes stand alone (2026-10-30):** never "from episode N", "like episode N", or "remember" about another episode ("Remember Harry's taps?" inside the same reel is fine, section 3a). Reused objects are introduced again in plain words. Only the series line and the teaser name episodes.
 - **One name per thing** everywhere (voice, notes, figure). No word a 14-year-old wouldn't know without a definition in the same sentence.
 - **Spell for speech:** "Q bar", "S bar", "V D D", "ground", "N-moss", "P-moss", "C-moss", "NAND", "flip-flop"; "one zero one one", "two to one", "ten to the power nine", "nanoseconds". No raw symbols (Q̄, ·, ', ≥, arrows).
 - **Honest:** every claim matches CLAUDE.md section 7; never claim more than the analogy shows. Say "one gate delay later", not seconds, unless time is the point.
-- **No filler:** no "basically", "so yeah", "let's dive in", "in this video".
+- **No filler:** no "so yeah", "let's dive in", "in this video". "Basically" at most once, as the plain restatement (section 3a).
 - **Model:** Eleven v3 (or v4), stability Creative or Natural, 2-3 takes. No SSML `<break>` tags.
 - **Pauses:** paragraph break between beats; `...` for a short weighted pause; `[pause]` at most 3 per script (before the fold, before a real-world close), never two cues in a row.
 - **Tags:** at most one emotion tag per beat. First line `[confident]` plus one CAPS word (never `[curious]` first: v3 reads it too quietly). `[curious]` teaser question; `[warmly]`/`[thoughtful]` analogy and answer; `[confident]` real-world close; `[slightly excited]` exactly once, on the key state (never `[excited]`); `[exhales]`/`[sighs]` rarely; `[pause, then normally]` to reset. No sound-effect, accent, singing or crying tags.
 - **Emphasis:** at most one CAPS word per beat.
 - **Block format:** plain text, one paragraph per beat, tags inline, nothing else.
+
+## 3a. Story style (2026-11-03, from a long-form explainer the owner likes)
+
+The hook stays as section 4 (score 80+, STRONG). After it, the script reads like a friend telling a story, not a lecture. Every device below replaces a flat line; none adds words beyond the 170-200 cap.
+
+- **Harry (chip-design):** one recurring character, Harry, owns the analogy. Line 2 introduces him ("Meet Harry. So how can three taps beat Harry's one tray?"). In the circuit half his problem becomes the chip's ("Your chip has Harry's problem."). He is a flat 2D side profile on the board (SCRIPT-WRITER.md 3). Never a real person's surname or a famous single name.
+- **One reaction line:** a short spoken reaction right after the surprising number: "Wait, what?", "Not quite.", "Hold on." 2-4 plain words (Hindi dub: no slang such as "the math is not mathing"). Never in the hook.
+- **Wrong guess, then correction:** say what most viewers would expect, then show it fails: "So more repeaters, more speed, right? Not quite."
+- **Every key number gets a picture:** a plain comparison next to the value ("forty-five ticks, under half").
+- **One callback in the circuit half:** bring the analogy back by name while the circuit is on screen ("Remember Harry's refill taps?").
+- **Questions as the turns:** a short question at each turning point ("But how?", "So what's going on?"), never a bare "Why?" on its own after the hook (section 4).
+- **One plain restatement:** "Basically," or "In other words," in 12 words or fewer, before or as the takeaway.
+- **Stakes for the viewer:** one line on why it matters to them (their phone, battery, game, or the interview answer).
+- **Mild swearing (optional):** at most one "hell" or "damn" per reel, never in the hook. No stronger words.
+- **Short sentences:** most at 8 words or fewer; link them with "See," or "Because".
 
 ## 4. Hook rules
 

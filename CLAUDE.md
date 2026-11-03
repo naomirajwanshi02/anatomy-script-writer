@@ -1,6 +1,6 @@
 # Reel figure project: working rules
 
-This project makes short isometric explainer figures for a digital electronics Instagram/LinkedIn reel series (9:16, about 10-30 s each, one interview question per reel). Each figure is screen-recorded and drawn over on an iPad, so clarity at phone size matters more than detail. Read this file fully at the start of every session. Topic rules live in `rules/` and are read only when the task needs them:
+This project makes short isometric explainer figures for a digital electronics Instagram Reels and YouTube Shorts series (9:16, about 10-30 s each, one interview question per reel). Each figure is screen-recorded and drawn over on an iPad, so clarity at phone size matters more than detail. Read this file fully at the start of every session. Topic rules live in `rules/` and are read only when the task needs them:
 
 | File | Read it for |
 |---|---|

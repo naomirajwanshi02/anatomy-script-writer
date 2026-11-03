@@ -19,7 +19,10 @@ let's lets watch say same here there your you we our they them their not no yes 
 if what's that's it's""".split())
 EMOTION = re.compile(r"\[(?!pause\])([^\]]+)\]")
 LINKS = ("so", "but", "now", "watch")
-FILLER = ["basically", "so yeah", "let's dive in", "in this video", "from episode", "like episode", "remember"]
+FILLER = ["so yeah", "let's dive in", "in this video", "from episode", "like episode"]
+REACTIONS = ("wait, what?", "not quite.", "hold on.", "wait.")
+MILD = re.compile(r"\b(hell|damn)\b", re.I)
+STRONG = re.compile(r"\b(shit\w*|fuck\w*|bullshit\w*|crap|ass|bitch\w*)\b", re.I)
 SYMBOLS = "Q̄·'≥≤→×−≈"
 
 
@@ -118,6 +121,25 @@ def main():
     for f in FILLER:
         if f in low:
             E(f"banned phrase: '{f}'")
+    # Story style (SCRIPTS.md 3a)
+    if low.count("basically") > 1:
+        E("'basically' more than once")
+    for m in re.finditer(r"\bremember\b(.{0,20})", low):
+        if "harry" not in m.group(1):
+            E("'remember' only for a callback inside the reel ('Remember Harry's ...')")
+    if STRONG.search(strip_tags(block)):
+        E(f"strong swear word: '{STRONG.search(strip_tags(block)).group(0)}'")
+    if len(MILD.findall(strip_tags(block))) > 1:
+        E("more than one mild swear word")
+    if MILD.search(strip_tags(first)):
+        E("no swearing in the hook")
+    if a.series == "chip":
+        if "harry" not in low:
+            W("story style: Harry does not appear (SCRIPTS.md 3a)")
+        if not any(r in low for r in REACTIONS):
+            W("story style: no reaction line ('Wait, what?', 'Not quite.', 'Hold on.')")
+        if "harry" in content_words(first) or "harry" in strip_tags(first).lower():
+            E("Harry belongs in line 2, not the hook (the hook speaks to the viewer)")
     for ch in ["Q̄", *SYMBOLS[2:]]:  # "Q̄" is two code points; a plain Q (as in QUARTER) is fine
         if ch in strip_tags(block).replace("'s", "").replace("'t", "").replace("'re", "").replace("'ll", ""):
             E(f"raw symbol '{ch}': spell it for speech")
