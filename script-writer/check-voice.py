@@ -124,9 +124,9 @@ def main():
     # Story style (SCRIPTS.md 3a)
     if low.count("basically") > 1:
         E("'basically' more than once")
-    for m in re.finditer(r"\bremember\b(.{0,20})", low):
-        if "harry" not in m.group(1):
-            E("'remember' only for a callback inside the reel ('Remember Harry's ...')")
+    for m in re.finditer(r"\bremember\b(.{0,25})", low):
+        if re.search(r"episode|last time|before", m.group(1)):
+            E("'remember' only for a callback inside the reel ('Remember the lane lines?')")
     if STRONG.search(strip_tags(block)):
         E(f"strong swear word: '{STRONG.search(strip_tags(block)).group(0)}'")
     if len(MILD.findall(strip_tags(block))) > 1:
@@ -134,8 +134,6 @@ def main():
     if MILD.search(strip_tags(first)):
         E("no swearing in the hook")
     if a.series == "chip":
-        if "harry" not in low:
-            W("story style: Harry does not appear (SCRIPTS.md 3a)")
         if not any(r in low for r in REACTIONS):
             W("story style: no reaction line ('Wait, what?', 'Not quite.', 'Hold on.')")
         if "harry" in content_words(first) or "harry" in strip_tags(first).lower():

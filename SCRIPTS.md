@@ -42,7 +42,7 @@ Read before writing any script, voiceover, drawing plan or hook. CLAUDE.md cover
   - Contrasts point back to the line they contrast with ("Every car behind follows." then "But no driver copies car one's wobble."). A what-if says "if" or "what if", never a bare claim.
   - At most one spoken link ("So", "But", "Now", "Watch") per beat, never two sentences in a row with the same one.
 - **Speaking, not writing:** 6-15 words per sentence (never over 15), one idea each, active voice, present tense.
-- **Episodes stand alone (2026-10-30):** never "from episode N", "like episode N", or "remember" about another episode ("Remember Harry's taps?" inside the same reel is fine, section 3a). Reused objects are introduced again in plain words. Only the series line and the teaser name episodes.
+- **Episodes stand alone (2026-10-30):** never "from episode N", "like episode N", or "remember" about another episode ("Remember the lane lines?" inside the same reel is fine, section 3a). Reused objects are introduced again in plain words. Only the series line and the teaser name episodes.
 - **One name per thing** everywhere (voice, notes, figure). No word a 14-year-old wouldn't know without a definition in the same sentence.
 - **Spell for speech:** "Q bar", "S bar", "V D D", "ground", "N-moss", "P-moss", "C-moss", "NAND", "flip-flop"; "one zero one one", "two to one", "ten to the power nine", "nanoseconds". No raw symbols (Q̄, ·, ', ≥, arrows).
 - **Honest:** every claim matches CLAUDE.md section 7; never claim more than the analogy shows. Say "one gate delay later", not seconds, unless time is the point.
@@ -57,11 +57,11 @@ Read before writing any script, voiceover, drawing plan or hook. CLAUDE.md cover
 
 The hook stays as section 4 (score 80+, STRONG). After it, the script reads like a friend telling a story, not a lecture. Every device below replaces a flat line; none adds words beyond the 170-200 cap.
 
-- **Harry (chip-design):** one recurring character, Harry, owns the analogy. Line 2 introduces him ("Meet Harry. So how can three taps beat Harry's one tray?"). In the circuit half his problem becomes the chip's ("Your chip has Harry's problem."). He is a flat 2D side profile on the board (SCRIPT-WRITER.md 3). Never a real person's surname or a famous single name.
+- **A character only when the analogy needs one (owner, 2026-11-03):** never add a person just for style. If the scene really has someone acting (filling, pressing, steering), call him Harry, the one recurring name; never a real person's surname or a famous single name. He is a flat 2D side profile on the board (SCRIPT-WRITER.md 3).
 - **One reaction line:** a short spoken reaction right after the surprising number: "Wait, what?", "Not quite.", "Hold on." 2-4 plain words (Hindi dub: no slang such as "the math is not mathing"). Never in the hook.
 - **Wrong guess, then correction:** say what most viewers would expect, then show it fails: "So more repeaters, more speed, right? Not quite."
 - **Every key number gets a picture:** a plain comparison next to the value ("forty-five ticks, under half").
-- **One callback in the circuit half:** bring the analogy back by name while the circuit is on screen ("Remember Harry's refill taps?").
+- **One callback in the circuit half:** bring an analogy part back by name while the circuit is on screen ("Remember the lane lines?", "Remember the refill taps?").
 - **Questions as the turns:** a short question at each turning point ("But how?", "So what's going on?"), never a bare "Why?" on its own after the hook (section 4).
 - **One plain restatement:** "Basically," or "In other words," in 12 words or fewer, before or as the takeaway.
 - **Stakes for the viewer:** one line on why it matters to them (their phone, battery, game, or the interview answer).
