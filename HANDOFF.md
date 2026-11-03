@@ -8,7 +8,7 @@ Repo: <https://github.com/naomirajwanshi02/anatomy-script-writer/tree/claude/bra
 
 | # | Figure (`src/figures/`) | Script (Notion) | Voice | Reel |
 |---|---|---|---|---|
-| 11 | `regen-convoy2` | revised 2026-11-02, final | old take, out of date: re-record | old take: rebuild |
+| 11 | `regen-convoy2` | rewritten 2026-11-03 in the house style (`scripts/11…`; Notion not yet updated) | re-record | rebuild |
 | 12 | `full-adder-columns` | revised, final | re-record | rebuild |
 | 13 | `decoder-intercom` | revised, final | re-record | rebuild |
 | 14 | `priority-phone` | revised, final | re-record | rebuild |
@@ -21,6 +21,7 @@ Repo: <https://github.com/naomirajwanshi02/anatomy-script-writer/tree/claude/bra
 | 21 | none yet | final | record | build |
 
 - The Notion page of each episode (`book-concepts.csv`) is the source of truth: voice block, **On the board** (figure brief), **Annotation** (exact marks). The same pages are in `scripts/` here.
+- **House script style (2026-11-03):** SCRIPTS.md section 3a. Scripts sound like a friend explaining: the flip ("…, right? Nope."), 1-3 word punches, a turn phrase ("Here's the weird part."), "Because/See/So" openers, two viewer questions. `check-voice.py` prints a TONE score (aim 80+) and rejects dub-breaking idioms. 11 is the first episode in it (TONE 100); 12-21 score 0-40 and get the same pass when the owner asks. Platform is Instagram Reels and YouTube Shorts.
 - What changed in 11-18: a new hook, a second line, split lines, a teaser that loops, new captions. Row 1 of each page now has a `Visual hook:` sentence with events in the first 3 s. Facts, analogies, numbers and the circuit halves are unchanged. Per-episode details: README.md section 2.
 
 ## 1. Once: copy the update into D:/Anatomy
@@ -76,7 +77,11 @@ $files = @(
   'scripts/14 What is a priority encoder.md',
   'scripts/20 How do you drive a large capacitive load quickly.md',
   'scripts/21 Why does wire delay grow with the square of length.md',
-  'HANDOFF.md'
+  'HANDOFF.md',
+  'CLAUDE.md',
+  'SCRIPTS.md',
+  'script-writer/SCRIPT-WRITER.md',
+  'script-writer/check-voice.py'
 )
 foreach ($f in $files) {
   $dest = Join-Path 'D:/Anatomy' $f
@@ -108,7 +113,6 @@ Run `/htmlmp4 chip N <mp3>` in a new chat. For 11-18 it takes the re-take path; 
 
 ## 3. Known open items (leave unless the owner asks)
 
-- 11 says volt values aloud ("half a volt", "seven tenths"), against the plain-numbers rule.
 - Over the chip-design annotation cap: 13, 15, 17, 18 (more than 5 pen marks); 17 and 18 (more than 20 notes).
 - The Samble font files are not in the repo (no licence for public sharing); use the local `D:/Anatomy/samble/`.
 

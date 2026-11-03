@@ -41,7 +41,7 @@ Read before writing any script, voiceover, drawing plan or hook. CLAUDE.md cover
   - No pronoun with an unclear owner. Name the thing.
   - Contrasts point back to the line they contrast with ("Every car behind follows." then "But no driver copies car one's wobble."). A what-if says "if" or "what if", never a bare claim.
   - At most one spoken link ("So", "But", "Now", "Watch") per beat, never two sentences in a row with the same one.
-- **Speaking, not writing:** 6-15 words per sentence (never over 15), one idea each, active voice, present tense.
+- **Speaking, not writing:** 6-15 words per sentence (never over 15; the 1-3 word punches of section 3a are the exception), one idea each, active voice, present tense.
 - **Episodes stand alone (2026-10-30):** never "from episode N", "like episode N", or "remember" about another episode ("Remember the lane lines?" inside the same reel is fine, section 3a). Reused objects are introduced again in plain words. Only the series line and the teaser name episodes.
 - **One name per thing** everywhere (voice, notes, figure). No word a 14-year-old wouldn't know without a definition in the same sentence.
 - **Spell for speech:** "Q bar", "S bar", "V D D", "ground", "N-moss", "P-moss", "C-moss", "NAND", "flip-flop"; "one zero one one", "two to one", "ten to the power nine", "nanoseconds". No raw symbols (Q̄, ·, ', ≥, arrows).
@@ -53,20 +53,34 @@ Read before writing any script, voiceover, drawing plan or hook. CLAUDE.md cover
 - **Emphasis:** at most one CAPS word per beat.
 - **Block format:** plain text, one paragraph per beat, tags inline, nothing else.
 
-## 3a. Story style (2026-11-03, from a long-form explainer the owner likes)
+## 3a. Tone: a friend explaining (2026-11-03, the house script style)
 
-The hook stays as section 4 (score 80+, STRONG). After it, the script reads like a friend telling a story, not a lecture. Every device below replaces a flat line; none adds words beyond the 170-200 cap.
+Measured from about 9,000 words of a long-form explainer channel the owner likes (four videos, one creator), scaled to one 170-200 word reel. The hook stays as section 4 (80+, STRONG); everything after it sounds like a friend explaining across a table, not a lecture. The rates are what a reel should hit; `check-voice.py` prints a **TONE score out of 100** (20 per scored row) and warns on each miss. Aim for 80+. Tone never beats truth: a casual line still says exactly what the old line said.
 
-- **A character only when the analogy needs one (owner, 2026-11-03):** never add a person just for style. If the scene really has someone acting (filling, pressing, steering), call him Harry, the one recurring name; never a real person's surname or a famous single name. He is a flat 2D side profile on the board (SCRIPT-WRITER.md 3).
-- **One reaction line:** a short spoken reaction right after the surprising number: "Wait, what?", "Not quite.", "Hold on." 2-4 plain words (Hindi dub: no slang such as "the math is not mathing"). Never in the hook.
-- **Wrong guess, then correction:** say what most viewers would expect, then show it fails: "So more repeaters, more speed, right? Not quite."
-- **Every key number gets a picture:** a plain comparison next to the value ("forty-five ticks, under half").
-- **One callback in the circuit half:** bring an analogy part back by name while the circuit is on screen ("Remember the lane lines?", "Remember the refill taps?").
-- **Questions as the turns:** a short question at each turning point ("But how?", "So what's going on?"), never a bare "Why?" on its own after the hook (section 4).
-- **One plain restatement:** "Basically," or "In other words," in 12 words or fewer, before or as the takeaway.
-- **Stakes for the viewer:** one line on why it matters to them (their phone, battery, game, or the interview answer).
-- **Mild swearing (optional):** at most one "hell" or "damn" per reel, never in the hook. No stronger words.
-- **Short sentences:** most at 8 words or fewer; link them with "See," or "Because".
+| Move (scored) | Per reel | Examples |
+|---|---|---|
+| **Flip:** agree with the viewer's easy guess, then turn it | 1 | "The next gate passes that on, right? Nope." / "More repeaters, more speed, right? Not quite." / "Sounds fair, right? Well, not exactly." |
+| **Punch:** a 1-3 word line right after a longer one | 1-2 | "Nope." "Dead straight." "Really fast." "Under half." |
+| **Turn phrase** before the surprising step | 1 | "Here's the thing." "Here's the weird part." "Here's how it works." "But wait, it gets worse." "So what's going on?" |
+| **Chat openers** carry the explanation | 2-4 sentences | "Because…" (his most used opener), "See,…", "So…", "Now,…", "Okay." "Well,…" |
+| **Questions** the viewer would ask, answered at once (teaser not counted) | 2 | "So how does car five stay straight?" "Inside a lane? It barely cares." "Total wait? Forty-five ticks." |
+
+Also use, not scored:
+- **Question-then-answer fragment:** "Total wait? Forty-five ticks." (counts as a question).
+- **Lists of three:** "No hand, no tap, no switch." "More taps, more pipe, more wait."
+- **"Think of it like…" / "Imagine…"** for any extra everyday comparison inside the analogy.
+- **Plain restatement:** "Basically," or "In other words," at most once each, 12 words or fewer.
+- **Talk to the viewer:** "you", "your phone", "your key"; the stakes in one line when there is room (why it matters to them, or the interview answer).
+- **Callback** in the circuit half to an analogy part by name: "Remember the lane lines?"
+- **"just"** as a softener, at most twice.
+- **Rhythm:** most sentences 6-12 words (never over 15, section 3), broken by the punches.
+
+Never:
+- **The character opener** "This is X, and he's got a huge problem" (it scores WEAK as a hook) or a person added just for style. A person appears only when the analogy really has one acting (filling, pressing, steering); then he is Harry, the one recurring name, never a real person's surname or a famous single name, drawn as a flat 2D side profile (SCRIPT-WRITER.md 3).
+- **Idioms and slang** that break the Hindi dub (section 1): "the math is not mathing", "suffering from success", "gold rush", "hit the fan", "drink the Kool-Aid", "par for the course", "smoke and mirrors", "holding the bag", "monkey business", "cut out for him". `check-voice.py` rejects these.
+- **Swearing:** none by default (the reference uses about one per 2,000 words, so a reel almost never earns one). At most one "hell" or "damn", never in the hook; nothing stronger.
+- **Sarcasm about real people or companies**, legal jokes, sponsor-style asides.
+- **More than one reaction** ("Wait, what?", "Hold on.") per reel; a reaction is a punch, not a habit.
 
 ## 4. Hook rules
 

@@ -37,7 +37,7 @@ Run from the repo root on the scratch files.
 
 | Tool | Target |
 |---|---|
-| `python3 script-writer/check-voice.py <block> --series <chip\|de\|verilog> --episode N` | PASS; every WARN fixed or answered in one line |
+| `python3 script-writer/check-voice.py <block> --series <chip\|de\|verilog> --episode N` | PASS; TONE 80+ (SCRIPTS.md 3a, the house style); every WARN fixed or answered in one line |
 | `python3 script-writer/ig/hookscore.py hooks.txt` (one hook per line, no tags) | the shipped hook scores 80+ STRONG; a number in the hook is usually what gets it there |
 | `python3 script-writer/ig/beats.py <block or page>` | no flags: every sentence 4 s or less (about 12 words), the teaser echoes a hook word ("Loops"), length on target |
 | `python3 script-writer/check-page.py page.md` | PASS |
@@ -49,7 +49,8 @@ Then, inline (no subagents), and fix everything they find:
 2. **Notes:** for every NOTE, readable in one glance, every word known, adds to the voice, clear what it points at.
 3. **Sharp student:** for every circuit claim, would a BTech student or an interviewer object? Answer the obvious follow-up (ep 20: "why not one big inverter?", "why about 4x?") on screen or in the voice. A demo that accidentally supports the wrong answer is a bug (ep 20's first draft: one 16-wide inverter took 16 + 4 = 20, still far better than 64).
 4. **Storyboard self-check:** `python3 script-writer/storyboard.py page.md`, then `script-writer/UNDERSTANDING-TEST.md` section 0, letters A-H.
-5. **Rate it** 1-10 on hook, analogy, circuit argument, line clarity and flow. Anything under 8 is rewritten before it goes to Notion.
+5. **Read it aloud as the friend explaining** (SCRIPTS.md 3a): does it sound like talking, not reading? Do the casual lines still say exactly what the plain ones would? No dub-breaking idioms.
+6. **Rate it** 1-10 on hook, analogy, circuit argument, line clarity, flow and tone. Anything under 8 is rewritten before it goes to Notion.
 
 The `ig/` tools come from an Instagram creator kit. They are patched for spelt-out numbers and ElevenLabs tags. Ignore their advice where the owner's rules differ: no AI-detection score, no burned-in subtitles, 60-70 s chip-design length (not 15-45 s), no spoken call to action, numbers spelt out. Their safe zone (text inside y 230-1440, right 230 px clear) is stricter than ANNOTATIONS.md: place notes inside it where the free paper allows, and list any note planned below y 1440 in the report.
 
@@ -62,4 +63,4 @@ The `ig/` tools come from an Instagram creator kit. They are patched for spelt-o
 ## 7. Back up and report
 
 - Mirror Hook title, Analogy and Status in the backup CSV; save the page as `scripts/<NN> <interview question>.md`. On the laptop, no git (CLAUDE.md). In a cloud session, commit and push: the container is deleted.
-- In chat: the Notion link, one table of scores (each tool's result, hook score, rating), what the passes changed, and one line per CSV change. Next step for the owner: record the voice, then `/htmlmp4 <series> <N> <mp3>` in a new chat.
+- In chat: the Notion link, one table of scores (each tool's result, hook score, TONE score, rating), what the passes changed, and one line per CSV change. Next step for the owner: record the voice, then `/htmlmp4 <series> <N> <mp3>` in a new chat.

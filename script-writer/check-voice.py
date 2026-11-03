@@ -20,7 +20,15 @@ if what's that's it's""".split())
 EMOTION = re.compile(r"\[(?!pause\])([^\]]+)\]")
 LINKS = ("so", "but", "now", "watch")
 FILLER = ["so yeah", "let's dive in", "in this video", "from episode", "like episode"]
-REACTIONS = ("wait, what?", "not quite.", "hold on.", "wait.")
+IDIOMS = ["not mathing", "suffering from success", "gold rush", "hit the fan", "kool-aid", "par for the course",
+          "smoke and mirrors", "holding the bag", "monkey business", "cut out for", "spaghetti monster",
+          "betting primate"]
+REACTIONS = ("what?", "hold on.", "wait.")
+FLIP = re.compile(r"right\?\s*(?:\[[^\]]*\]\s*)?(nope|not quite|not really|well, no|well, not|not exactly|actually, no|wrong|no\.)", re.I)
+TURNS = ["here's the thing", "here's the weird part", "here's the catch", "here's where", "here's how", "but wait",
+         "it gets worse", "what's going on", "let me explain", "turns out"]
+OPENERS = re.compile(r"^(because|see,|so\b|now,|okay|well,)", re.I)
+FIXED = ("Let's watch.", "Now, the same with bits.", "Now, let's build it as a circuit.")
 MILD = re.compile(r"\b(hell|damn)\b", re.I)
 STRONG = re.compile(r"\b(shit\w*|fuck\w*|bullshit\w*|crap|ass|bitch\w*)\b", re.I)
 SYMBOLS = "Q̄·'≥≤→×−≈"
@@ -133,9 +141,32 @@ def main():
         E("more than one mild swear word")
     if MILD.search(strip_tags(first)):
         E("no swearing in the hook")
+    for i in IDIOMS:
+        if i in low:
+            E(f"idiom '{i}' breaks the Hindi dub (SCRIPTS.md 3a)")
+    if sum(1 for s in sentences(block) if s.lower() in REACTIONS or s.lower() == "wait, what?") > 1:
+        E("more than one reaction line ('Wait, what?', 'Hold on.')")
+    if len(re.findall(r"\bjust\b", low)) > 2:
+        W("'just' more than twice")
+
+    # Tone score (SCRIPTS.md 3a): 20 points per move
+    body = sentences("\n\n".join(beats[1:-1]))  # hook and teaser not counted
+    body_text = " ".join(body)
+    tone = {
+        "flip ('…, right? Nope.')": bool(FLIP.search(strip_tags(block))),
+        "punch (a 1-3 word line)": sum(1 for s in body if len(s.split()) <= 3 and s not in FIXED
+                                      and not s.startswith("That's episode")) >= 1,
+        "turn phrase ('Here's the thing.')": any(x in body_text.lower() for x in TURNS),
+        "chat openers (2+: Because, See, So, Now, Okay, Well)": sum(
+            1 for s in body if OPENERS.match(s) and s not in FIXED) >= 2,
+        "questions (2+, teaser not counted)": sum(1 for s in body if s.endswith("?")) >= 2,
+    }
+    score = 20 * sum(tone.values())
+    for k, ok in tone.items():
+        if not ok:
+            W(f"tone: missing {k}")
+
     if a.series == "chip":
-        if not any(r in low for r in REACTIONS):
-            W("story style: no reaction line ('Wait, what?', 'Not quite.', 'Hold on.')")
         if "harry" in content_words(first) or "harry" in strip_tags(first).lower():
             E("Harry belongs in line 2, not the hook (the hook speaks to the viewer)")
     for ch in ["Q̄", *SYMBOLS[2:]]:  # "Q̄" is two code points; a plain Q (as in QUARTER) is fine
@@ -172,6 +203,7 @@ def main():
         print("ERROR", e)
     for w in warns:
         print("WARN ", w)
+    print(f"TONE  {score}/100 (SCRIPTS.md 3a, aim 80+)")
     print(f"{'FAIL' if errors else 'PASS'}: {words} words, {len(beats)} beats, "
           f"{len(errors)} errors, {len(warns)} flow warnings")
     sys.exit(1 if errors else 0)
