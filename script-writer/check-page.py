@@ -11,6 +11,8 @@ Checks:
   1.5 s between new notes, each up at least 2.5 s, none during a fold, no Samble-missing
   characters (× − ≈), the end card starts 4 s before the end;
 - every quoted cue word in columns 2 and 3 ("on \"...\"", 12.3 (\"...\")) is spoken in that row;
+- WARN: row 1 breaks the visual hook rules (SCRIPTS.md section 4): no "Visual hook:", fewer than 2 cued events,
+  no event on the hook's CAPS word, or no "start frame";
 - WARN: an On the board event timed by seconds alone ("16.0: the lamp lights") instead of by its spoken words
   ("16.0 (\"lamp lights\"): the lamp lights"); seconds alone cannot follow the recording (SCRIPTS.md section 6).
 """
@@ -93,6 +95,22 @@ for k in range(int(end * 10) + 1):
         break
 if notes and "end card" in text and not re.search(rf"In {end - 4:.1f} s \(4 s before the end\)", text):
     err.append(f"end card must come in at {end - 4:.1f} s (4 s before the end)")
+
+# Visual hook (SCRIPTS.md section 4)
+if rows:
+    b1 = rows[0][3]
+    vh = b1.split("Visual hook", 1)
+    if len(vh) < 2:
+        warn.append("row 1: no \"Visual hook:\" (2-4 events on the hook's words, SCRIPTS.md section 4)")
+    else:
+        cues = re.findall(r"\d \(\"([^\"]+)\"", vh[1])
+        if len(cues) < 2:
+            warn.append(f"row 1: visual hook has {len(cues)} cued event(s), needs 2-4")
+        caps = re.findall(r"\b[A-Z]{2,}\b", re.sub(r"\[[^\]]*\]", "", rows[0][2]))
+        if caps and not any(caps[0] in c for c in cues):
+            warn.append(f"row 1: no visual hook event on the CAPS word \"{caps[0]}\"")
+        if "start frame" not in b1:
+            warn.append("row 1: the visual hook does not say where it ends (\"the start frame\")")
 
 for e in err:
     print("ERROR", e)

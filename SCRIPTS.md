@@ -92,6 +92,15 @@ Never:
 - **Form of the hook (chip-design, 2026-11-02, from the ep 4 analysis):** best form is "Your <everyday object> never/always <a visible oddity>. Why?" (ep 4: "Your alarm clock never shows 07:3A. Why not?"): second person, a fact the viewer can check on their own object, ending as a question. Never state the mechanism or the result of a scene the viewer has not seen yet (17 "Half-height building, a quarter of the climbing", 18 "A slow handle sends water straight down the drain" were weaker). The second line never repeats the hook as a question. The answer comes back in the last 15 s in the hook's own words, with a tick (ep 4: "That's why your clock never shows A").
 - **Second line (2026-10-28):** refers only to what the viewer has heard or seen; never gives away the chip's result (that comes after the fold). Good forms: the viewer's question plus "Let's watch.", a hint at what the chip does, or a definition the hook needs.
 - **No bare question (2026-10-31):** the viewer's question names the hook's object and what it does, in the hook's words. Never a bare "How?" or "Why?" (ep 13: "How? Let's watch." after "Eight flats, one intercom, only THREE switches." asked how about nothing; fixed to "So how can three switches reach eight doorbells? Let's watch.").
+- **Visual hook (row 1 of On the board, owner 2026-11-03, from ep 11):** what the eye gets in the first 3 s, while the voice says the hook.
+  - Row 1 says `Visual hook:` and gives 2-4 events, each on a word of the hook (`("SHAKES"): …`), all inside the hook line.
+  - **Cause before effect:** anything the hook says happens is caused on screen first, on an earlier word (ep 11: the dog darts out on "Car one", the shake comes on "SHAKES"). Never the effect first and the cause after.
+  - **The CAPS word gets its own event, and the motion is the word:** "shakes" is a fast small jitter, not a slow swerve; "fills" is a level rising; "bounces" is up and down; "jumps" is a sudden step. If the drawing would need a different verb, change the drawing, not the voice.
+  - **Alive during the entrance:** the board lands at 1.35 s, so the scene is already moving while it lands (cars driving, water flowing) with the hook's actors in place, and nothing that matters plays before 1.35 s: events cued earlier start at 1.35 s in the page's order (SCRIPTS.md section 6).
+  - **Show the fact, not the reason:** the hook shows the surprising thing the viewer can check (car 5 steady, the tray waiting); the why comes after the series line. A faint ghost of the expected or failing case (at most 1 s) is allowed as a hint.
+  - **Ends on the start frame:** by the hook's last word every part is back where the loop's last frame leaves it, so the reel loops there.
+  - **Text:** only the hook note (a NOTE tagged `hook`, at most 6 words, not 3 words of the voice in a row); no caption.
+  - `check-page.py` warns when row 1 has no `Visual hook:`, fewer than 2 cued events, no event on the CAPS word, or no start frame.
 - Keep the hook's object name everywhere after it. The previous teaser leads to this hook, but the hook works without it.
 
 ## 5. Drawing rules (annotations, 2026-11-01)
