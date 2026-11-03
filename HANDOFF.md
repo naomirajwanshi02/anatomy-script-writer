@@ -18,7 +18,7 @@ Repo: <https://github.com/naomirajwanshi02/anatomy-script-writer/tree/claude/bra
 | 18 | `short-circuit-taps` | rewritten 2026-11-03 (house style, visual hook, sign-off) | re-record | rebuild |
 | 19 | none yet | rewritten 2026-11-03 (house style, visual hook, sign-off) | record | build |
 | 20 | none yet | rewritten 2026-11-03 (house style, visual hook, sign-off) | record | build |
-| 21 | none yet | final | record | build |
+| 21 | none yet | rewritten 2026-11-03 (house style, visual hook, sign-off) | record | build |
 
 - The Notion page of each episode (`book-concepts.csv`) is the source of truth: voice block, **On the board** (figure brief), **Annotation** (exact marks). The same pages are in `scripts/` here.
 - **`/htmlmp4` always follows the Notion page and the voice (2026-11-03):** it re-fetches the page every run, diffs it against the last built copy (`script-writer/page-diff.py`) and applies every change; every figure event is timed from its spoken words (`node builds/notes/annotations.mjs board <page> <words.json>`), never from the page's planned seconds (SCRIPTS.md section 6). 11's page has a new visual hook (dog first, then car 1 shakes, car 5 steady).
