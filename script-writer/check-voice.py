@@ -25,7 +25,7 @@ IDIOMS = ["not mathing", "suffering from success", "gold rush", "hit the fan", "
           "betting primate"]
 REACTIONS = ("what?", "hold on.", "wait.")
 FLIP = re.compile(r"right\?\s*(?:\[[^\]]*\]\s*)?(nope|not quite|not really|well, no|well, not|not exactly|actually, no|wrong|no\.)", re.I)
-TURNS = ["here's the thing", "here's the trick", "here's the weird part", "here's the catch", "here's where", "here's how", "but wait",
+TURNS = ["here's the thing", "here's the trick", "here's the fix", "here's the weird part", "here's the catch", "here's where", "here's how", "but wait",
          "it gets worse", "what's going on", "let me explain", "turns out"]
 OPENERS = re.compile(r"^(because|see,|so\b|now,|okay|well,)", re.I)
 SIGNOFF = "Now you can explain what most engineers can't. Follow, and keep it that way."
