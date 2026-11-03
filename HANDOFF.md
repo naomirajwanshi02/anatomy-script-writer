@@ -22,7 +22,7 @@ Repo: <https://github.com/naomirajwanshi02/anatomy-script-writer/tree/claude/bra
 
 - The Notion page of each episode (`book-concepts.csv`) is the source of truth: voice block, **On the board** (figure brief), **Annotation** (exact marks). The same pages are in `scripts/` here.
 - **`/htmlmp4` always follows the Notion page and the voice (2026-11-03):** it re-fetches the page every run, diffs it against the last built copy (`script-writer/page-diff.py`) and applies every change; every figure event is timed from its spoken words (`node builds/notes/annotations.mjs board <page> <words.json>`), never from the page's planned seconds (SCRIPTS.md section 6). 11's page has a new visual hook (dog first, then car 1 shakes, car 5 steady).
-- **Endings (2026-11-03):** no next-episode teaser. Every reel ends on a bridge that repeats a hook word, then the fixed sign-off "Now you can explain what most engineers can't. Follow, and keep it that way." On screen, the end card's "Episode N+1 →" is replaced by a handwritten "Follow" on the spoken word, an olive arrow to the platform's follow button and a tick on "keep it that way" (builds/notes/README.md section 4).
+- **Endings (2026-11-03):** no next-episode teaser. Every reel ends on a bridge that repeats a hook word, then the fixed sign-off "Now you can explain what most engineers can't. Follow, and keep it that way." On screen, the end card's "Episode N+1 →" is replaced by the sign-off sequence: the "1 : 0" scoreboard pun ("you 1, most engineers 0", on "you … can't"), then a handwritten "Follow" with an arrow to the follow button and a double underline with sparks on "keep it that way". Generate it with `npm run notes:signoff -- <words.json>` and paste its entries into the cue file (builds/notes/README.md section 4).
 - **Visual hook (2026-11-03):** cold open (the hook note writes from frame 0), board events after the landing (1.6 s), 20 px minimum motion; SCRIPTS.md section 4.
 - **House script style (2026-11-03):** SCRIPTS.md section 3a. Scripts sound like a friend explaining: the flip ("…, right? Nope."), 1-3 word punches, a turn phrase ("Here's the weird part."), "Because/See/So" openers, two viewer questions. `check-voice.py` prints a TONE score (aim 80+) and rejects dub-breaking idioms. 11 is the first episode in it (TONE 100); 12-21 score 0-40 and get the same pass when the owner asks. Platform is Instagram Reels and YouTube Shorts.
 - What changed in 11-18: a new hook, a second line, split lines, a teaser that loops, new captions. Row 1 of each page now has a `Visual hook:` sentence with events in the first 3 s. Facts, analogies, numbers and the circuit halves are unchanged. Per-episode details: README.md section 2.
@@ -91,7 +91,8 @@ $files = @(
   'builds/notes/autoplace.mjs',
   'rules/notes.md',
   'script-writer/ANNOTATIONS.md',
-  'script-writer/SETUP.md'
+  'script-writer/SETUP.md',
+  'builds/notes/signoff.mjs'
 )
 foreach ($f in $files) {
   $dest = Join-Path 'D:/Anatomy' $f

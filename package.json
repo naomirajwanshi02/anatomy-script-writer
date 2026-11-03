@@ -16,6 +16,7 @@
     "notes:sheet": "node builds/notes/sheet.mjs",
     "notes:check": "node builds/notes/check.mjs",
     "notes:export": "node builds/notes/export-reel.mjs",
+    "notes:signoff": "node builds/notes/signoff.mjs",
     "notes:retake": "node builds/notes/retake.mjs",
     "notes:transcribe": ".tools\\whisper\\Scripts\\python builds/notes/transcribe.py",
     "build:odometer-sample": "node builds/build-odometer-sample.mjs",

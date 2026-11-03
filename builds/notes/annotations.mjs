@@ -198,7 +198,7 @@ for (const m of marks) {
   }
 }
 v.notes.forEach((n, j) => {
-  if (!used.has(j) && !/^(Episode \d+ →|Follow)$/.test(norm(n[6]))) err.push(`cue note "${n[6]}" at ${n[3]} s was not planned on the page`);
+  if (!used.has(j) && !/^(Episode \d+ →|Follow)$/.test(norm(n[6])) && n[7]?.group !== "signoff") err.push(`cue note "${n[6]}" at ${n[3]} s was not planned on the page`);
 });
 const extra = v.pen.filter((p, i) => !penUsed.has(i)).length;
 for (const e of err) console.log("ERROR", e);
