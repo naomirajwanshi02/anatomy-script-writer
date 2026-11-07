@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outro sample</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Oxanium:wght@500;700&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #efe3c8; --ink: #3b2a1a; --ink2: #8a7356; --ink3: #b9a47f; --ink4: #d8c8a6;
+    --surf: #f6ecd6; --surf2: #fbf3e2; --rust: #b5541c; --rust2: #f0a868;
+    --yellow: #ffc21a; --red: #c2402f; --olive: #4f5d24; --note: #2a1d10;
+    --bg: #2b2620; --fg: #efe3c8; --muted: #b9a47f;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font-family: Oxanium, system-ui, sans-serif;
+         display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 16px; min-height: 100vh; }
+  .frame { width: min(100%, 420px, calc((100vh - 170px) * 9 / 16)); aspect-ratio: 9 / 16; border-radius: 10px;
+           overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+  svg { display: block; width: 100%; height: 100%; }
+  .controls { width: min(100%, 420px); display: flex; gap: 10px; align-items: center; }
+  button { font: inherit; background: var(--rust); color: #fff; border: 0; border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+  input[type=range] { flex: 1; accent-color: var(--rust); }
+  .time { font-variant-numeric: tabular-nums; min-width: 56px; text-align: right; }
+  .voice { width: min(100%, 420px); font-size: 14px; line-height: 1.5; color: var(--muted); }
+  .voice span { transition: color .15s; }
+  .voice span.on { color: var(--fg); }
+  .voice small { display: block; margin-top: 6px; font-size: 12px; }
+  .note { font-family: Caveat, cursive; fill: var(--note); }
+</style>
+</head>
+<body>
+<div class="frame">
+<svg id="s" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1920" fill="#efe3c8"/>
+  <!-- Instagram UI safe zones (guides) -->
+  <rect y="0" width="1080" height="288" fill="#3b2a1a" opacity=".04"/>
+  <rect y="1536" width="1080" height="384" fill="#3b2a1a" opacity=".04"/>
+
+  <!-- Board -->
+  <g id="board">
+    <polygon points="540,1250 1000,1040 540,830 80,1040" fill="#f6ecd6" stroke="#8a7356" stroke-width="4"/>
+    <polygon points="80,1040 540,1250 540,1280 80,1070" fill="#d8c8a6" stroke="#8a7356" stroke-width="4"/>
+    <polygon points="540,1250 1000,1040 1000,1070 540,1280" fill="#b9a47f" stroke="#8a7356" stroke-width="4"/>
+  </g>
+
+  <!-- Building (analogy, start frame) -->
+  <g id="building">
+    <!-- wings -->
+    <rect x="220" y="560" width="300" height="420" fill="#fbf3e2" stroke="#3b2a1a" stroke-width="5"/>
+    <rect x="560" y="560" width="300" height="420" fill="#fbf3e2" stroke="#3b2a1a" stroke-width="5"/>
+    <polygon points="210,560 370,490 530,560" fill="#d8c8a6" stroke="#3b2a1a" stroke-width="5"/>
+    <polygon points="550,560 710,490 870,560" fill="#d8c8a6" stroke="#3b2a1a" stroke-width="5"/>
+    <line x1="220" y1="770" x2="520" y2="770" stroke="#8a7356" stroke-width="4"/>
+    <line x1="560" y1="770" x2="860" y2="770" stroke="#8a7356" stroke-width="4"/>
+    <!-- plates -->
+    <rect x="340" y="520" width="60" height="34" rx="4" fill="#3b2a1a"/>
+    <text x="370" y="546" text-anchor="middle" font-family="Special Elite" font-size="28" fill="#fbf3e2">A</text>
+    <rect x="680" y="520" width="60" height="34" rx="4" fill="#3b2a1a"/>
+    <text x="710" y="546" text-anchor="middle" font-family="Special Elite" font-size="28" fill="#fbf3e2">B</text>
+    <g id="doors"></g>
+  </g>
+
+  <!-- Intercom panel -->
+  <g id="panel">
+    <rect x="390" y="1010" width="300" height="150" rx="14" fill="#3b2a1a"/>
+    <g id="levers"></g>
+  </g>
+
+  <!-- Memory rows (circuit, folding away) -->
+  <g id="rows" opacity="0"></g>
+
+  <!-- Episode badge -->
+  <g id="badge">
+    <text x="900" y="340" text-anchor="middle" class="note" font-size="54">Episode 13</text>
+  </g>
+
+  <!-- Sign-off: scoreboard (iPad layer) -->
+  <g id="score" opacity="0">
+    <text x="540" y="395" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="130">
+      <tspan id="s1" fill="#4f5d24">1</tspan><tspan fill="#2a1d10" dx="20"> : </tspan><tspan id="s0" fill="#c2402f" dx="20">0</tspan>
+    </text>
+    <text x="420" y="445" text-anchor="middle" class="note" font-size="38">you</text>
+    <text x="660" y="445" text-anchor="middle" class="note" font-size="38">most engineers</text>
+    <path id="u1" d="M 380 417 q 40 10 80 0" fill="none" stroke="#4f5d24" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <!-- End card -->
+  <g id="endcard" opacity="0">
+    <text x="540" y="1395" text-anchor="middle" class="note" font-size="64">n wires pick 1 of 2^n rows</text>
+    <path id="ebox" d="M 205 1325 L 878 1318 L 884 1420 L 200 1426 Z" fill="none" stroke="#4f5d24" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+
+  <!-- Sign-off: Follow -->
+  <g id="follow" opacity="0">
+    <text x="470" y="1510" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="96" fill="#4f5d24">Follow</text>
+    <path id="fu1" d="M 360 1530 q 110 14 220 -2" fill="none" stroke="#4f5d24" stroke-width="7" stroke-linecap="round"/>
+    <path id="fu2" d="M 375 1548 q 100 10 190 0" fill="none" stroke="#4f5d24" stroke-width="5" stroke-linecap="round"/>
+    <path id="farrow" d="M 600 1475 C 700 1450 760 1520 790 1600 M 790 1600 l -36 -14 M 790 1600 l 8 -38" fill="none" stroke="#4f5d24" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <g id="sparks" stroke="#f0a868" stroke-width="6" stroke-linecap="round">
+      <line x1="320" y1="1430" x2="296" y2="1404"/><line x1="350" y1="1416" x2="346" y2="1382"/><line x1="290" y1="1462" x2="258" y2="1452"/>
+    </g>
+  </g>
+</svg>
+</div>
+
+<div class="controls">
+  <button id="play">Pause</button>
+  <input id="scrub" type="range" min="66" max="73.5" step="0.01" value="66">
+  <span class="time" id="time">66.0 s</span>
+</div>
+<div class="voice" id="voice">
+  <span data-a="66.0" data-b="67.6">[confident] Three switches, never two.</span>
+  <span data-a="67.6" data-b="68.2">[pause]</span>
+  <span data-a="68.2" data-b="70.6">[playfully] Now you can explain what most engineers can't.</span>
+  <span data-a="70.9" data-b="73.5">[warmly] Follow, and keep it that way.</span>
+  <small>The voice is shown here only. The reel has no printed subtitles. Times are planned, not recorded.</small>
+</div>
+
+<script>
+const NS = 'http://www.w3.org/2000/svg';
+const $ = id => document.getElementById(id);
+const el = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; };
+
+// Doors + doorbells: wing (A=0,B=1), floor (ground=0, first=1), side (L=0,R=1)
+const bulbs = {};
+for (const wing of [0, 1]) for (const floor of [0, 1]) for (const side of [0, 1]) {
+  const x0 = 220 + wing * 340 + 40 + side * 150;
+  const y0 = floor ? 600 : 810;
+  el('rect', { x: x0, y: y0, width: 70, height: 140, rx: 4, fill: '#d8c8a6', stroke: '#3b2a1a', 'stroke-width': 4 }, $('doors'));
+  const g = el('g', {}, $('doors'));
+  const arcs = el('g', { opacity: 0, stroke: '#b5541c', 'stroke-width': 5, fill: 'none', 'stroke-linecap': 'round' }, g);
+  el('path', { d: `M ${x0+112} ${y0+40} q 14 16 0 32` }, arcs);
+  el('path', { d: `M ${x0+124} ${y0+30} q 24 26 0 52` }, arcs);
+  const b = el('circle', { cx: x0 + 95, cy: y0 + 56, r: 13, fill: '#fbf3e2', stroke: '#3b2a1a', 'stroke-width': 4 }, g);
+  bulbs[`${wing}${floor}${side}`] = { b, arcs };
+}
+const ring = bulbs['101']; // B wing, ground floor, right = 1 0 1 = row 5
+
+// Levers: wing, floor, side. angle -1 = first option, 0 = middle, 1 = second option
+const leverEls = [];
+['WING A/B', 'FLOOR G/1', 'SIDE L/R'].forEach((lab, i) => {
+  const cx = 450 + i * 90;
+  el('text', { x: cx, y: 1148, 'text-anchor': 'middle', 'font-family': 'Special Elite', 'font-size': 17, fill: '#efe3c8' }, $('levers')).textContent = lab;
+  el('circle', { cx, cy: 1080, r: 14, fill: '#8a7356' }, $('levers'));
+  const arm = el('g', {}, $('levers'));
+  el('line', { x1: cx, y1: 1080, x2: cx, y2: 1030, stroke: '#efe3c8', 'stroke-width': 9, 'stroke-linecap': 'round' }, arm);
+  el('circle', { cx, cy: 1030, r: 11, fill: '#b5541c' }, arm);
+  leverEls.push({ arm, cx });
+});
+const setTarget = [1, -1, 1]; // B, ground, right
+
+// Memory rows (the circuit, seen only while folding back)
+for (let r = 0; r < 8; r++) {
+  const y = 560 + r * 52;
+  const g = el('g', {}, $('rows'));
+  for (let c = 0; c < 8; c++) el('rect', { x: 300 + c * 54, y, width: 46, height: 40, fill: '#fbf3e2', stroke: '#8a7356', 'stroke-width': 3 }, g);
+  el('circle', { cx: 760, cy: y + 20, r: 15, fill: r === 5 ? '#ffc21a' : '#fbf3e2', stroke: '#3b2a1a', 'stroke-width': 4 }, g);
+  if (r === 5) el('line', { x1: 280, y1: y + 20, x2: 740, y2: y + 20, stroke: '#b5541c', 'stroke-width': 6, 'stroke-dasharray': '4 14', 'stroke-linecap': 'round' }, g);
+}
+
+// Pen strokes: draw-on via dash offset
+const pens = ['u1', 'ebox', 'fu1', 'fu2', 'farrow'].map($);
+pens.forEach(p => { const L = p.getTotalLength(); p.style.strokeDasharray = L; p.dataset.len = L; });
+const draw = (p, k) => p.style.strokeDashoffset = p.dataset.len * (1 - k);
+
+const clamp = x => Math.max(0, Math.min(1, x));
+const ramp = (t, a, b) => clamp((t - a) / (b - a));
+const ease = k => k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+
+function render(t) {
+  // 66.0-67.0: rows fold back into the building; row 5's lamp becomes the ringing doorbell
+  const fold = ease(ramp(t, 66.0, 67.0));
+  $('rows').setAttribute('opacity', 1 - fold);
+  $('rows').setAttribute('transform', `translate(0 ${fold * 40}) scale(${1 - fold * .05})`);
+  $('building').setAttribute('opacity', fold);
+
+  // 67.0-67.6: levers return to the middle, the bulb goes out (start frame); held to the end
+  const back = ease(ramp(t, 67.0, 67.6));
+  leverEls.forEach(({ arm, cx }, i) => arm.setAttribute('transform', `rotate(${setTarget[i] * 35 * (1 - back)} ${cx} 1080)`));
+  const lit = t < 67.3;
+  ring.b.setAttribute('fill', lit ? '#ffc21a' : '#fbf3e2');
+  ring.arcs.setAttribute('opacity', lit ? 1 - ramp(t, 67.0, 67.3) : 0);
+
+  // 68.6 ("explain"): scoreboard 1 : 0 appears, the 1 gets underlined
+  const sc = ramp(t, 68.6, 69.0);
+  $('score').setAttribute('opacity', sc);
+  $('score').setAttribute('transform', `translate(540 420) scale(${.85 + .15 * ease(sc)}) translate(-540 -420)`);
+  draw($('u1'), ramp(t, 69.2, 69.6));
+
+  // 69.5 (end - 4 s): end card, boxed takeaway in the subtitle area
+  $('endcard').setAttribute('opacity', ramp(t, 69.5, 69.8));
+  draw($('ebox'), ramp(t, 69.7, 70.4));
+
+  // 70.9 ("Follow"): Follow + underlines + arrow + sparks
+  $('follow').setAttribute('opacity', ramp(t, 70.9, 71.2));
+  draw($('fu1'), ramp(t, 71.2, 71.6));
+  draw($('fu2'), ramp(t, 71.5, 71.85));
+  draw($('farrow'), ramp(t, 71.7, 72.3));
+  const sp = ramp(t, 71.3, 71.6);
+  $('sparks').setAttribute('opacity', sp * (0.6 + 0.4 * Math.sin(t * 18)));
+
+  $('time').textContent = t.toFixed(1) + ' s';
+  document.querySelectorAll('#voice span').forEach(s => s.classList.toggle('on', t >= +s.dataset.a && t < +s.dataset.b));
+}
+
+let t = 66, playing = true, last = null;
+function loop(now) {
+  if (playing) {
+    if (last != null) t += (now - last) / 1000;
+    if (t > 74.5) t = 66; // 1 s hold on the last frame, then loop
+    $('scrub').value = Math.min(t, 73.5);
+  }
+  last = now;
+  render(Math.min(t, 73.5));
+  requestAnimationFrame(loop);
+}
+$('play').onclick = () => { playing = !playing; $('play').textContent = playing ? 'Pause' : 'Play'; };
+$('scrub').oninput = e => { t = +e.target.value; render(t); };
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>
